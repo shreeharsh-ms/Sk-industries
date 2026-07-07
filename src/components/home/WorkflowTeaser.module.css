@@ -1,0 +1,121 @@
+.section {
+  background-color: var(--color-white);
+  padding-block: var(--space-9);
+  width: 100%;
+}
+
+.headingWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .headingWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-4);
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  
+  .connector {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.stepCard {
+  background-color: var(--color-white);
+  border: var(--border-width-hairline) solid var(--color-steel-300);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3); /* increased gap for vertical stacked elements */
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 12px rgba(20, 23, 26, 0.02);
+}
+
+.stepCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(20, 23, 26, 0.08);
+  border-color: var(--color-accent-primary);
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-body-sm);
+  font-weight: 700;
+  color: var(--color-steel-300);
+}
+
+.iconCircle {
+  width: 72px;
+  height: 72px;
+  background-color: rgba(20, 63, 107, 0.06);
+  color: var(--color-accent-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.stepCard:hover .iconCircle {
+  background-color: var(--color-accent-primary);
+  color: var(--color-white);
+}
+
+.stepLabel {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.stepDesc {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--color-text-primary);
+  opacity: 0.85;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Horizontal Connector Line for Desktop */
+.connector {
+  position: absolute;
+  top: 38px;
+  right: -24px;
+  width: 32px;
+  height: 1px;
+  border-top: 1px dashed var(--color-steel-300);
+  pointer-events: none;
+  z-index: 2;
+}

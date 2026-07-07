@@ -1,0 +1,307 @@
+.dropdownContainer {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: inherit !important; /* Inherits the header's current text color */
+  font-size: var(--font-size-body-md);
+  font-weight: 500; /* Match other nav items exactly */
+  padding-block: var(--space-2);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  position: relative;
+  transition: opacity 0.15s ease;
+}
+
+.dropdownTrigger:hover {
+  opacity: 0.8;
+}
+
+.dropdownTrigger::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s ease;
+}
+
+.dropdownTrigger:hover::after, .triggerActive::after {
+  transform: scaleX(1);
+}
+
+/* Hover Bridge: Invisible overlay below the trigger to prevent collapse on hover */
+.dropdownContainer::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -40px;
+  right: -40px;
+  height: 40px; /* Bridges the gap to top: 96px */
+  background: transparent;
+  z-index: 998;
+}
+
+/* Mega Menu Dropdown Panel (Full Screen Width with WHITE background) */
+.megaMenu {
+  position: fixed;
+  top: 96px; /* Header Height */
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background: var(--color-white); /* Pure white background as requested */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-block: var(--space-7);
+  z-index: 999;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  color: var(--color-text-primary); /* Dark text on white theme */
+  animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.megaGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr; /* Split into products list and spec preview */
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+.columnLabel {
+  font-family: var(--font-mono);
+  font-size: 0.8rem; /* Bigger column labels */
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-steel-500); /* Darker label for high contrast */
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 4px;
+}
+
+/* Left products list layout */
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.menuItem:hover, .activeMenuItem {
+  background-color: rgba(0, 0, 0, 0.04); /* Light grey hover on white background */
+}
+
+.iconWrapper {
+  color: var(--color-steel-500);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.activeMenuItem .iconWrapper, .menuItem:hover .iconWrapper {
+  transform: scale(1.08);
+  background-color: var(--color-accent-primary);
+  color: var(--color-white);
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemName {
+  font-family: var(--font-display);
+  font-size: 1.12rem; /* Bigger product item name */
+  font-weight: 850;
+  color: var(--color-text-primary); /* Dark text color */
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.itemDesc {
+  font-family: var(--font-body);
+  font-size: 0.84rem; /* Bigger product item description */
+  color: var(--color-steel-600); /* Mid-grey text */
+  margin-top: 2px;
+}
+
+/* Right preview panel layout */
+.previewPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.previewCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Equal split for big image and info */
+  gap: var(--space-5);
+  background: #f8f9fa; /* Sleek light card background */
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  align-items: center; /* Vertically centered */
+  flex-grow: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: transparent; /* No extra grey background inside wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Zero useless padding as requested */
+  border: none;
+  height: 100%;
+}
+
+.productImage {
+  width: 100%;
+  height: 220px; /* Big, proper big image */
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.previewCard:hover .productImage {
+  transform: scale(1.04);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.02) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Details & specs styling */
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.previewTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem; /* Bigger preview title */
+  font-weight: 900;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-1) 0;
+  letter-spacing: -0.01em;
+}
+
+.previewDetails {
+  font-family: var(--font-body);
+  font-size: 0.9rem; /* Bigger preview details text */
+  color: var(--color-steel-700);
+  line-height: 1.6;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.specsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--space-4);
+}
+
+.specBadge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem; /* Bigger spec badge text */
+  font-weight: 750;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--color-steel-700);
+  text-transform: uppercase;
+}
+
+.enquireButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background-color: var(--color-accent-primary);
+  color: var(--color-white) !important; /* Explicit white color */
+  font-family: var(--font-display);
+  font-size: 0.9rem; /* Bigger enquire button text */
+  font-weight: 750;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-shadow: none !important;
+}
+
+.enquireButton:hover {
+  background-color: var(--color-accent-primary-hover, #bf4613);
+  transform: translateY(-1px);
+}
+
+.btnArrow {
+  transition: transform 0.2s ease;
+  color: var(--color-white) !important;
+}
+
+.enquireButton:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.diePressImage {
+  transform: scale(1.4) !important;
+}
+
+.previewCard:hover .diePressImage {
+  transform: scale(1.45) !important;
+}
+
+@media (max-width: 992px) {
+  .megaGrid {
+    grid-template-columns: 1fr;
+  }
+  .previewPanel {
+    display: none; /* Hide preview details panel on smaller viewports */
+  }
+}

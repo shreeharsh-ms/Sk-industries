@@ -1,0 +1,62 @@
+.card {
+  background-color: var(--color-bg-card);
+  border: var(--border-width-hairline) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  border-color: var(--color-accent-primary);
+}
+
+.iconWrapper {
+  color: var(--color-accent-primary);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.iconTeal {
+  color: var(--color-accent-secondary);
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.content {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Surface Dark Modifier */
+.dark {
+  background-color: var(--color-gunmetal-800);
+  border-color: var(--color-gunmetal-950);
+  color: var(--color-text-inverse);
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.dark .content {
+  color: var(--color-steel-100);
+}
+
+.dark:hover {
+  border-color: var(--color-accent-secondary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}

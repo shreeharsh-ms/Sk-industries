@@ -1,0 +1,66 @@
+.promptContainer {
+  position: fixed;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 99; /* Float over page content but below header */
+  opacity: 1;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  width: auto;
+}
+
+.hidden {
+  opacity: 0 !important;
+  transform: translate(-50%, 15px) !important;
+}
+
+.text {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.arrow {
+  animation: bounce 2s infinite;
+}
+
+/* Light Theme (White text with soft shadow for dark backgrounds) */
+.themeLight .text {
+  color: var(--color-white);
+  text-shadow: 0 2px 4px rgba(20, 23, 26, 0.6);
+}
+
+.themeLight .arrow {
+  color: var(--color-white);
+  filter: drop-shadow(0 2px 4px rgba(20, 23, 26, 0.6));
+}
+
+/* Dark Theme (Black text for light backgrounds like workflow page) */
+.themeDark .text {
+  color: var(--color-text-primary);
+  opacity: 0.85;
+}
+
+.themeDark .arrow {
+  color: var(--color-text-primary);
+  opacity: 0.85;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}

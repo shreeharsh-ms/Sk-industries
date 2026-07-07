@@ -1,0 +1,26 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.teal {
+  background-color: rgba(31, 111, 102, 0.12); /* 12% opacity coat-teal */
+  color: var(--color-accent-secondary);
+  border-color: var(--color-accent-secondary);
+}
+
+.orange {
+  background-color: rgba(217, 85, 30, 0.12); /* 12% opacity precision-orange */
+  color: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+}

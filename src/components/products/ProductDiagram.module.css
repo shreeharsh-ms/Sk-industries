@@ -1,0 +1,170 @@
+.diagramSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  width: 100%;
+}
+
+.diagramTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  align-self: flex-start;
+  color: var(--color-text-primary);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.diagramGrid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: var(--space-6);
+  width: 100%;
+  align-items: center;
+}
+
+@media (max-width: 820px) {
+  .diagramGrid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-5) !important;
+  }
+}
+
+.diagramWrapper {
+  background-color: var(--color-steel-100);
+  border: 1px solid var(--color-steel-300);
+  padding: var(--space-5);
+  border-radius: var(--radius-sm);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.stampRow {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .stampRow {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 4px; /* small clearance for scroll track */
+  }
+}
+
+/* Sticky Split Section for Speaker Magnet Plate Diagram */
+.stickyGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-8);
+  width: 100%;
+  align-items: start;
+  position: relative;
+}
+
+.stickyColumn {
+  position: sticky;
+  top: 120px; /* Account for transparent header and some margin */
+  height: auto;
+  align-self: start;
+  z-index: 5;
+}
+
+.scrollColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.scrollingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-2);
+}
+
+.cardItem {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-steel-200);
+  border-radius: var(--radius-sm);
+  padding: var(--space-5);
+  box-shadow: 0 4px 12px rgba(20, 23, 26, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(20, 23, 26, 0.05);
+}
+
+.cardLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 850;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2) 0;
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* Blueprint image style */
+.blueprintImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-steel-300);
+  box-shadow: 0 10px 30px rgba(20, 23, 26, 0.06);
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .stickyGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .stickyColumn {
+    position: relative;
+    top: 0;
+  }
+}

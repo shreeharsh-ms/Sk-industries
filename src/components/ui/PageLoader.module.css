@@ -1,0 +1,122 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-white); /* White screen loading page as requested */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999; /* Stays above header, modals, and FABs */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  pointer-events: auto;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Logo pulse wrapper */
+.logoWrapper {
+  position: relative;
+  width: 200px; /* Much bigger wrapper */
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.logo {
+  width: 160px; /* Much bigger logo */
+  height: 160px;
+  object-fit: contain;
+  z-index: 2;
+  animation: logoBreath 1.5s ease-in-out infinite;
+}
+
+@keyframes logoBreath {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* Text styles showing page being visited */
+.pageLabel {
+  font-family: var(--font-body); /* Normal text family */
+  font-size: 1rem; /* Bigger label text */
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-steel-400);
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+
+.pageTitle {
+  font-family: var(--font-body); /* Normal text family */
+  font-size: 2.2rem; /* Bigger title text */
+  font-weight: 900;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.019em;
+  margin: 0;
+  margin-bottom: var(--space-4);
+}
+
+/* Minimalist loading bar */
+.progressBar {
+  width: 140px;
+  height: 3px;
+  background-color: var(--color-steel-200);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-accent-primary);
+  transform: translateX(-100%);
+  animation: barProgress 1.5s cubic-bezier(0.1, 0.8, 0.2, 1) forwards; /* 1.5-second smooth transition */
+}
+
+@keyframes barProgress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .pageLabel {
+    font-size: 0.78rem !important; /* Smaller label on mobile screen */
+  }
+  .pageTitle {
+    font-size: 1.35rem !important; /* Smaller title on mobile screen */
+  }
+  .logoWrapper {
+    width: 140px !important; /* Slightly smaller logo container on mobile too */
+    height: 140px !important;
+  }
+  .logo {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}

@@ -1,0 +1,102 @@
+.section {
+  background-color: var(--color-white);
+  padding-block: var(--space-8);
+  width: 100%;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background-image: url("/images/workmanship_banner_bg.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  border: var(--border-width-hairline) solid var(--color-steel-300);
+  box-shadow: 0 12px 36px rgba(20, 23, 26, 0.05);
+}
+
+/* Glassmorphism bottom card */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(228, 232, 235, 0.85); /* light slate grey at 85% */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: var(--border-width-hairline) solid rgba(255, 255, 255, 0.3);
+  padding: var(--space-6) var(--space-7);
+}
+
+.overlayContent {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .banner {
+    height: auto;
+    min-height: 480px;
+  }
+  
+  .overlay {
+    position: relative;
+    border-top: none;
+    padding: var(--space-5);
+  }
+  
+  .overlayContent {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+/* Left Column */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.badge {
+  background-color: var(--color-white);
+  border: var(--border-width-hairline) solid rgba(20, 23, 26, 0.15);
+  padding: 4px var(--space-3);
+  border-radius: 30px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Right Column */
+.rightCol {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+  opacity: 0.9;
+  line-height: 1.6;
+  margin: 0;
+}

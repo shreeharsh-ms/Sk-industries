@@ -1,0 +1,64 @@
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stampIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.reveal-on-scroll {
+  animation: fadeUp 0.5s ease-out both;
+}
+
+.stamp-reveal {
+  animation: stampIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes pulseGlowWhatsApp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes pulseGlowMaps {
+  0% {
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(66, 133, 244, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+  }
+}
+
+.whatsappPulse {
+  animation: pulseGlowWhatsApp 2s infinite;
+}
+
+.mapsPulse {
+  animation: pulseGlowMaps 2s infinite 0.5s;
+}

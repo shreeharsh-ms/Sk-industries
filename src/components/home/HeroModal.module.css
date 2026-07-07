@@ -1,0 +1,323 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 14, 0.6); /* dark overlay */
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000; /* Stays above header and everything else */
+  animation: fadeInBackdrop 0.3s ease-out both;
+  padding: var(--space-4);
+}
+
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalCard {
+  position: relative;
+  width: 860px; /* Bigger width as requested */
+  max-width: 100%;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  animation: scaleInCard 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes scaleInCard {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: rgba(20, 23, 26, 0.1);
+  border: none;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 15;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.closeBtn:hover {
+  background-color: var(--color-accent-primary);
+  color: var(--color-white);
+  transform: rotate(90deg);
+}
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50/50 balance left/right */
+  align-items: stretch;
+}
+
+/* Left Image Column */
+.imageCol {
+  position: relative;
+  background-color: var(--color-ink-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.factoryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+  animation: fadeImageIn 0.35s ease-out both;
+}
+
+@keyframes fadeImageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.65;
+  }
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top, 
+    rgba(20, 23, 26, 0.95) 0%, 
+    rgba(20, 23, 26, 0.6) 50%, 
+    rgba(20, 23, 26, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+.overlayText {
+  position: absolute;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  right: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: slideTextIn 0.35s ease-out both;
+}
+
+@keyframes slideTextIn {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.overlayTag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  letter-spacing: 0.15em;
+}
+
+.overlayTitle {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--color-white);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Image Navigation Chevrons */
+.imageNavGroup {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.imageNavBtn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-white);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.imageNavBtn:hover {
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+}
+
+/* Right Details Column */
+.infoCol {
+  padding: var(--space-8) var(--space-7) var(--space-8) var(--space-7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  color: var(--color-steel-500);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-3) 0;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-steel-700);
+  line-height: 1.6;
+  margin: 0 0 var(--space-6) 0;
+  min-height: 70px; /* Prevent card height jitter during slides */
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  margin-bottom: var(--space-5);
+}
+
+.rfqBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-grow: 1;
+  background-color: var(--color-accent-primary);
+  color: var(--color-white) !important;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(217, 85, 30, 0.2);
+}
+
+.rfqBtn:hover {
+  background-color: var(--color-accent-primary-hover, #bf4613);
+  transform: translateY(-1px);
+}
+
+.dismissBtn {
+  padding: 13px var(--space-4);
+  background-color: transparent;
+  color: var(--color-steel-600);
+  border: 1px solid var(--color-steel-300);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.dismissBtn:hover {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-primary);
+  border-color: var(--color-steel-500);
+}
+
+/* Dots Page Indicator */
+.dotsRow {
+  display: flex;
+  gap: 6px;
+  margin-top: var(--space-2);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-steel-300);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.activeDot {
+  background-color: var(--color-accent-primary);
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .modalGrid {
+    grid-template-columns: 1fr;
+  }
+  .imageCol {
+    min-height: 220px;
+    height: 220px;
+  }
+  .infoCol {
+    padding: var(--space-6);
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .imageNavGroup {
+    top: var(--space-4) !important;
+    right: var(--space-4) !important;
+    left: auto !important;
+    bottom: auto !important;
+  }
+}

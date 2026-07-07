@@ -1,0 +1,307 @@
+.scrubberSection {
+  position: relative;
+  height: 600vh; /* 7 steps, 600vh scroll height */
+  width: 100%;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Gradients for smooth section transitions */
+.topGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, var(--color-white) 0%, transparent 100%);
+  z-index: 2;
+}
+
+.bottomGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--color-white) 0%, transparent 100%);
+  z-index: 2;
+}
+
+/* Centered content overlay container */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none; /* Let scroll pass through to document */
+}
+
+/* Side alignment styling */
+.leftGroup {
+  position: absolute;
+  left: var(--space-5);
+  width: 45%;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  will-change: transform, opacity;
+}
+
+.rightGroup {
+  position: absolute;
+  right: var(--space-5);
+  width: 45%;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 900px) {
+  .stickyContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    justify-content: flex-start !important;
+    background-color: #c1c7c9 !important; /* User-requested exact cool-grey match */
+  }
+
+  .canvas {
+    position: relative !important; /* Stack Canvas relative in flexbox flow */
+    height: 48vh !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+    z-index: 1 !important;
+  }
+
+  .topGradient, .bottomGradient {
+    display: none !important; /* Hide overlays on mobile to prevent color mismatch */
+  }
+
+  .overlay {
+    position: relative !important; /* Stack Overlay relative in flexbox flow */
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    height: 52vh !important;
+    width: 100% !important;
+    background-color: #c1c7c9 !important; /* User-requested exact cool-grey match */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 3 !important;
+    padding: var(--space-5) !important;
+  }
+
+  .leftGroup, .rightGroup {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90% !important;
+    max-width: 480px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .stepCard {
+    max-width: 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+    color: var(--color-text-primary) !important; /* Clear black text on white background */
+    text-shadow: none !important; /* No text-shadow needed on solid white */
+  }
+
+  .stepLabel {
+    font-size: clamp(1.8rem, 8vw, 2.4rem) !important;
+    text-align: center !important;
+    color: var(--color-text-primary) !important;
+    text-shadow: none !important;
+  }
+
+  .stepNum {
+    font-size: 1.15rem !important;
+    color: var(--color-text-primary) !important;
+    opacity: 0.65 !important;
+    text-shadow: none !important;
+  }
+
+  .stepDesc {
+    font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important;
+    text-align: center !important;
+    line-height: 1.45 !important;
+    color: var(--color-text-primary) !important;
+    opacity: 0.85 !important;
+    text-shadow: none !important;
+  }
+
+  .stepImpact {
+    font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important;
+    text-align: center !important;
+    border-left: none !important;
+    border-top: 2px solid var(--color-text-primary) !important; /* Premium brand black border line */
+    padding-left: 0 !important;
+    padding-top: var(--space-2) !important;
+    margin-top: var(--space-2) !important;
+    color: var(--color-text-primary) !important; /* Brand black text */
+    text-shadow: none !important;
+  }
+}
+
+/* Premium transparent card with large editorial typography matching home page hero */
+.stepCard {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  max-width: 650px;
+  width: 100%;
+  color: var(--color-white) !important;
+  /* Reduced, clean drop shadow matching home page hero titles */
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+.stepLabel {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem); /* big bold display titles */
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-steel-200);
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.stepDesc {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem); /* large, highly readable desc */
+  line-height: 1.5;
+  color: var(--color-steel-100);
+  font-weight: 550;
+  margin: 0;
+}
+
+.stepImpact {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem); /* matching large description size */
+  font-weight: 700;
+  color: var(--color-text-primary); /* bright black/dark highlight */
+  line-height: 1.5;
+  margin: 0;
+  border-left: 4px solid var(--color-text-primary); /* clean black left border line */
+  padding-left: var(--space-4);
+  margin-top: var(--space-2);
+  text-shadow: none !important; /* No text-shadow on active text block */
+}
+
+/* flowPrompt onboarding styles */
+.flowPrompt {
+  position: absolute;
+  top: 50%;
+  right: var(--space-7); /* Added safe padding margin from right window edge */
+  left: auto;
+  transform: translateY(-50%);
+  width: 45%; /* Match column percentage width of step cards */
+  background: none !important; /* No background as requested */
+  backdrop-filter: none !important; /* No blur */
+  border: none !important; /* No borders */
+  padding: 0; /* No padding */
+  z-index: 5;
+  box-shadow: none !important; /* No shadow */
+  text-align: left; /* Left align simulation text as requested */
+  animation: fadeInPrompt 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.flowPromptLabel {
+  font-family: var(--font-mono);
+  font-size: 1.2rem; /* Too big eyebrow label */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.flowPromptTitle {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.5vw, 4.8rem); /* Too big title text */
+  font-weight: 900;
+  color: var(--color-white);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2) 0;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); /* Increased shadow for high-contrast */
+}
+
+.flowPromptText {
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* Too big details text */
+  color: var(--color-steel-200);
+  line-height: 1.45;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes fadeInPrompt {
+  from {
+    opacity: 0;
+    transform: translateY(-42%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .flowPrompt {
+    width: calc(100% - 32px);
+    left: 16px;
+    right: 16px;
+    text-align: center; /* Center on mobile/Android */
+  }
+}
+

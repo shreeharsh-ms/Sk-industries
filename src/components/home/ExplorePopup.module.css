@@ -1,0 +1,214 @@
+.popupCard {
+  position: fixed;
+  bottom: 84px; /* Stacked perfectly above the bottom-right horizontal floating actions */
+  right: 24px;
+  width: 480px; /* Slightly wider as requested */
+  background: var(--color-white); /* White theme popup as requested */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-6) var(--space-4) var(--space-6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  box-sizing: border-box;
+  color: var(--color-text-primary);
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: none;
+  border: none;
+  color: var(--color-steel-400);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--color-text-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--space-2);
+}
+
+.compassIcon {
+  color: var(--color-accent-primary);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem; /* Larger eyebrow label */
+  font-weight: 750;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  letter-spacing: 0.1em;
+}
+
+/* Horizontal slide layout grid */
+.slideGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr; /* Left image column, right text/button */
+  gap: var(--space-5); /* Wider gaps */
+  align-items: center;
+  margin-block: var(--space-3);
+  min-height: 160px; /* Taller grid viewport */
+}
+
+.imageCol {
+  position: relative;
+  height: 150px; /* Taller image frame */
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: #f8f9fa; /* Light grey backdrop */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.slideImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.08));
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.slideTitle {
+  font-family: var(--font-display);
+  font-size: 1.28rem; /* Larger slide title */
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.slideText {
+  font-family: var(--font-body);
+  font-size: 0.92rem; /* Larger slide text */
+  color: var(--color-steel-600);
+  line-height: 1.45;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.btnWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px var(--space-4); /* Larger button padding */
+  border: 1px solid var(--color-steel-300);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: 0.88rem; /* Larger button text */
+  font-weight: 750;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.actionBtn:hover {
+  background-color: var(--color-bg-light);
+  border-color: var(--color-steel-500);
+  transform: translateY(-1px);
+}
+
+/* Footer Carousel controls */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.dotsGroup {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-steel-300);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.activeDot {
+  background-color: var(--color-accent-primary);
+  transform: scale(1.2);
+}
+
+.navGroup {
+  display: flex;
+  gap: 4px;
+}
+
+.navArrow {
+  background: none;
+  border: none;
+  color: var(--color-steel-500);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navArrow:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+  .popupCard {
+    display: none !important; /* Hide Explore popup on mobile/Android viewports as requested */
+  }
+}

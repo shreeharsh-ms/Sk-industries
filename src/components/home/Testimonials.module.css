@@ -1,0 +1,190 @@
+.section {
+  background-color: var(--color-bg-light);
+  padding-block: var(--space-10);
+  width: 100%;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+.sliderControls {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.sliderBtn {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-steel-300);
+  color: var(--color-text-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.sliderBtn:hover {
+  background-color: var(--color-bg-light);
+  border-color: var(--color-steel-500);
+  transform: scale(1.05);
+}
+
+.grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--space-5);
+  box-sizing: border-box;
+}
+
+/* Hide scrollbars natively but allow kinetic trackpad gesture */
+.grid::-webkit-scrollbar {
+  height: 6px;
+}
+.grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+.grid::-webkit-scrollbar-thumb {
+  background: var(--color-steel-300);
+  border-radius: 3px;
+}
+
+.card {
+  flex: 0 0 calc(33.333% - 16px); /* 3 cards visible side-by-side on desktop */
+  min-width: 340px;
+  scroll-snap-align: start;
+  background-color: var(--color-white);
+  border: var(--border-width-hairline) solid var(--color-steel-300);
+  border-radius: 0; /* No border radius */
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: 0 10px 28px rgba(20, 23, 26, 0.03);
+  transition: border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 12px); /* 2 cards visible on tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    flex: 0 0 100%; /* 1 card visible on mobile */
+  }
+  .headerWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}
+
+.card:hover {
+  border-color: var(--color-accent-primary);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.profileGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Avatar inside a dark blue border circle */
+.avatarCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-accent-primary); /* dark blue */
+  border: 3px solid var(--color-accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 750;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.title {
+  font-size: 0.98rem;
+  color: var(--color-accent-primary); /* Brand blue accent */
+  opacity: 0.85;
+  font-weight: 600;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Quote sign styling */
+.quoteSign {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(20, 63, 107, 0.08); /* light dark-blue tint */
+  line-height: 0.7;
+  margin-top: -10px;
+  user-select: none;
+}
+
+/* Star ratings row */
+.ratingsRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  border-bottom: var(--border-width-hairline) solid var(--color-steel-300);
+  padding-bottom: var(--space-3);
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+}
+
+.score {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* Quote Paragraph text */
+.quoteText {
+  font-size: 1.15rem; /* enlarged premium text size */
+  color: var(--color-text-primary);
+  opacity: 0.85;
+  line-height: 1.6;
+  margin: 0;
+}

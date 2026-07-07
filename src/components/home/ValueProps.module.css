@@ -1,0 +1,253 @@
+.pinSection {
+  position: relative;
+  height: 300vh; /* expanded height to slow down step switching progress */
+  width: 100%;
+  background-color: var(--color-white);
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 10vh;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-10);
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .pinSection {
+    height: auto !important;
+  }
+  
+  .stickyContainer {
+    position: relative !important;
+    height: auto !important;
+    padding-block: var(--space-10);
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .imageBox {
+    height: 360px !important;
+    border-radius: 0 !important;
+  }
+  
+  .stepBlock {
+    opacity: 1 !important;
+  }
+  
+  .stepDesc {
+    height: auto !important;
+    opacity: 1 !important;
+    margin-top: 12px !important;
+  }
+  
+  .stepCta {
+    display: flex !important;
+  }
+}
+
+/* Left Column: Image */
+.imageCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
+  height: 620px; /* Bigger image height */
+  border-radius: 0; /* No border radius */
+  overflow: hidden;
+  border: var(--border-width-hairline) solid var(--color-steel-300);
+  box-shadow: 0 16px 48px rgba(20, 23, 26, 0.05);
+  background-color: var(--color-bg-light);
+}
+
+.activeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floatingBadge {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  background-color: var(--color-accent-primary);
+  color: var(--color-white);
+  padding: 6px var(--space-4);
+  border-radius: 30px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Right Column: Text block switcher */
+.textCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerArea {
+  margin-bottom: var(--space-4);
+}
+
+.sectionEyebrow {
+  font-family: var(--font-body);
+  font-size: var(--font-size-eyebrow);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  letter-spacing: var(--letter-spacing-eyebrow);
+}
+
+.sectionHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.stepsStack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepBlock {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-3); /* highly compact spacing */
+  opacity: 0.35;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.activeBlock {
+  opacity: 1 !important;
+}
+
+.blockHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.activeIconCircle {
+  background-color: var(--color-accent-primary) !important;
+  color: var(--color-white) !important;
+}
+
+.stepSubtitle {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: var(--color-accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: block;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.stepDesc {
+  font-size: 1.15rem;
+  color: var(--color-text-primary);
+  opacity: 0.85;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.stepCta {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: var(--space-3);
+}
+
+.divider {
+  width: 100%;
+  height: var(--border-width-hairline);
+  background-color: var(--color-steel-300);
+  margin-block: var(--space-4);
+}
+
+/* Specifications Grid inside Step 0 collapse panel */
+.specGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  background-color: var(--color-bg-light); /* light slate white-grey */
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-3);
+  border: 1px solid var(--color-steel-300);
+}
+
+@media (max-width: 480px) {
+  .specGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.specValue {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-accent-primary); /* brand blue */
+}
+
+.specLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  opacity: 0.8;
+}

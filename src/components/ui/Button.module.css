@@ -1,0 +1,66 @@
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-body-md);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: center;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Primary */
+.primary {
+  background-color: var(--color-accent-primary);
+  color: var(--color-white);
+  border-color: var(--color-accent-primary);
+}
+.primary:hover:not(:disabled) {
+  background-color: var(--color-precision-orange-hover);
+  border-color: var(--color-precision-orange-hover);
+}
+
+/* Secondary */
+.secondary {
+  background-color: transparent;
+  color: var(--color-accent-secondary);
+  border-color: var(--color-accent-secondary);
+}
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-accent-secondary);
+  color: var(--color-white);
+}
+
+/* Ghost */
+.ghost {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: transparent;
+  padding-inline: var(--space-2);
+  text-decoration: none;
+}
+.ghost:hover:not(:disabled) {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-primary);
+}
+
+/* Size modifier for hero CTAs */
+.lg {
+  padding: var(--space-4) var(--space-7);
+  font-size: var(--font-size-body-lg);
+}
+
+/* Disabled state — all variants */
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}

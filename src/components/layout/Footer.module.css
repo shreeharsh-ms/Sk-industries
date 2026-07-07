@@ -1,0 +1,213 @@
+.footer {
+  background-color: var(--color-ink-900); /* Premium dark slate / black background */
+  color: var(--color-white);
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-7);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  margin-top: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr 1.1fr; /* Custom width for structured columns */
+  gap: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 580px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.colTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  color: var(--color-white);
+  letter-spacing: 0.06em;
+  font-weight: 900;
+}
+
+.footerLogo {
+  height: 115px; /* Massive footer brand logo size */
+  width: auto;
+  object-fit: contain;
+  align-self: flex-start;
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .footerLogo {
+    height: 90px; /* Massive on Android/mobile viewports */
+  }
+}
+
+.mapContainer {
+  width: 90%;
+  margin-inline: auto;
+  margin-block: var(--space-7) var(--space-7);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-steel-300);
+  opacity: 0.85;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.text p {
+  margin: 0 0 var(--space-1) 0;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.linkItem {
+  display: block;
+}
+
+.linkItem a {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-steel-300);
+  opacity: 0.8;
+  transition: color 0.15s ease, opacity 0.15s ease;
+  text-decoration: none;
+}
+
+.linkItem a:hover {
+  color: var(--color-white) !important;
+  opacity: 1;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--color-steel-300);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Clean thin divider line */
+  padding-top: var(--space-6);
+  margin-top: var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-steel-300);
+  opacity: 0.65;
+}
+
+.contactLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+@media (max-width: 480px) {
+  .contactLinks {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}
+
+.contactItem {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-steel-300);
+  transition: color 0.15s ease, opacity 0.15s ease;
+  text-decoration: none;
+}
+
+.contactItem:hover {
+  color: var(--color-white) !important;
+  opacity: 1;
+}
+
+.emailBadge {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-white) !important;
+  background-color: transparent;
+  border: 1.5px solid var(--color-white);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.emailBadge:hover {
+  background-color: var(--color-white);
+  color: var(--color-ink-900) !important;
+  transform: translateY(-1px);
+}
+
+.footerDivider {
+  color: rgba(255, 255, 255, 0.25);
+  display: inline;
+}
+
+@media (max-width: 480px) {
+  .footerDivider {
+    display: none;
+  }
+}

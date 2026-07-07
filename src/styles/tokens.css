@@ -1,0 +1,72 @@
+:root {
+  /* Color — Core */
+  --color-gunmetal-950: #14171A;
+  --color-gunmetal-800: #222730;
+  --color-steel-100: #E8EAEC;
+  --color-steel-300: #C7CCD1;
+  --color-ink-900: #1B1E22;
+  --color-white: #FFFFFF;
+
+  /* Color — Accents */
+  --color-precision-orange: #143F6B; /* premium dark steel blue */
+  --color-precision-orange-hover: #0B2545; /* darker navy hover */
+  --color-coat-teal: #1C5D99; /* secondary dark slate blue */
+  --color-coat-teal-hover: #113F67; /* secondary navy hover */
+  --color-warn-yellow: #E8B130;
+
+  /* Color — Semantic */
+  --color-bg-dark: var(--color-gunmetal-950);
+  --color-bg-light: var(--color-steel-100);
+  --color-bg-card: var(--color-white);
+  --color-text-primary: var(--color-ink-900);
+  --color-text-inverse: var(--color-white);
+  --color-border-default: var(--color-steel-300);
+  --color-accent-primary: var(--color-precision-orange);
+  --color-accent-secondary: var(--color-coat-teal);
+  --color-accent-warn: var(--color-warn-yellow);
+
+  /* Typography */
+  --font-display: "Archivo Expanded", "Arial Narrow", sans-serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+  --font-size-display-xl: clamp(3.6rem, 7.5vw, 6.0rem);
+  --font-size-display-lg: clamp(2.85rem, 5.25vw, 4.125rem);
+  --font-size-display-md: clamp(2.25rem, 3.75vw, 3.0rem);
+  --font-size-body-lg: 1.785rem;
+  --font-size-body-md: 1.5rem;
+  --font-size-body-sm: 1.3125rem;
+  --font-size-mono-lg: clamp(2.1rem, 3vw, 2.625rem);
+  --font-size-mono-sm: 1.218rem;
+  --font-size-eyebrow: 1.218rem;
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+  --letter-spacing-eyebrow: 0.08em;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Radius & Borders */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-none: 0px;
+  --container-max: 1240px;
+  --container-padding: clamp(20px, 5vw, 64px);
+  --border-width-hairline: 1px;
+  --border-width-stamp: 2px;
+
+  /* Breakpoints (reference only — use in media queries directly) */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}

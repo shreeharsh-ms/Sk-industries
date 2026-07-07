@@ -1,0 +1,130 @@
+.stamp {
+  border: 2px solid transparent;
+  border-radius: var(--radius-none);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Background Themes */
+.themeLight {
+  background-color: var(--color-bg-card);
+}
+
+.themeDark {
+  background-color: var(--color-gunmetal-800);
+}
+
+/* Accent Colors */
+.accentOrange {
+  border-color: var(--color-accent-primary);
+}
+
+.accentOrange .value {
+  color: var(--color-accent-primary);
+}
+
+.accentTeal {
+  border-color: var(--color-accent-secondary);
+}
+
+.accentTeal .value {
+  color: var(--color-accent-secondary);
+}
+
+/* Sizing Modifiers */
+.sm {
+  padding: var(--space-2) var(--space-3);
+  min-width: 140px;
+}
+
+.sm .value {
+  font-size: var(--font-size-mono-sm);
+  font-weight: 600;
+}
+
+.sm .label {
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+.md {
+  padding: var(--space-3) var(--space-5);
+  min-width: 200px;
+}
+
+.md .value {
+  font-size: var(--font-size-mono-lg);
+  font-weight: 600;
+}
+
+.md .label {
+  font-size: var(--font-size-mono-sm);
+  letter-spacing: 0.08em;
+}
+
+.lg {
+  padding: var(--space-4) var(--space-6);
+  min-width: 260px;
+}
+
+.lg .value {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.lg .label {
+  font-size: var(--font-size-mono-sm);
+  letter-spacing: 0.1em;
+}
+
+/* Inner elements */
+.value {
+  font-family: var(--font-mono);
+  line-height: var(--line-height-tight);
+}
+
+.divider {
+  width: 100%;
+  height: var(--border-width-hairline);
+  background-color: var(--color-border-default);
+  margin-block: var(--space-2);
+}
+
+.sm .divider {
+  margin-block: var(--space-1);
+}
+
+.label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.themeDark .label {
+  color: var(--color-steel-100);
+}
+
+@media (max-width: 768px) {
+  .stamp {
+    min-width: 120px !important;
+    padding: var(--space-2) var(--space-3) !important;
+  }
+  
+  .value {
+    font-size: 0.95rem !important; /* Smaller text size on mobile screens */
+  }
+  
+  .label {
+    font-size: 0.65rem !important; /* Smaller label size on mobile screens */
+  }
+  
+  .divider {
+    margin-block: var(--space-1) !important;
+  }
+}
