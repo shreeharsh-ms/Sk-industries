@@ -3,7 +3,8 @@ import RFQForm from "../components/rfq/RFQForm";
 import SectionHeading from "../components/ui/SectionHeading";
 import Card from "../components/ui/Card";
 import useDocumentMetadata from "../hooks/useDocumentMetadata";
-import { FileText, Cpu, Clock } from "lucide-react";
+import { Cpu, MapPin, Mail, MessageCircle, ArrowRight } from "lucide-react";
+import styles from "./RFQPortalPage.module.css";
 
 export default function RFQPortalPage() {
   useDocumentMetadata(
@@ -12,134 +13,105 @@ export default function RFQPortalPage() {
   );
 
   return (
-    <main className="container section-padding">
-      <SectionHeading
-        eyebrow="Procurement Pipeline"
-        title="Technical RFQ Portal"
-        accent="orange"
-      />
+    <main className={styles.page}>
+      {/* Hero Banner */}
+      <div className={styles.heroBanner}>
+        <div className={`container ${styles.heroInner}`}>
+          <span className={styles.eyebrow}>Procurement Pipeline</span>
+          <h1 className={styles.heroTitle}>Technical RFQ Portal</h1>
+          <p className={styles.heroSubtitle}>
+            Submit your stamping &amp; coating requirements — we respond within 24 hours.
+          </p>
+        </div>
+      </div>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1.2fr 0.8fr",
-          gap: "var(--space-7)",
-          alignItems: "flex-start",
-          marginTop: "var(--space-6)",
-        }}
-      >
-        {/* Left column: main form */}
-        <RFQForm />
+      {/* Main Content */}
+      <div className={`container ${styles.content}`}>
 
-        {/* Right column: technical instructions sidebar cards */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-          <Card theme="light" accent="orange">
-            <h3
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "var(--font-size-body-sm)",
-                textTransform: "uppercase",
-                display: "flex",
-                alignItems: "center",
-                gap: "var(--space-2)",
-                color: "var(--color-accent-primary)",
-                margin: "0 0 var(--space-4) 0",
-              }}
-            >
-              Direct Sourcing Channels
-            </h3>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
-              {/* WhatsApp */}
-              <div>
-                <span style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", textTransform: "uppercase", color: "var(--color-steel-500)", display: "block" }}>
-                  Direct WhatsApp
-                </span>
-                <a 
-                  href="https://wa.me/917875138713" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ 
-                    fontSize: "0.95rem", 
-                    fontWeight: "700", 
-                    color: "var(--color-text-primary)", 
-                    textDecoration: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    marginTop: "4px"
-                  }}
-                >
-                  <span style={{ color: "#25D366", fontSize: "1.2rem" }}>WhatsApp:</span> +91 7875 138 713
-                </a>
-              </div>
+        {/* Contact Quick Links — mobile top bar */}
+        <div className={styles.quickLinks}>
+          <a href="https://wa.me/917875138713" target="_blank" rel="noopener noreferrer" className={styles.quickLink}>
+            <MessageCircle size={18} />
+            <span>WhatsApp</span>
+          </a>
+          <a href="mailto:skindustries0709@gmail.com" className={styles.quickLink}>
+            <Mail size={18} />
+            <span>Email Us</span>
+          </a>
+          <a href="https://maps.google.com/?q=Tiny+Industrial+Estate,+Kondhwa,+Pune" target="_blank" rel="noopener noreferrer" className={styles.quickLink}>
+            <MapPin size={18} />
+            <span>Location</span>
+          </a>
+        </div>
 
-              {/* Email */}
-              <div>
-                <span style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", textTransform: "uppercase", color: "var(--color-steel-500)", display: "block" }}>
-                  Engineering Email
-                </span>
-                <a 
-                  href="mailto:skindustries0709@gmail.com"
-                  style={{ 
-                    fontSize: "0.95rem", 
-                    fontWeight: "700", 
-                    color: "var(--color-text-primary)", 
-                    textDecoration: "none",
-                    display: "block",
-                    marginTop: "4px"
-                  }}
-                >
-                  skindustries0709@gmail.com
-                </a>
-              </div>
+        {/* Two-column layout: form left, sidebar right */}
+        <div className={styles.grid}>
 
-              {/* Facility Location */}
-              <div>
-                <span style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", textTransform: "uppercase", color: "var(--color-steel-500)", display: "block" }}>
-                  Facility Location
-                </span>
-                <a 
-                  href="https://maps.google.com/?q=Tiny+Industrial+Estate,+Kondhwa,+Pune" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ 
-                    fontSize: "0.85rem", 
-                    fontWeight: "600", 
-                    color: "var(--color-text-primary)", 
-                    textDecoration: "none",
-                    display: "block",
-                    lineHeight: "1.4",
-                    marginTop: "4px"
-                  }}
-                >
-                  TINY INDUSTRIAL ESTATE,<br />
-                  KONDHWA BK., PUNE-411048
-                </a>
+          {/* Left — RFQ Form */}
+          <div className={styles.formCol}>
+            <RFQForm />
+          </div>
+
+          {/* Right — Info Sidebar */}
+          <aside className={styles.sidebar}>
+
+            {/* Direct Sourcing Channels */}
+            <div className={styles.sideCard}>
+              <h3 className={styles.sideCardTitle}>
+                <MessageCircle size={16} />
+                Direct Sourcing Channels
+              </h3>
+
+              <div className={styles.contactList}>
+                <div className={styles.contactRow}>
+                  <span className={styles.contactLabel}>WhatsApp</span>
+                  <a href="https://wa.me/917875138713" target="_blank" rel="noopener noreferrer" className={styles.contactValue}>
+                    +91 7875 138 713
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+
+                <div className={styles.contactRow}>
+                  <span className={styles.contactLabel}>Email</span>
+                  <a href="mailto:skindustries0709@gmail.com" className={styles.contactValue}>
+                    skindustries0709@gmail.com
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+
+                <div className={styles.contactRow}>
+                  <span className={styles.contactLabel}>Facility</span>
+                  <a
+                    href="https://maps.google.com/?q=Tiny+Industrial+Estate,+Kondhwa,+Pune"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.contactValue}
+                  >
+                    Tiny Industrial Estate,<br />Kondhwa BK, Pune-411048
+                    <ArrowRight size={13} style={{ marginTop: 2 }} />
+                  </a>
+                </div>
               </div>
             </div>
-          </Card>
 
-          <Card theme="light" accent="teal">
-            <h3
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "var(--font-size-body-sm)",
-                textTransform: "uppercase",
-                display: "flex",
-                alignItems: "center",
-                gap: "var(--space-2)",
-                color: "var(--color-accent-secondary)",
-                margin: "0 0 var(--space-3) 0",
-              }}
-            >
-              <Cpu size={18} />
-              Unified QA Pipeline
-            </h3>
-            <p className="text" style={{ fontSize: "var(--font-size-body-sm)", lineHeight: "var(--line-height-relaxed)" }}>
-              Every part produced will be stamped and coated in Pune, Maharashtra, avoiding third-party courier risks and optimizing costs.
-            </p>
-          </Card>
+            {/* QA Pipeline Badge */}
+            <div className={`${styles.sideCard} ${styles.sideCardTeal}`}>
+              <h3 className={styles.sideCardTitle}>
+                <Cpu size={16} />
+                Unified QA Pipeline
+              </h3>
+              <p className={styles.sideCardText}>
+                Every part is stamped and coated inside our Pune facility — no third-party transfers, full traceability from raw coil to final inspection.
+              </p>
+            </div>
+
+            {/* Response Promise */}
+            <div className={styles.responsePill}>
+              <span className={styles.responseTime}>24 hrs</span>
+              <span className={styles.responseLabel}>Average Engineering Response Time</span>
+            </div>
+
+          </aside>
         </div>
       </div>
     </main>

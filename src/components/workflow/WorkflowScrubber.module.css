@@ -193,7 +193,7 @@
 
 .stepLabel {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4.5vw, 3.2rem); /* big bold display titles */
+  font-size: clamp(1.4rem, 3vw, 2.2rem); /* Smaller display titles */
   font-weight: 900;
   text-transform: uppercase;
   color: var(--color-white);
@@ -215,7 +215,7 @@
 
 .stepDesc {
   font-family: var(--font-body);
-  font-size: clamp(1.25rem, 2.2vw, 1.55rem); /* large, highly readable desc */
+  font-size: clamp(0.85rem, 1.5vw, 1.05rem); /* smaller, tighter desc text */
   line-height: 1.5;
   color: var(--color-steel-100);
   font-weight: 550;
@@ -224,7 +224,7 @@
 
 .stepImpact {
   font-family: var(--font-body);
-  font-size: clamp(1.25rem, 2.2vw, 1.55rem); /* matching large description size */
+  font-size: clamp(0.85rem, 1.5vw, 1.05rem); /* matching smaller description size */
   font-weight: 700;
   color: var(--color-text-primary); /* bright black/dark highlight */
   line-height: 1.5;

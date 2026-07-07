@@ -1,0 +1,280 @@
+/* ============================================================
+   RFQ Portal Page Styles — Mobile-First, Eye-Appealing
+   ============================================================ */
+
+.page {
+  min-height: 100vh;
+  background-color: var(--color-bg-light);
+}
+
+/* ---- Hero Banner ---- */
+.heroBanner {
+  background-color: var(--color-text-primary);
+  padding: var(--space-10) 0 var(--space-8);
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-primary);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.05;
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--color-steel-300);
+  margin: 0;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* ---- Content Area ---- */
+.content {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-10);
+}
+
+/* ---- Quick Links Bar (visible on mobile, subtle on desktop) ---- */
+.quickLinks {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.quickLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px var(--space-4);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-steel-300);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.quickLink svg {
+  color: var(--color-accent-primary);
+  flex-shrink: 0;
+}
+
+.quickLink:hover {
+  background-color: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  color: var(--color-white);
+}
+
+.quickLink:hover svg {
+  color: var(--color-white);
+}
+
+/* ---- Two-Column Grid ---- */
+.grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: var(--space-7);
+  align-items: flex-start;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.formCol {
+  width: 100%;
+}
+
+/* ---- Sidebar ---- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: sticky;
+  top: 100px;
+}
+
+@media (max-width: 860px) {
+  .sidebar {
+    position: static;
+  }
+}
+
+/* ---- Side Cards ---- */
+.sideCard {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-steel-300);
+  border-radius: var(--radius-sm);
+  padding: var(--space-5);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.sideCardTeal {
+  border-left: 3px solid var(--color-accent-secondary);
+}
+
+.sideCardTitle {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-primary);
+  margin: 0 0 var(--space-4) 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sideCardTeal .sideCardTitle {
+  color: var(--color-accent-secondary);
+}
+
+.sideCardText {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* ---- Contact List ---- */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.contactRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-steel-200);
+}
+
+.contactRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contactLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-steel-500);
+}
+
+.contactValue {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  line-height: 1.4;
+}
+
+.contactValue svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--color-accent-primary);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contactValue:hover {
+  color: var(--color-accent-primary);
+}
+
+.contactValue:hover svg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---- Response Promise Pill ---- */
+.responsePill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, #2a2d32 100%);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4) var(--space-5);
+}
+
+.responseTime {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-accent-primary);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.responseLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-steel-300);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+/* ---- Mobile Overrides ---- */
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: var(--space-8) 0 var(--space-6);
+  }
+
+  .quickLinks {
+    gap: var(--space-2);
+  }
+
+  .quickLink {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 10px var(--space-3);
+    font-size: 0.76rem;
+  }
+
+  .content {
+    padding-top: var(--space-5);
+  }
+}

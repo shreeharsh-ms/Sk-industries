@@ -53,15 +53,6 @@ export default function PageLoader() {
         <div className={styles.logoWrapper}>
           <img src="/images/Fav.png" alt="SK Industries Favicon" className={styles.logo} />
         </div>
-        
-        {/* Page indicator description */}
-        <span className={styles.pageLabel}>Navigating To</span>
-        <h3 className={styles.pageTitle}>{pageName}</h3>
-        
-        {/* Custom minimalist loading progress bar */}
-        <div className={styles.progressBar}>
-          <div className={styles.progressFill} />
-        </div>
       </div>
     </div>
   );
