@@ -8,8 +8,9 @@ import useDocumentMetadata from "../hooks/useDocumentMetadata";
 
 export default function AboutPage() {
   useDocumentMetadata(
-    "Corporate Profile & Setup",
-    "Learn about SK Industries' single-roof sheet metal stamping and powder coating setup located in Pune, Maharashtra, led by proprietor Komal Pansare."
+    "About SK Industries — Corporate Profile & Setup",
+    "Learn about SK Industries' single-roof sheet metal stamping, progressive press tooling (PP engineering), and powder coating setup located in Pune, Maharashtra.",
+    "PP Engineering, PP Engineering Pune, SK Industries about, Komal Pansare, Kondhwa industrial estate Pune"
   );
 
   return (

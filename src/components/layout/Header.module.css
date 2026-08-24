@@ -32,7 +32,7 @@
 }
 
 .navLogo {
-  height: 82px; /* Massive prominent brand logo size */
+  height: 64px; /* Scaled perfectly for square/hexagonal logo aspect ratio */
   width: auto;
   object-fit: contain;
   display: block;
@@ -40,7 +40,7 @@
 
 @media (max-width: 768px) {
   .navLogo {
-    height: 62px; /* Massive on Android/mobile viewports */
+    height: 48px;
   }
 }
 

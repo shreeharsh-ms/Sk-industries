@@ -52,7 +52,7 @@ export default function PageLoader() {
     <div className={`${styles.overlay} ${isLoading ? styles.visible : styles.hidden}`}>
       <div className={styles.loaderContent}>
         <div className={styles.logoWrapper}>
-          <img src="/images/Fav.png" alt="SK Industries Favicon" className={styles.logo} />
+          <img src="/images/sk_industries_logo.png" alt="SK Industries Logo" className={styles.logo} />
         </div>
       </div>
     </div>

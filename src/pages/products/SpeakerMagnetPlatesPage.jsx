@@ -10,8 +10,9 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 
 export default function SpeakerMagnetPlatesPage() {
   useDocumentMetadata(
-    "Speaker Magnet Plates Specifications",
-    "Technical parameters and magnetic flux density diagrams for low-carbon steel speaker top and bottom pole plates stamped by SK Industries."
+    "Speaker Magnet Plates Specifications — PP Engineering Pune",
+    "Technical parameters and magnetic flux density diagrams for low-carbon steel speaker top and bottom pole plates (PP engineering) stamped by SK Industries Pune.",
+    "PP Engineering, PP Engineering Pune, speaker magnet plates, T-Yoke pole piece, front top plate stamping"
   );
 
   return (

@@ -11,8 +11,9 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 
 export default function PowderCoatingPage() {
   useDocumentMetadata(
-    "Industrial Powder Coating Services & Specs",
-    "Technical parameters and curing oven details for high-durability electrostatic epoxy-polyester coatings processed by SK Industries."
+    "Industrial Powder Coating Services & Specs Pune",
+    "Technical parameters and curing oven details for high-durability electrostatic epoxy-polyester coatings (PP engineering) processed by SK Industries Pune.",
+    "PP Engineering, PP Engineering Pune, industrial powder coating, powder coating services Pune, electrostatic spray painting"
   );
 
   return (

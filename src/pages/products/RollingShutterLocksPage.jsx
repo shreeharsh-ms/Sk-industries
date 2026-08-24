@@ -10,8 +10,9 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 
 export default function RollingShutterLocksPage() {
   useDocumentMetadata(
-    "Rolling Shutter Lock Sets Specifications",
-    "Technical parameters and engineering drawings for heavy-duty 10-gauge steel rolling shutter lock sets manufactured under one roof at SK Industries."
+    "Rolling Shutter Lock Sets Specifications — PP Engineering Pune",
+    "Technical parameters and engineering drawings for heavy-duty 10-gauge steel rolling shutter lock sets (PP engineering) manufactured by SK Industries Pune.",
+    "PP Engineering, PP Engineering Pune, rolling shutter locks, security locks manufacturer Pune, lock sets stamping"
   );
 
   return (

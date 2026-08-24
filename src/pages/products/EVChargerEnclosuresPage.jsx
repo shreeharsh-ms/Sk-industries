@@ -11,8 +11,9 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 
 export default function EVChargerEnclosuresPage() {
   useDocumentMetadata(
-    "EV Charger Enclosures Specifications",
-    "Technical parameters and weatherproof NEMA protection details for UV-stable powder coated EV charging cabinets manufactured by SK Industries."
+    "EV Charger Enclosures Specifications — PP Engineering Pune",
+    "Technical parameters and weatherproof NEMA protection details for UV-stable powder coated EV charging cabinets (PP engineering) manufactured by SK Industries Pune.",
+    "PP Engineering, PP Engineering Pune, EV charger enclosure, sheet metal cabinets Pune, NEMA 4X enclosure"
   );
 
   return (

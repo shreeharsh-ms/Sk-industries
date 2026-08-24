@@ -45,7 +45,7 @@
 }
 
 .footerLogo {
-  height: 115px; /* Massive footer brand logo size */
+  height: 80px; /* Perfectly sized for square logo aspect ratios */
   width: auto;
   object-fit: contain;
   align-self: flex-start;
@@ -54,7 +54,7 @@
 
 @media (max-width: 768px) {
   .footerLogo {
-    height: 90px; /* Massive on Android/mobile viewports */
+    height: 64px;
   }
 }
 

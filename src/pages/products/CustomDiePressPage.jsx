@@ -10,8 +10,9 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 
 export default function CustomDiePressPage() {
   useDocumentMetadata(
-    "Custom Die Press Specifications",
-    "Technical parameters and bending rule formulas for conductive copper and brass electrical busbars stamped by SK Industries."
+    "PP Engineering & Custom Die Press Specifications",
+    "Technical parameters and progressive die press formulas for custom sheet metal stampings (PP engineering) and copper busbar operations by SK Industries Pune.",
+    "PP Engineering, PP Engineering Pune, custom die press, sheet metal stamping, progressive press tooling"
   );
 
   return (

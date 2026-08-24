@@ -27,7 +27,7 @@ export default function Footer() {
         <div className={styles.grid}>
           {/* Column 1: Company Details */}
           <div className={styles.column}>
-            <img src="/images/logoNav.png" alt="SK Industries Logo" className={styles.footerLogo} />
+            <img src="/images/sk_industries_logo.png" alt="SK Industries Logo" className={styles.footerLogo} />
             <div className={styles.text}>
               <p style={{ fontWeight: "600", marginBottom: "4px" }}>
                 Proprietor: Komal Pansare

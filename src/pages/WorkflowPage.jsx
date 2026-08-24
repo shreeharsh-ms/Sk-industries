@@ -5,8 +5,9 @@ import useDocumentMetadata from "../hooks/useDocumentMetadata";
 
 export default function WorkflowPage() {
   useDocumentMetadata(
-    "Manufacturing Process Workflow",
-    "Explore the integrated step-by-step sheet metal fabrication, deburring, zinc pre-treatment, powder coating, and CMM quality inspection processes at SK Industries."
+    "Manufacturing Process Workflow — PP Engineering Pune",
+    "Explore the integrated step-by-step sheet metal fabrication, deburring, zinc pre-treatment, powder coating, and CMM quality inspection processes (PP engineering) at SK Industries.",
+    "PP Engineering, PP Engineering Pune, factory workflow, metal stamping process, powder coating line Pune"
   );
 
   return (

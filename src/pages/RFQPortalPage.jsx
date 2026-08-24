@@ -8,8 +8,9 @@ import styles from "./RFQPortalPage.module.css";
 
 export default function RFQPortalPage() {
   useDocumentMetadata(
-    "Technical RFQ Sourcing Portal",
-    "Submit your sheet metal drawings, material specification needs, and batch volume requirements to get a custom engineering quote in 24 hours."
+    "Technical RFQ Sourcing Portal — PP Engineering Pune",
+    "Submit your progressive tooling drawings, stamping specifications, and powder coating batch volume requirements for a custom quote from SK Industries Pune.",
+    "PP Engineering, PP Engineering Pune, metal stamping RFQ, progressive press quote Pune, custom manufacturing quote"
   );
 
   return (

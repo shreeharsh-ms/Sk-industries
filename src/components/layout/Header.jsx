@@ -17,7 +17,7 @@ export default function Header() {
 
   const isWhiteNavbar = isDropdownOpen || isMenuOpen;
   const headerClass = `${styles.header} ${styles.lightText} ${isWhiteNavbar ? styles.whiteNavbar : ""}`;
-  const logoSrc = isWhiteNavbar ? "/images/DARK-NAV.png" : "/images/logoNav.png";
+  const logoSrc = "/images/sk_industries_logo.png";
 
   return (
     <>

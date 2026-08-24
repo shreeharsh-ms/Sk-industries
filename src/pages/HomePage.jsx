@@ -13,8 +13,9 @@ import useDocumentMetadata from "../hooks/useDocumentMetadata";
 
 export default function HomePage() {
   useDocumentMetadata(
-    "Precision Metal Stamping & Powder Coating",
-    "SK Industries delivers premium precision-stamped metal parts and epoxy-polyester powder coating finishes from our integrated single-roof facility in Pune, Maharashtra."
+    "PP Engineering & Precision Metal Stamping",
+    "SK Industries Pune (PP Engineering) delivers high-precision sheet metal stamping, progressive press tooling, and automatic powder coating from our integrated facility.",
+    "PP Engineering, PP Engineering Pune, SK Industries, metal stamping Pune, powder coating Pune, progressive die pressings"
   );
 
   const [showModal, setShowModal] = useState(false);
