@@ -10,7 +10,7 @@ export default function TrustSignals() {
 
         <div className={styles.badges}>
           <div className={styles.badgeItem}>
-            <Badge accent="teal">ISO 9001</Badge>
+            <Badge accent="teal">Certified QA</Badge>
             <span className={styles.badgeLabel}>Quality Management</span>
           </div>
 

@@ -24,7 +24,7 @@ export default function WorkmanshipBanner() {
                   The outstanding workmanship displayed in our progressive die pressings, 
                   high-permeability speaker plates, and electrostatic powder coats is a testament 
                   to our facility's commitment to quality. Every batch runs under FAI audits 
-                  and ISO 9001 compliance standards.
+                  and certified compliance standards.
                 </p>
               </div>
             </div>

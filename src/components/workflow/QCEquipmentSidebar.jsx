@@ -16,7 +16,7 @@ export default function QCEquipmentSidebar() {
     {
       name: "Gloss & Cross-Hatch Testers",
       desc: "Evaluates powder paint adhesion and gloss finishes to ensure compliance with weathering parameters.",
-      spec: "STANDARD: ISO 2409 ADHESION SCALE",
+      spec: "STANDARD: ASTM D3359 ADHESION SCALE",
     },
     {
       name: "Salt Spray Chambers",

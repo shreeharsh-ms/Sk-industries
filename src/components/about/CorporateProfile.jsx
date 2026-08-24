@@ -38,7 +38,7 @@ export default function CorporateProfile() {
             </li>
             <li className={styles.sidebarItem}>
               <span>Primary Accreditations</span>
-              <span className={styles.sidebarValue}>ISO 9001 Compliant</span>
+              <span className={styles.sidebarValue}>QA Compliant</span>
             </li>
           </ul>
         </div>

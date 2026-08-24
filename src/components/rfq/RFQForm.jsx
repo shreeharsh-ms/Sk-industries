@@ -24,12 +24,28 @@ export default function RFQForm() {
 
   const onSubmit = (data) => {
     setLoading(true);
-    // Simulate API request delay
     setTimeout(() => {
       setLoading(false);
       setIsSubmitted(true);
-      console.log("RFQ Submission Data:", data);
-    }, 1500);
+      
+      // Construct detailed WhatsApp message string
+      const messageText = `*New Technical RFQ Sourcing Request*
+      
+*Client Name:* ${data.fullName}
+*Business Email:* ${data.email}
+*Company:* ${data.companyName}
+*Phone:* ${data.phone}
+
+*Specifications & Requirement Details:*
+${data.message}`;
+
+      const encodedMessage = encodeURIComponent(messageText);
+      const whatsappUrl = `https://wa.me/917875138713?text=${encodedMessage}`;
+      
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, "_blank");
+      console.log("RFQ Submission Data routed to WhatsApp:", data);
+    }, 1000);
   };
 
   if (isSubmitted) {

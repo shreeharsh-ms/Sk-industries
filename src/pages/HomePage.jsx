@@ -3,6 +3,7 @@ import FrameScrubber from "../components/home/FrameScrubber";
 import ValueProps from "../components/home/ValueProps";
 import CoreCapabilities from "../components/home/CoreCapabilities";
 import WorkflowTeaser from "../components/home/WorkflowTeaser";
+import VideoSlider from "../components/home/VideoSlider";
 import WorkmanshipBanner from "../components/home/WorkmanshipBanner";
 import Testimonials from "../components/home/Testimonials";
 import Faq from "../components/home/Faq";
@@ -47,6 +48,7 @@ export default function HomePage() {
       <CoreCapabilities />
       <ValueProps />
       <WorkflowTeaser />
+      <VideoSlider />
       <Testimonials />
       <WorkmanshipBanner />
       <Faq />

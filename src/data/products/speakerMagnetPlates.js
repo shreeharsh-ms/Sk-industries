@@ -16,7 +16,8 @@ export default {
       body: "Selected low-carbon steel (JIS S10C / AISI 1010) for maximum permeability.",
       detail: "Routes magnetic flux density with minimal core loss for clear sound reproduction.",
       statValue: "AISI 1010",
-      statLabel: "MATERIAL SPEC"
+      statLabel: "MATERIAL SPEC",
+      image: "/images/metal_stamping_press_aida.jpg"
     },
     {
       node: "NODE_02",
@@ -24,7 +25,8 @@ export default {
       body: "Advanced flatting operations control thickness within ± 0.05 mm.",
       detail: "Eliminates voice coil gap variance, preventing friction during high excursions.",
       statValue: "± 0.05 mm",
-      statLabel: "FLATNESS DEV"
+      statLabel: "FLATNESS DEV",
+      image: "/images/powder_coating_line.png"
     },
     {
       node: "NODE_03",
@@ -32,7 +34,8 @@ export default {
       body: "Trivalent blue zinc electroplating or zinc phosphating base.",
       detail: "Resists salt spray corrosion in high humidity speaker cabinets.",
       statValue: "Trivalent",
-      statLabel: "BLUE ZINC PLATING"
+      statLabel: "BLUE ZINC PLATING",
+      image: "/images/metal_stamping_press_aida.jpg"
     }
   ],
   specSheetPdf: "/downloads/spec-sheets/speaker-magnet-plates.pdf"

@@ -250,8 +250,8 @@ export default function WorkflowPage() {
           {/* Right Column: Image */}
           <div style={{ display: "flex", justifyContent: "center" }} className="satisfied-img-wrapper">
             <img 
-              src="/images/cmm_metrology_room.png" 
-              alt="Quality Assurance Lab and Equipment" 
+              src="/images/workmanship_plant.jpg" 
+              alt="SK Industries Stamping & Coating Facility" 
               style={{
                 width: "100%",
                 maxHeight: "260px",

@@ -1,0 +1,279 @@
+/* ============================================================
+   Video Slider CSS Module — Vertical Portrait 9:16 Carousel
+   ============================================================ */
+
+.section {
+  padding-block: var(--space-10);
+  background-color: var(--color-bg-light);
+  border-top: 1px solid var(--color-steel-200);
+  border-bottom: 1px solid var(--color-steel-200);
+}
+
+.headingBlock {
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: var(--space-7);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-primary);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--space-3) 0;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-primary);
+  opacity: 0.75;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---- Slider Layout ---- */
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.carouselViewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-inline: -12px; /* Pull margin offset for card gaps */
+}
+
+.slideCol {
+  padding-inline: 12px; /* Equal spacing gap between columns */
+  box-sizing: border-box;
+}
+
+/* ---- Video Card ---- */
+.videoCard {
+  width: 100%;
+  background-color: var(--color-black);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-steel-300);
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16; /* Portrait vertical orientation as requested */
+  overflow: hidden;
+  background-color: var(--color-black);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Complete crop cover for portrait look */
+  display: block;
+}
+
+/* ---- Card HUD Overlay ---- */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-4);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    transparent 100%
+  );
+  z-index: 8;
+  pointer-events: none;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.stepTag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-white);
+  background-color: var(--color-accent-primary);
+  padding: 3px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.muteBtn {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: var(--color-white);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.18s ease;
+}
+
+.muteBtn:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.cardFooter {
+  text-align: left;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 850;
+  text-transform: uppercase;
+  color: var(--color-white);
+  letter-spacing: -0.01em;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ---- Play/Pause Click Handler Overlay ---- */
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  cursor: pointer;
+}
+
+.playIcon {
+  background-color: rgba(20, 23, 26, 0.7);
+  color: var(--color-white);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.playOverlay:hover .playIcon {
+  transform: scale(1.08);
+}
+
+/* ---- Navigation Chevrons ---- */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-steel-300);
+  color: var(--color-text-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  z-index: 15;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.navArrow:hover {
+  background-color: var(--color-white);
+  color: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* Off-canvas spacing on large screens, inside padding on mobile */
+.arrowLeft {
+  left: -24px;
+}
+
+.arrowRight {
+  right: -24px;
+}
+
+@media (max-width: 1200px) {
+  .arrowLeft {
+    left: var(--space-2);
+  }
+  .arrowRight {
+    right: var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .navArrow {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ---- Dots Indicators ---- */
+.dotsRow {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-steel-300);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.activeDot {
+  background-color: var(--color-accent-primary);
+  transform: scale(1.25);
+}

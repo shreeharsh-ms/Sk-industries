@@ -265,14 +265,19 @@
 
 .imageWrapper {
   width: 100%;
-  height: 190px;
+  height: 280px; /* Bigger, taller image area */
   overflow: hidden;
+  background-color: var(--color-bg-light); /* Clean backdrop canvas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Prevent any image cropping */
+  padding: var(--space-2); /* High-end padding clearance */
 }
 
 .cardInfo {

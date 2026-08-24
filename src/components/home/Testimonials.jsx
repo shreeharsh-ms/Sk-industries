@@ -8,52 +8,60 @@ export default function Testimonials() {
 
   const reviews = [
     {
-      name: "Sneha Patil",
-      title: "Operations Lead, VoltCharge Systems",
-      avatar: "/images/avatar_engineer_1.png",
+      company: "HAVELLS INDIA LIMITED",
+      category: "Leading Electrical & Power Brand",
+      logo: "/images/clients/havells.svg",
       rating: 5,
       score: "5.0",
-      quote: "Consolidating our sheet metal stamping and powder coating under a single roof with SK Industries compressed our EV enclosure lead times by 50%. Hand-offs are eliminated and FAI tolerances are strictly checked.",
+      quote: "Their commitment to consistent quality and reliable delivery has made them a highly dependable partner. They understand the rigorous demands of our supply chain and always ensure our component requirements are met with precision.",
     },
     {
-      name: "Anil Kulkarni",
-      title: "Sourcing Director, CoreDrive Automotive",
-      avatar: "/images/avatar_director_1.png",
+      company: "BAJAJ ELECTRICALS LTD-(CHAKAN)",
+      category: "Leading Electrical & Power Brand",
+      logo: "/images/clients/bajaj.png",
       rating: 5,
       score: "5.0",
-      quote: "By stamping progressive dies and coating parts inside the same facility, SK Industries cut our transport logistics risks and middlemen markups. Our shutter housing sourcing cost is down 15%.",
+      quote: "Excellent service and strict adherence to industry standards. Their team is highly professional, responsive, and consistently delivers the high-quality engineering support our manufacturing projects demand.",
     },
     {
-      name: "Vikram Mehta",
-      title: "Senior Sourcing Analyst, EnerDrive Components",
-      avatar: "/images/avatar_analyst_1.png",
+      company: "NUTECK POWER SOLUTIONS PVT. LTD.",
+      category: "Leading Electrical & Power Brand",
+      logo: "/images/clients/nuteck.png",
       rating: 5,
       score: "5.0",
-      quote: "The progressive die stamping tolerances and chemical wash durability are highly repeatable. Our audit team was thoroughly impressed by their compliance documentation on first inspection.",
+      quote: "A trusted vendor with an impressive technical capability. Their durable components and straightforward operational approach make them a highly recommended partner in the power solutions sector.",
     },
     {
-      name: "Rohan Deshmukh",
-      title: "Operations Manager, InduPress Electrics",
-      avatar: "/images/avatar_manager_1.png",
+      company: "PYROTECH ELECTRONICS PVT LTD",
+      category: "Specialized Electronics Manufacturer",
+      logo: "/images/clients/pyrotech.png",
       rating: 5,
       score: "5.0",
-      quote: "Moving to progressive tool consolidation helped us reduce the manufacturing cycle times of our electrical switch connectors by 30%. Their communication and engineering support are stellar.",
+      quote: "We highly value our ongoing partnership. Their attention to detail, precision engineering, and prompt fulfillment have been critical to maintaining our production timelines.",
     },
     {
-      name: "Priya Sharma",
-      title: "Quality Engineer, Apex Chargers",
-      avatar: "/images/avatar_engineer_2.png",
+      company: "FULHAM (India) PVT LTD",
+      category: "Specialized Electronics Manufacturer",
+      logo: "/images/clients/fulham.jpg",
       rating: 5,
       score: "5.0",
-      quote: "Their NEMA 3R weatherproof charging enclosures passed all our salt-spray and water ingress audits on the first pass. Highly recommended for EV parts stamping.",
+      quote: "Prompt service, clear communication, and high-quality materials. They seamlessly integrate into our vendor ecosystem and consistently exceed our expectations for quality control.",
     },
     {
-      name: "Sanjay Joshi",
-      title: "VP of Procurement, RailTransit Systems",
-      avatar: "/images/avatar_director_2.png",
+      company: "INTELUX ELECTRONICS PVT. LTD.",
+      category: "Specialized Electronics Manufacturer",
+      logo: "/images/clients/intelux.jpg",
       rating: 5,
       score: "5.0",
-      quote: "The unified single-roof layout simplifies our audit process and cuts down on intermediate shipping logistics. Very reliable team for industrial steel components.",
+      quote: "A fantastic team to work with. They provide highly reliable sourcing, competitive pricing, and maintain a rigorous standard of excellence across all their deliverables.",
+    },
+    {
+      company: "LION DATES IMPEX PVT. LTD.",
+      category: "FMCG & Diversified Operations",
+      logo: "/images/clients/liondates.png",
+      rating: 5,
+      score: "5.0",
+      quote: "Their customized solutions and seamless operational support have significantly streamlined our processes. We appreciate their dedication to rapid turnaround times and exceptional customer service.",
     },
   ];
 
@@ -76,8 +84,8 @@ export default function Testimonials() {
         {/* Header container with heading on left, slider arrows on right */}
         <div className={styles.headerWrapper}>
           <SectionHeading
-            eyebrow="Testimonial"
-            title="What Our Clients Say"
+            eyebrow="Clients & Endorsements"
+            title="Trusted by Industry Leaders"
             accent="orange"
             style={{ marginBottom: 0 }}
           />
@@ -94,16 +102,13 @@ export default function Testimonials() {
         <div ref={scrollContainerRef} className={styles.grid}>
           {reviews.map((rev, idx) => (
             <div key={idx} className={styles.card}>
-              {/* Header: Avatar, Info, Quote Icon */}
+              {/* Header: Brand Logo & Category info */}
               <div className={styles.cardHeader}>
-                <div className={styles.profileGroup}>
-                  <div className={styles.avatarCircle}>
-                    <img src={rev.avatar} alt={rev.name} className={styles.avatarImage} />
+                <div className={styles.brandHeaderGroup}>
+                  <div className={styles.logoContainer}>
+                    <img src={rev.logo} alt={`${rev.company} logo`} className={styles.brandImage} />
                   </div>
-                  <div>
-                    <h4 className={styles.name}>{rev.name}</h4>
-                    <span className={styles.title}>{rev.title}</span>
-                  </div>
+                  <span className={styles.categoryLabel}>{rev.category}</span>
                 </div>
                 {/* Custom Quote Sign Icon "66" */}
                 <div className={styles.quoteSign}>“</div>
@@ -113,7 +118,7 @@ export default function Testimonials() {
               <div className={styles.ratingsRow}>
                 <div className={styles.stars}>
                   {[...Array(rev.rating)].map((_, i) => (
-                    <Star key={i} size={16} fill="var(--color-accent-warn)" color="var(--color-accent-warn)" />
+                    <Star key={i} size={15} fill="var(--color-accent-warn)" color="var(--color-accent-warn)" />
                   ))}
                 </div>
                 <span className={styles.score}>{rev.score}</span>

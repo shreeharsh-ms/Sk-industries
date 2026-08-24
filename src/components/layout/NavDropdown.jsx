@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, Lock, Disc, BatteryCharging, Wrench, ArrowRight } from "lucide-react";
+import { ChevronDown, Lock, Disc, BatteryCharging, Wrench, ArrowRight, Paintbrush } from "lucide-react";
 import styles from "./NavDropdown.module.css";
 
 export default function NavDropdown({ onToggleOpen }) {
@@ -30,7 +30,7 @@ export default function NavDropdown({ onToggleOpen }) {
       desc: "Precision transducer pole piece plates",
       path: "/products/speaker-magnet-plates",
       icon: <Disc size={18} />,
-      image: "/images/speaker_magnet_plate.png",
+      image: "/images/speaker_magnet_parts_stack.png",
       details: "Top and bottom pole plates stamped with thickness tolerances within ±0.05 mm, maximizing magnetic permeability and voice coil gap flux focus.",
       specs: ["AISI 1010 Low-Carbon", "± 0.05 mm Flatness", "Blue Zinc Plating"]
     },
@@ -44,13 +44,22 @@ export default function NavDropdown({ onToggleOpen }) {
       specs: ["14-Gauge Steel / SS", "IP66 Water Jet Tested", "IK10 Impact Rating"]
     },
     {
-      name: "Custom Die Press Parts",
-      desc: "Precision cabinets electrical parts & brackets",
+      name: "Custom Die Press",
+      desc: "Precision custom die press stampings & brackets",
       path: "/services/custom-die-press-electrical-parts",
       icon: <Wrench size={18} />,
       image: "/images/progressive_die_parts.png",
       details: "High-precision coined terminal connectors, brackets, and copper busbars punched with hole spacing tolerances within ±0.05 mm.",
       specs: ["Copper / Brass / Steel", "± 0.20° Bend Precision", "Tin / Silver Plated"]
+    },
+    {
+      name: "Industrial Powder Coating",
+      desc: "Electrostatic epoxy-polyester coatings",
+      path: "/services/industrial-powder-coating",
+      icon: <Paintbrush size={18} />,
+      image: "/images/powder_coating_line.png",
+      details: "Electrostatic powder spray application with multi-stage pre-treatment tunnels and high-temperature curing ovens for wear-resistant outdoor components.",
+      specs: ["80 - 120 μm Thickness", "1000hr Salt Spray Test", "ASTM D3359 Adhesion"]
     },
   ];
 

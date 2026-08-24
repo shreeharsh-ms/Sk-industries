@@ -24,7 +24,7 @@ export default function CoreCapabilities() {
 
   const logoCompliance = [
     { 
-      name: "ISO 9001 Certified", 
+      name: "QA Certified", 
       desc: "Quality Systems",
       icon: <Award size={34} />
     },
@@ -55,7 +55,7 @@ export default function CoreCapabilities() {
       title: "Rolling Shutter Locks",
       desc: "Double-lock cylinder systems.",
       count: "100k+ Parts Run",
-      image: "/images/metal_stamping_factory.png",
+      image: "/images/rolling_shutter_lock.png",
       link: "/products/rolling-shutter-locks",
     },
     {

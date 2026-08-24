@@ -19,9 +19,7 @@ export default function Hero() {
           Single-Roof Execution.
         </h1>
         <p className={styles.subheadline}>
-          SK Industries manufactures high-tolerance metal stampings and integrated
-          powder coatings in Pune, Maharashtra. We deliver complete engineering parts
-          with direct Material Test Certificates and zero supplier handoff.
+          SK Industries specializes in sheet metal products and metal box manufacturing for the electronics and electrical industries—delivering custom MS Cabinets, Driver Boxes, MS Boxes, Ballast MS Cases, Clamps, and precision stamping/embossing with integrated powder coating under a single roof in Pune, India.
         </p>
         <div className={styles.actions}>
           <Button variant="primary" size="lg" to="/rfq-portal">

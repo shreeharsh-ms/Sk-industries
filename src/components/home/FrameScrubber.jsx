@@ -22,7 +22,7 @@ export default function FrameScrubber() {
     const preloadedImages = [];
 
     for (let i = 1; i <= totalFrames; i++) {
-      const frameNum = String((i - 1) * 2 + 1).padStart(4, "0");
+      const frameNum = String((i - 1) * 4 + 1).padStart(4, "0");
       const img = new Image();
       img.src = `/images/enclosure_assembly_frames/frame_${frameNum}.jpg`;
       img.onload = () => {
@@ -168,9 +168,11 @@ export default function FrameScrubber() {
           {/* Phase 1 Text: 0% to 32% */}
           <div className={styles.textGroup} style={getBlockStyles(0, 0.32)}>
             <h2 className={styles.title}>SK Industries</h2>
+            <h3 className={styles.heroSubTitle}>
+              Precision Stamping &amp; Powder Coating
+            </h3>
             <p className={styles.desc}>
-              Unified precision stamping and industrial powder coatings executed inside a
-              single facility.
+              Unified operations executed inside a single integrated facility.
             </p>
           </div>
 

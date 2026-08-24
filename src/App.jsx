@@ -12,6 +12,7 @@ import CustomDiePressPage from "./pages/products/CustomDiePressPage";
 import AboutPage from "./pages/AboutPage";
 import RFQPortalPage from "./pages/RFQPortalPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import PowderCoatingPage from "./pages/products/PowderCoatingPage";
 import PageLoader from "./components/ui/PageLoader";
 
 function LenisWatcher() {
@@ -43,9 +44,18 @@ function LenisWatcher() {
       lenis.resize();
     }, 120);
 
+    // Watch for document layout reflows to keep Lenis scroll boundaries updated dynamically
+    const resizeObserver = new ResizeObserver(() => {
+      lenis.resize();
+    });
+    if (document.body) {
+      resizeObserver.observe(document.body);
+    }
+
     return () => {
       cancelAnimationFrame(rafId);
       clearTimeout(timer);
+      resizeObserver.disconnect();
       lenis.destroy();
       window.lenis = null;
     };
@@ -68,6 +78,7 @@ export default function App() {
           <Route path="/products/speaker-magnet-plates" element={<SpeakerMagnetPlatesPage />} />
           <Route path="/products/ev-charger-enclosures" element={<EVChargerEnclosuresPage />} />
           <Route path="/services/custom-die-press-electrical-parts" element={<CustomDiePressPage />} />
+          <Route path="/services/industrial-powder-coating" element={<PowderCoatingPage />} />
           <Route path="/about-us" element={<AboutPage />} />
           <Route path="/rfq-portal" element={<RFQPortalPage />} />
           <Route path="*" element={<NotFoundPage />} />

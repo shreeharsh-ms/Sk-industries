@@ -26,17 +26,7 @@ export default function ProductHero({
           <h1 className={styles.title}>{name}</h1>
           <p className={styles.desc}>{desc}</p>
           
-          <div className={styles.actionRow}>
-            {specSheetPdf && (
-              <Button
-                variant="primary"
-                href={specSheetPdf}
-                download={`${name.replace(/\s+/g, "_")}_Spec_Sheet.pdf`}
-              >
-                Download Technical Data Sheet
-              </Button>
-            )}
-          </div>
+
 
           {/* Sourcing target info placed cleanly below the main actions */}
           <div className={metaClass}>

@@ -14,7 +14,7 @@ export default function CertificationBanner() {
             </p>
           </div>
           <div className={styles.badgeRow}>
-            <Badge accent="teal">ISO 9001</Badge>
+            <Badge accent="teal">QA Certified</Badge>
             <Badge accent="teal">ASTM B117 salt fog</Badge>
             <Badge accent="orange">PPAP Level 3</Badge>
             <Badge accent="orange">FAI Audited</Badge>

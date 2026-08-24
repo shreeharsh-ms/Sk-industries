@@ -49,15 +49,15 @@
 .textGroup {
   text-align: left;
   color: var(--color-white);
-  max-width: 600px;
+  max-width: 920px; /* Increased to allow giant headings to lay out without vertical crushing */
   padding-inline: var(--container-padding);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-3);
+  gap: var(--space-2); /* Tight gap for cohesive visual unit */
   transition: opacity 0.4s ease, transform 0.4s ease;
   position: absolute;
-  bottom: clamp(200px, 24vh, 280px);
+  bottom: clamp(160px, 20vh, 240px); /* Lowered slightly to fit taller text block */
   left: 0;
 }
 
@@ -69,6 +69,21 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0;
+  color: rgba(255, 255, 255, 0.85); /* Slightly muted white for primary brand title */
+  text-shadow: 
+    0 2px 14px rgba(0, 0, 0, 0.85), 
+    0 4px 28px rgba(0, 0, 0, 0.75);
+}
+
+.heroSubTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.2rem); /* EXACT same size as main title */
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--color-white);
   text-shadow: 
     0 2px 14px rgba(0, 0, 0, 0.85), 
     0 4px 28px rgba(0, 0, 0, 0.75);
@@ -76,11 +91,11 @@
 
 .desc {
   font-family: var(--font-body);
-  font-size: clamp(1.25rem, 2.2vw, 1.6rem); /* larger, highly readable desc */
+  font-size: clamp(1.15rem, 2vw, 1.45rem); /* Adjusted slightly for beautiful layout ratio */
   font-weight: 550;
-  color: var(--color-steel-100);
-  max-width: 680px;
-  margin: 0;
+  color: var(--color-steel-200);
+  max-width: 780px;
+  margin: var(--space-2) 0 0 0;
   text-shadow: 
     0 2px 12px rgba(0, 0, 0, 0.85), 
     0 4px 24px rgba(0, 0, 0, 0.75);

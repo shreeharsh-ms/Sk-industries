@@ -10,7 +10,7 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 
 export default function CustomDiePressPage() {
   useDocumentMetadata(
-    "Custom Die Press Electrical Parts Specifications",
+    "Custom Die Press Specifications",
     "Technical parameters and bending rule formulas for conductive copper and brass electrical busbars stamped by SK Industries."
   );
 

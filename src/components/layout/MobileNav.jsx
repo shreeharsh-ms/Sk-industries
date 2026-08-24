@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Lock, Disc, BatteryCharging, Wrench, ChevronRight } from "lucide-react";
+import { Lock, Disc, BatteryCharging, Wrench, ChevronRight, Paintbrush } from "lucide-react";
 import styles from "./MobileNav.module.css";
 
 export default function MobileNav({ onClose }) {
@@ -24,9 +24,14 @@ export default function MobileNav({ onClose }) {
       icon: <BatteryCharging size={14} />,
     },
     {
-      name: "Custom Die Press Parts",
+      name: "Custom Die Press",
       path: "/services/custom-die-press-electrical-parts",
       icon: <Wrench size={14} />,
+    },
+    {
+      name: "Industrial Powder Coating",
+      path: "/services/industrial-powder-coating",
+      icon: <Paintbrush size={14} />,
     },
   ];
 

@@ -42,9 +42,10 @@ export default function EVChargerEnclosuresPage() {
           {/* Sticky Column: Generated Premium Blueprint Image */}
           <div className={diagramStyles.stickyColumn}>
             <img 
-              src="/images/ev_charger_enclosure_schematic.png" 
+              src="/images/ev_charger_enclosure_blueprint_schematic.jpg" 
               alt="EV Charger Enclosure Weatherproof Blueprint" 
               className={diagramStyles.blueprintImage}
+              style={{ backgroundColor: "#ffffff", padding: "10px" }}
             />
           </div>
 

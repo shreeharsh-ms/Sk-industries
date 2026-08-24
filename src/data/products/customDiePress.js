@@ -1,6 +1,6 @@
 export default {
   slug: "custom-die-press-parts",
-  name: "Custom Die Press Electrical Parts",
+  name: "Custom Die Press",
   audience: "Switchgear manufacturers, busbar installers, and power electronics OEMs",
   application: "Precision coined copper and brass terminal connectors, busbars, and custom stamped contact leaves for electrical panels.",
   specs: [

@@ -15,7 +15,8 @@ export default function PageLoader() {
     if (path === "/products/rolling-shutter-locks") return "Rolling Shutter Locks";
     if (path === "/products/speaker-magnet-plates") return "Speaker Magnet Plates";
     if (path === "/products/ev-charger-enclosures") return "EV Charger Enclosures";
-    if (path === "/services/custom-die-press-electrical-parts") return "Custom Die Press Parts";
+    if (path === "/services/custom-die-press-electrical-parts") return "Custom Die Press";
+    if (path === "/services/industrial-powder-coating") return "Industrial Powder Coating";
     if (path === "/about-us") return "About Us";
     if (path === "/rfq-portal") return "Technical RFQ Portal";
     return "SK Industries";

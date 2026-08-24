@@ -41,9 +41,10 @@ export default function RollingShutterLocksPage() {
           {/* Sticky Column: Generated Premium Blueprint Image */}
           <div className={diagramStyles.stickyColumn}>
             <img 
-              src="/images/rolling_shutter_lock_schematic.png" 
+              src="/images/rolling_shutter_lock_blueprint_schematic.jpg" 
               alt="Rolling Shutter Lock Mechanical Blueprint" 
               className={diagramStyles.blueprintImage}
+              style={{ backgroundColor: "#ffffff", padding: "10px" }}
             />
           </div>
 

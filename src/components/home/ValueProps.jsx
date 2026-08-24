@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../ui/Button";
 import AnimatedCounter from "../ui/AnimatedCounter";
-import { Coins, Clock, ShieldCheck } from "lucide-react";
+import { Clock, ShieldCheck, Paintbrush } from "lucide-react";
 import styles from "./ValueProps.module.css";
 
 export default function ValueProps() {
@@ -12,37 +12,37 @@ export default function ValueProps() {
   const steps = [
     {
       icon: <ShieldCheck size={24} />,
-      badge: "Single-Roof Integration",
-      title: "Stamping & Coating QA",
+      badge: "High-Tonnage Pressing",
+      title: "Stamping Section QA",
       subtitle: (
         <span>
-          Unified Quality Assurance
+          Precision Metal Stamping
         </span>
       ),
-      desc: "Our single-roof facility eliminates multi-vendor transport damage risk, streamlines material handling, and guarantees end-to-end traceability for automotive and industrial stamping assemblies.",
-      image: "/images/metal_stamping_factory.png",
-      alt: "Unified Stamping & Coating Operations",
+      desc: "High-tolerance progressive die and compound press stampings for automotive, electrical, and audio components with flatness tolerances strictly controlled to ±0.05 mm.",
+      image: "/images/progressive_die_parts.png",
+      alt: "Precision stamped brackets and die press components",
       cta: (
-        <Button variant="primary" to="/rfq-portal">
+        <Button variant="primary" to="/services/custom-die-press-electrical-parts">
           Configure Your Production Run
         </Button>
       ),
     },
     {
-      icon: <Coins size={24} />,
-      badge: "Direct Sourcing Bypass",
-      title: "Sourcing Cost Reduction",
+      icon: <Paintbrush size={24} />,
+      badge: "Electrostatic Application",
+      title: "Coating Section QA",
       subtitle: (
         <span>
-          Up to <AnimatedCounter value="15%" /> Reduction
+          Industrial Powder Coating
         </span>
       ),
-      desc: "Optimized sheet nesting layouts, progressive tool consolidation, and direct steel mills sourcing bypasses middlemen markup overheads.",
-      image: "/images/progressive_die_parts.png",
-      alt: "Progressive die press components",
+      desc: "Conveyorized electrostatic paint line with multi-stage chemical washing, zinc phosphating, and 200°C curing ovens for highly durable, scratch-resistant finishes.",
+      image: "/images/powder_coating_line.png",
+      alt: "Conveyorized industrial powder coating line",
       cta: (
-        <Button variant="ghost" to="/about-us">
-          Explore Savings →
+        <Button variant="ghost" to="/services/industrial-powder-coating">
+          Explore Coating Line →
         </Button>
       ),
     },
@@ -56,8 +56,8 @@ export default function ValueProps() {
         </span>
       ),
       desc: "Instant component transition from hydraulic stamping press beds directly into conveyorized zinc chemical pretreatment and powder lines.",
-      image: "/images/powder_coating_line.png",
-      alt: "Powder coating line conveyor",
+      image: "/images/metal_stamping_press_aida.jpg",
+      alt: "Stamping press line to coating line transition",
       cta: (
         <Button variant="ghost" to="/single-roof-workflow">
           Explore Workflow →

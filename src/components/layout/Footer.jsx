@@ -1,6 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MessageCircle } from "lucide-react";
 import styles from "./Footer.module.css";
+
+// Custom SVG components for missing social icons
+const InstagramIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const FacebookIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -43,7 +59,7 @@ export default function Footer() {
 
           {/* Column 3: Product Pages */}
           <div className={styles.column}>
-            <span className={styles.colTitle}>Products</span>
+            <span className={styles.colTitle}>Products & Services</span>
             <ul className={styles.linksList}>
               <li className={styles.linkItem}>
                 <Link to="/products/rolling-shutter-locks">Rolling Shutter Locks</Link>
@@ -55,24 +71,24 @@ export default function Footer() {
                 <Link to="/products/ev-charger-enclosures">EV Charger Enclosures</Link>
               </li>
               <li className={styles.linkItem}>
-                <Link to="/services/custom-die-press-electrical-parts">Custom Die Press Parts</Link>
+                <Link to="/services/custom-die-press-electrical-parts">Custom Die Press</Link>
+              </li>
+              <li className={styles.linkItem}>
+                <Link to="/services/industrial-powder-coating">Industrial Powder Coating</Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Compliance & Certifications */}
+          {/* Column 4: Capabilities & Components */}
           <div className={styles.column}>
-            <span className={styles.colTitle}>Compliance</span>
-            <p className={styles.text}>
-              Engineered to comply with ISO 9001 quality management guidelines and ASTM
-              materials testing standards. Material Test Certificates (MTC) and First-Article
-              Inspection (FAI) reports available upon request.
+            <span className={styles.colTitle}>Capabilities</span>
+            <p className={styles.text} style={{ fontSize: "0.82rem", lineHeight: "1.45" }}>
+              Coating Sheet metal products, Metal Box manufacturing for electronics and electrical industry, Metal Box, MS Cabinet, Driver Box, MS Box, Powder Coating, Driver Plates, Stamping, Embossing, Clamp, and Ballast MS Case.
             </p>
-            <div className={styles.badgeRow}>
-              <span className={styles.badge}>ISO 9001</span>
-              <span className={styles.badge}>PPAP Available</span>
+            <div className={styles.badgeRow} style={{ marginTop: "var(--space-2)" }}>
+              <span className={styles.badge}>QA Certified</span>
+              <span className={styles.badge}>PPAP Level 3</span>
               <span className={styles.badge}>ASTM Tested</span>
-              <span className={styles.badge}>FAI Audited</span>
             </div>
           </div>
         </div>
@@ -91,11 +107,24 @@ export default function Footer() {
           ></iframe>
         </div>
 
-        {/* Bottom Bar: Copyright & Contact */}
+        {/* Bottom Bar: Copyright, Socials & Contact */}
         <div className={styles.bottomBar}>
-          <span className={styles.copyright}>
-            © 2026 SK Industries. All rights reserved.
-          </span>
+          <div className={styles.leftBottom}>
+            <span className={styles.copyright}>
+              © {currentYear} SK Industries. All rights reserved.
+            </span>
+            <div className={styles.socialGroup}>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={`${styles.socialLink} ${styles.instagram}`} title="Instagram">
+                <InstagramIcon size={24} />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={`${styles.socialLink} ${styles.facebook}`} title="Facebook">
+                <FacebookIcon size={24} />
+              </a>
+              <a href="https://wa.me/917875138713" target="_blank" rel="noopener noreferrer" className={`${styles.socialLink} ${styles.whatsapp}`} title="WhatsApp">
+                <MessageCircle size={24} />
+              </a>
+            </div>
+          </div>
           <div className={styles.contactLinks}>
             <span className={styles.contactItem} style={{ opacity: 0.85 }}>
               Contact:
@@ -106,6 +135,10 @@ export default function Footer() {
             <span className={styles.footerDivider}>|</span>
             <a href="mailto:skindustries0709@gmail.com" className={styles.emailBadge}>
               skindustries0709@gmail.com
+            </a>
+            <span className={styles.footerDivider}>|</span>
+            <a href="mailto:sales@skindustries.com" className={styles.emailBadge}>
+              sales@skindustries.com
             </a>
           </div>
         </div>

@@ -22,8 +22,8 @@ export default function SpeakerMagnetPlatesPage() {
         audience={productData.audience}
         specSheetPdf={productData.specSheetPdf}
         accent="orange"
-        image="/images/speaker_magnet_plate.png"
-        bgImage="/images/powder_coating_line.png"
+        image="/images/speaker_magnet_parts_stack.png"
+        bgImage="/images/workmanship_plant.jpg"
       />
 
       <ApplicationBlock
@@ -34,17 +34,32 @@ export default function SpeakerMagnetPlatesPage() {
       {/* Custom Visual Component: Sticky Split-Screen Magnetic Flux Layout */}
       <section className="container section-padding--tight" style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
         <h3 className={diagramStyles.diagramTitle}>
-          Magnetic Flux Field Distribution Reference
+          Magnetic Circuit & Component Blueprint
         </h3>
         <div className={diagramStyles.stickyGrid}>
           
-          {/* Sticky Column: Generated Premium Blueprint Image */}
+          {/* Sticky Column: Explosion diagram and real component gallery */}
           <div className={diagramStyles.stickyColumn}>
-            <img 
-              src="/images/magnetic_flux_distribution.png" 
-              alt="Speaker Pole Piece Magnetic Circuit Blueprint" 
-              className={diagramStyles.blueprintImage}
-            />
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+              <img 
+                src="/images/speaker_magnet_exploded_schematic.png" 
+                alt="Speaker Pole Piece Magnetic Circuit Exploded Blueprint" 
+                className={diagramStyles.blueprintImage}
+                style={{ backgroundColor: "#ffffff", padding: "10px" }}
+              />
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-3)" }}>
+                <img 
+                  src="/images/speaker_magnet_parts_stack.png" 
+                  alt="Stamped T-Yoke and Front Plates Stacks" 
+                  style={{ width: "100%", borderRadius: "var(--radius-sm)", border: "1px solid var(--color-steel-300)" }}
+                />
+                <img 
+                  src="/images/speaker_magnet_standalone_plates.png" 
+                  alt="T-Yoke and Front Plate Standalone machined components" 
+                  style={{ width: "100%", borderRadius: "var(--radius-sm)", border: "1px solid var(--color-steel-300)" }}
+                />
+              </div>
+            </div>
           </div>
 
           {/* Scrollable Column: Detailed Parts & Measurements Specs */}
@@ -69,17 +84,17 @@ export default function SpeakerMagnetPlatesPage() {
 
               <div className={diagramStyles.cardItem}>
                 <span className={diagramStyles.cardLabel}>COMPONENT // PART_02</span>
-                <h4 className={diagramStyles.cardTitle}>TOP PLATE</h4>
+                <h4 className={diagramStyles.cardTitle}>FRONT PLATE (TOP PLATE)</h4>
                 <p className={diagramStyles.cardDesc}>
-                  Low-carbon steel front plate that channels and concentrates magnetic flux lines directly toward the voice coil.
+                  While sometimes informally called a bearing plate or washer, the correct technical term is the Front Plate or Top Plate. Its purpose is to concentrate the magnetic field from the top of the magnet across the gap to the central pole piece, creating the magnetic field where the voice coil sits.
                 </p>
               </div>
 
               <div className={diagramStyles.cardItem}>
                 <span className={diagramStyles.cardLabel}>COMPONENT // PART_03</span>
-                <h4 className={diagramStyles.cardTitle}>POLE PIECE BOTTOM</h4>
+                <h4 className={diagramStyles.cardTitle}>T-YOKE (POLE PIECE)</h4>
                 <p className={diagramStyles.cardDesc}>
-                  Precision coined bottom pole yoke providing the returning magnetic circuit loop with minimal hysteresis loss.
+                  Commonly called a T-Yoke in the audio engineering industry because its cross-section looks like the letter "T". Technically, it is a single machined or forged piece that serves as both the Back Plate (the flat bottom part) and the Central Pole (the raised cylindrical part). Its scientific function is to guide the magnetic flux from the back of the magnet into the voice coil gap.
                 </p>
               </div>
 

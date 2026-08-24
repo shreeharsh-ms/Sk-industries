@@ -21,7 +21,7 @@ export default function WhatWeAddSection({ whatWeAdd = [], accent = "orange" }) 
         <div className={styles.accordionContainer}>
           {whatWeAdd.map((item, idx) => {
             const isActive = activeIndex === idx;
-            const bgUrl = bgImages[idx % bgImages.length];
+            const bgUrl = item.image || bgImages[idx % bgImages.length];
             
             const itemStyle = isActive && bgUrl
               ? { 
