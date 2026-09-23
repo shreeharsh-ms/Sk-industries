@@ -278,6 +278,11 @@
   .content {
     padding-top: var(--space-5);
   }
+
+  .sideCardText {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 480px) {

@@ -20,10 +20,21 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding-block: 0.8cm;
+  }
   .quoteBox {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
-    padding: var(--space-5);
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+  .quoteText {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-3);
+  }
+  .imageContainer {
+    max-width: 140px;
   }
 }
 

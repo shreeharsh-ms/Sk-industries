@@ -144,3 +144,27 @@
   font-weight: 600;
   color: var(--color-text-primary);
 }
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: 0.8cm;
+  }
+  .policyCard {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+  .policyTitle {
+    font-size: 1.15rem;
+  }
+  .policyStatement {
+    font-size: 0.88rem;
+    padding: var(--space-3);
+    line-height: 1.5;
+  }
+  .objectiveItem {
+    padding: 8px 12px;
+  }
+  .objText {
+    font-size: 0.82rem;
+  }
+}

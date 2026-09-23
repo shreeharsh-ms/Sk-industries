@@ -171,6 +171,29 @@ export default function VideoSlider() {
     setStartIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 45) {
+      handleNext();
+    } else if (diff < -45) {
+      handlePrev();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
     <section ref={sectionRef} className={styles.section}>
       <div className="container">
@@ -195,7 +218,12 @@ export default function VideoSlider() {
           </button>
 
           {/* Carousel Viewport */}
-          <div className={styles.carouselViewport}>
+          <div
+            className={styles.carouselViewport}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className={styles.carouselTrack}
               style={{

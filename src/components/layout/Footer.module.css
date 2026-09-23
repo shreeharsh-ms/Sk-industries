@@ -209,11 +209,32 @@
   .footer {
     padding-block: 0.8cm;
   }
+  .colTitle {
+    font-size: 0.95rem;
+    margin-bottom: var(--space-1);
+  }
+  .text {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .linkItem a {
+    font-size: 0.92rem;
+    display: inline-block;
+    padding-block: 4px;
+    min-height: 38px;
+    line-height: 30px;
+  }
   .contactLinks {
     flex-direction: column;
     align-items: stretch;
     width: 100%;
     gap: var(--space-2);
+  }
+  .contactItem {
+    font-size: 0.95rem;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
   }
   .emailBadge {
     width: 100%;
@@ -222,9 +243,13 @@
     min-height: 44px;
     display: flex;
     align-items: center;
+    font-size: 0.92rem;
   }
   .footerDivider {
     display: none;
+  }
+  .copyright {
+    font-size: 0.82rem;
   }
 }
 

@@ -58,6 +58,7 @@ export default function App() {
 
       {/* Floating Action Buttons in bottom-right corner */}
       <div 
+        className="floating-action-buttons"
         style={{
           position: "fixed",
           bottom: "24px",

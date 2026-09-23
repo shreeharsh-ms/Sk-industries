@@ -122,3 +122,22 @@ a {
   background-color: var(--color-bg-light);
   color: var(--color-text-primary);
 }
+
+/* === MOBILE RESPONSIVE UTILITIES === */
+@media (max-width: 768px) {
+  .section-padding {
+    padding-block: 0.8cm !important;
+  }
+  .section-padding--tight {
+    padding-block: 0.5cm !important;
+  }
+  .floating-action-buttons {
+    bottom: 16px !important;
+    right: 16px !important;
+    gap: 8px !important;
+  }
+  .floating-action-buttons a {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}

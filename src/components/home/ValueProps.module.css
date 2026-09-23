@@ -256,11 +256,20 @@
   .imageBox {
     height: 240px !important;
   }
+  .stepSubtitle {
+    font-size: 0.82rem;
+  }
   .stepTitle {
     font-size: 1.25rem;
   }
   .stepDesc {
     font-size: 0.92rem;
     line-height: 1.5;
+  }
+  .specValue {
+    font-size: 1.1rem;
+  }
+  .specLabel {
+    font-size: 0.82rem;
   }
 }

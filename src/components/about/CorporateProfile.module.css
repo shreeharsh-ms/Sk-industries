@@ -12,9 +12,36 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding-block: var(--space-5);
+  }
+
   .grid {
     grid-template-columns: 1fr;
     gap: var(--space-5);
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .text {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .sidebar {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .sidebarTitle {
+    font-size: 0.95rem;
+  }
+
+  .sidebarItem {
+    font-size: 0.85rem;
+    padding-bottom: 6px;
   }
 }
 

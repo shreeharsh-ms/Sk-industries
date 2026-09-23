@@ -34,16 +34,36 @@
   font-feature-settings: "tnum" 1;
 }
 
+@media (max-width: 768px) {
+  .label {
+    font-size: 0.88rem;
+    padding-right: var(--space-2);
+  }
+
+  .value {
+    font-size: 0.84rem;
+  }
+
+  .row {
+    padding-block: var(--space-2);
+  }
+}
+
 @media (max-width: 480px) {
   .row {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-1);
-    padding-block: var(--space-2);
+    gap: 3px;
+    padding-block: 7px;
+  }
+
+  .label {
+    font-size: 0.82rem;
   }
 
   .value {
+    font-size: 0.82rem;
     text-align: left;
-    margin-top: 2px;
+    margin-top: 1px;
   }
 }

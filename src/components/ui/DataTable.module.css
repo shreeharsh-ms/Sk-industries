@@ -53,3 +53,15 @@
   color: var(--color-steel-100);
   border-bottom-color: var(--color-gunmetal-800);
 }
+
+@media (max-width: 768px) {
+  .th {
+    font-size: 0.8rem;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .td {
+    font-size: 0.84rem;
+    padding: var(--space-2) var(--space-3);
+  }
+}

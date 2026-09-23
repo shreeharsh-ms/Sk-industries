@@ -48,3 +48,23 @@
   margin-bottom: var(--space-3);
   display: block;
 }
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: 0.8cm;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .text {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .tableTitle {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-2);
+  }
+}

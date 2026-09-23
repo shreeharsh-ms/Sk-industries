@@ -158,13 +158,22 @@ export default function WorkflowPage() {
             }
             .satisfied-grid {
               grid-template-columns: 1fr !important;
-              gap: var(--space-6) !important;
+              gap: var(--space-5) !important;
+            }
+            .satisfied-grid h2 {
+              font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+            }
+            .satisfied-grid p {
+              font-size: 0.92rem !important;
+              line-height: 1.5 !important;
             }
             .satisfied-grid a {
               width: 100% !important;
               justify-content: center !important;
               box-sizing: border-box !important;
-              padding: 14px 24px !important;
+              padding: 12px 20px !important;
+              font-size: 0.92rem !important;
+              min-height: 44px !important;
             }
             .satisfied-img-wrapper {
               order: -1;

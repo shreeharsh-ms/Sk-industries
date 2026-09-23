@@ -29,6 +29,15 @@
     padding-bottom: var(--space-5);
   }
 
+  .eyebrow {
+    font-size: 0.72rem;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    margin-bottom: var(--space-3);
+  }
+
   .desc {
     font-size: 0.95rem;
     line-height: 1.5;

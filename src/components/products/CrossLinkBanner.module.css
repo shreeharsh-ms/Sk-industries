@@ -34,3 +34,21 @@
   margin-inline: auto;
   margin-bottom: var(--space-4);
 }
+
+@media (max-width: 768px) {
+  .banner {
+    padding-block: var(--space-5);
+    padding-inline: var(--space-4);
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+  }
+
+  .text {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin-bottom: var(--space-3);
+  }
+}
+
