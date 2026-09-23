@@ -33,7 +33,7 @@ export default function Footer() {
                 Proprietor: Komal Pansare
               </p>
               <p>Registered Facility:</p>
-              <p>TINY INDUSTRIAL ESTATE,</p>
+              <p>SK INDUSTRIES,</p>
               <p>KONDHWA BK., PUNE-411048</p>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function Footer() {
         {/* Google Maps Embed (90% width, 5% spacing on both sides) */}
         <div className={styles.mapContainer}>
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94186.49185729207!2d73.82483320887904!3d18.466318380406786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea50a9b669d3%3A0x2eabc8e4c260a2eb!2sTiny%20Industrial%20Estate%2C%20Tyni%20Audyogic%20Wasahat%2C%20Kondhwa%2C%20Pune%2C%20Maharashtra%20411048!5e0!3m2!1sen!2sin!4v1783438287086!5m2!1sen!2sin" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.6803120477502!2d73.8936374!3d18.452818699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb1ddb3d55d7%3A0xb7c137c9491e69eb!2sSK%20Industries!5e0!3m2!1sen!2sin!4v1790163490266!5m2!1sen!2sin" 
             width="100%" 
             height="280" 
             style={{ border: 0 }} 
