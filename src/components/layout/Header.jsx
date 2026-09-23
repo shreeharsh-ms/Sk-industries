@@ -15,6 +15,17 @@ export default function Header() {
     setIsDropdownOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   const isWhiteNavbar = isDropdownOpen || isMenuOpen;
   const headerClass = `${styles.header} ${styles.lightText} ${isWhiteNavbar ? styles.whiteNavbar : ""}`;
   const logoSrc = "/images/sk_industries_logo.png";

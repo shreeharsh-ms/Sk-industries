@@ -4,6 +4,12 @@
   width: 100%;
 }
 
+@media (max-width: 640px) {
+  .section {
+    padding-block: 0.8cm;
+  }
+}
+
 .sectionTitle {
   font-family: var(--font-display);
   font-size: 1.5rem;

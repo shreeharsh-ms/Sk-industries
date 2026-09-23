@@ -44,7 +44,10 @@ export default function WorkflowPage() {
             Shop Floor Mechanical Layout & Flow
           </h3>
 
-          <div style={{ overflowX: "auto", width: "100%" }}>
+          <div className="mobile-scroll-hint" style={{ display: "none", fontSize: "0.75rem", fontFamily: "var(--font-mono)", color: "var(--color-steel-500)", marginBottom: "var(--space-3)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+            ← Swipe layout horizontally to explore steps →
+          </div>
+          <div style={{ overflowX: "auto", width: "100%", WebkitOverflowScrolling: "touch" }}>
             <svg
               viewBox="0 0 820 130"
               fill="none"
@@ -144,6 +147,9 @@ export default function WorkflowPage() {
           @media (max-width: 768px) {
             .workflow-content-container {
               padding-block: var(--space-6) var(--space-3) !important; /* Much smaller bottom padding */
+            }
+            .mobile-scroll-hint {
+              display: block !important;
             }
             .floor-plan-card {
               padding: var(--space-4) !important;

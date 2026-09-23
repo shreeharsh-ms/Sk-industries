@@ -83,10 +83,19 @@
   width: 100%;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .statsGrid {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+  .statCard {
+    padding: var(--space-3) var(--space-3);
+  }
+  .statValue {
+    font-size: 1.75rem;
+  }
+  .statLabel {
+    font-size: 0.65rem;
   }
 }
 
@@ -373,5 +382,36 @@
 
 .catalogCard:hover .ctaArrow {
   transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .catalogSection {
+    margin-top: 0.5cm;
+    padding-top: 0.5cm;
+    gap: var(--space-4);
+  }
+  .catalogHeading {
+    font-size: 1.65rem;
+  }
+  .catalogActionBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px var(--space-4);
+    min-height: 44px;
+  }
+  .imageWrapper {
+    height: 160px;
+  }
+  .cardTitle {
+    font-size: 1rem;
+  }
+  .cardDesc {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  .cardCta {
+    padding-top: var(--space-2);
+    min-height: 38px;
+  }
 }
 

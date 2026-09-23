@@ -301,23 +301,41 @@
 }
 
 @media (max-width: 768px) {
+  .modalCard {
+    max-height: 90svh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   .modalGrid {
     grid-template-columns: 1fr;
   }
   .imageCol {
-    min-height: 220px;
-    height: 220px;
+    min-height: 200px;
+    height: 200px;
   }
   .infoCol {
-    padding: var(--space-6);
+    padding: var(--space-5);
   }
   .title {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
   .imageNavGroup {
     top: var(--space-4) !important;
     right: var(--space-4) !important;
     left: auto !important;
     bottom: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .rfqBtn, .dismissBtn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }

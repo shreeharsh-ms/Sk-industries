@@ -248,3 +248,19 @@
   color: var(--color-text-primary);
   opacity: 0.8;
 }
+
+@media (max-width: 640px) {
+  .pinSection {
+    padding-block: 0.8cm !important;
+  }
+  .imageBox {
+    height: 240px !important;
+  }
+  .stepTitle {
+    font-size: 1.25rem;
+  }
+  .stepDesc {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+}

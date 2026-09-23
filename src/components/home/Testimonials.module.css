@@ -95,6 +95,12 @@
   }
 }
 
+@media (max-width: 640px) {
+  .section {
+    padding-block: 0.8cm;
+  }
+}
+
 @media (max-width: 520px) {
   .card {
     flex: 0 0 100%; /* 1 card visible on mobile */

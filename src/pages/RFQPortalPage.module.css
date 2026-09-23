@@ -260,7 +260,7 @@
 /* ---- Mobile Overrides ---- */
 @media (max-width: 768px) {
   .heroBanner {
-    padding: var(--space-8) 0 var(--space-6);
+    padding: calc(76px + var(--space-4)) 0 var(--space-6);
   }
 
   .quickLinks {
@@ -272,9 +272,22 @@
     justify-content: center;
     padding: 10px var(--space-3);
     font-size: 0.76rem;
+    min-height: 44px;
   }
 
   .content {
     padding-top: var(--space-5);
+  }
+}
+
+@media (max-width: 480px) {
+  .heroBanner {
+    padding: calc(76px + var(--space-2)) 0 var(--space-4);
+  }
+  .quickLinks {
+    flex-direction: column;
+  }
+  .quickLink {
+    width: 100%;
   }
 }

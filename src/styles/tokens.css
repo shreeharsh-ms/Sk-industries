@@ -61,7 +61,7 @@
   --radius-md: 4px;
   --radius-none: 0px;
   --container-max: 1240px;
-  --container-padding: clamp(20px, 5vw, 64px);
+  --container-padding: clamp(16px, 4.5vw, 64px);
   --border-width-hairline: 1px;
   --border-width-stamp: 2px;
 

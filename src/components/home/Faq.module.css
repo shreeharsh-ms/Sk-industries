@@ -6,6 +6,12 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+@media (max-width: 640px) {
+  .section {
+    padding-block: 0.8cm;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;

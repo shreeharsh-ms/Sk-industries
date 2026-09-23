@@ -37,7 +37,7 @@ export default function RFQPortalPage() {
             <Mail size={18} />
             <span>Email Us</span>
           </a>
-          <a href="https://www.google.com/maps/place/SK+Industries/@18.4528187,73.8936374,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2eb1ddb3d55d7:0xb7c137c9491e69eb!8m2!3d18.4528187!4d73.8936374" target="_blank" rel="noopener noreferrer" className={styles.quickLink}>
+          <a href="https://maps.app.goo.gl/iosr1zf6nYvzaUd89?g_st=awb" target="_blank" rel="noopener noreferrer" className={styles.quickLink}>
             <MapPin size={18} />
             <span>Location</span>
           </a>
@@ -81,7 +81,7 @@ export default function RFQPortalPage() {
                 <div className={styles.contactRow}>
                   <span className={styles.contactLabel}>Facility</span>
                   <a
-                    href="https://www.google.com/maps/place/SK+Industries/@18.4528187,73.8936374,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2eb1ddb3d55d7:0xb7c137c9491e69eb!8m2!3d18.4528187!4d73.8936374"
+                    href="https://maps.app.goo.gl/iosr1zf6nYvzaUd89?g_st=awb"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.contactValue}

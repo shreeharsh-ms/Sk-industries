@@ -1,6 +1,7 @@
 .tableWrapper {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: var(--border-width-hairline) solid var(--color-steel-300);
   border-radius: var(--radius-sm);
 }

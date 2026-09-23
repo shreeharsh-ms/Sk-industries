@@ -117,7 +117,8 @@ export default function MobileNav({ onClose }) {
         </Link>
         <div className={styles.contactInfo}>
           <span>Proprietor: Komal Pansare</span>
-          <span>Email: info@skindustries.com</span>
+          <a href="tel:+917875138713" className={styles.contactLink}>+91-7875-138-713</a>
+          <a href="mailto:sales@skindustries.com" className={styles.contactLink}>sales@skindustries.com</a>
         </div>
       </div>
     </div>
