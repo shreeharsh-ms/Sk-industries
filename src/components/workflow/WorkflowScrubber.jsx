@@ -16,12 +16,8 @@ export default function WorkflowScrubber() {
   const targetPanFractionRef = useRef(0.5);
 
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeStep, setActiveStep] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  const lastScrollTime = useRef(0);
-  const targetStepRef = useRef(0);
-  const touchStartYRef = useRef(0);
+  const [firstFrameLoaded, setFirstFrameLoaded] = useState(false);
 
   const steps = [
     {
@@ -31,16 +27,16 @@ export default function WorkflowScrubber() {
       impact: "Process Impact: Eliminates coil set waviness and ensures flat strip alignment before stamping.",
       align: "right",
       start: 0,
-      end: 0.2000, // frame 140 / 700
+      end: 0.16,
     },
     {
       num: "02",
       label: "Precision Stamping",
       desc: "Coils are stamped in progressive or compound dies. Clearances between punch and die are calibrated to 5-10% of material thickness to achieve clean shear edges.",
-      impact: "Process Impact: Maintains mechanical tolerances within ± 0.05 mm and avoids springback deviations.",
+      impact: "Process Impact: Maintains uniform mechanical consistency and prevents springback deviations.",
       align: "left",
-      start: 0.2000,
-      end: 0.3500, // frame 245 / 700
+      start: 0.14,
+      end: 0.30,
     },
     {
       num: "03",
@@ -48,8 +44,8 @@ export default function WorkflowScrubber() {
       desc: "Stamped blanks undergo mechanical deburring and vibratory polishing to smooth sharp edges and remove microscopic slag that can compromise powder adhesion.",
       impact: "Process Impact: Guarantees safe handling edges and prevents premature paint failure on sharp corners.",
       align: "right",
-      start: 0.3500,
-      end: 0.4414, // frame 309 / 700
+      start: 0.28,
+      end: 0.44,
     },
     {
       num: "04",
@@ -57,8 +53,8 @@ export default function WorkflowScrubber() {
       desc: "Parts undergo a multi-stage chemical cleaning, acid pickling, and zinc phosphate hot-dip spray sequence to create a corrosion-resistant crystalline lock layer.",
       impact: "Process Impact: Prepares a high-adhesion chemical base that locks powder paint in place.",
       align: "left",
-      start: 0.4414,
-      end: 0.5900, // frame 413 / 700
+      start: 0.42,
+      end: 0.58,
     },
     {
       num: "05",
@@ -66,8 +62,8 @@ export default function WorkflowScrubber() {
       desc: "Electrostatic spray guns apply epoxy-polyester powder coats uniformly to an 80-micron minimum dry film thickness.",
       impact: "Process Impact: Delivers uniform film thickness and prepares parts for thermal cross-linking.",
       align: "right",
-      start: 0.5900,
-      end: 0.7471, // frame 523 / 700
+      start: 0.56,
+      end: 0.72,
     },
     {
       num: "06",
@@ -75,8 +71,8 @@ export default function WorkflowScrubber() {
       desc: "Coated parts are baked in industrial curing ovens at 200°C for 20 minutes to cross-link the chemical polymers.",
       impact: "Process Impact: Produces a durable weather-resistant chemical barrier resilient to rust.",
       align: "left",
-      start: 0.7471,
-      end: 0.8571, // frame 600 / 700
+      start: 0.70,
+      end: 0.86,
     },
     {
       num: "07",
@@ -84,26 +80,32 @@ export default function WorkflowScrubber() {
       desc: "Final parts are inspected using Coordinate Measuring Machines (CMM) for dimensional checks, and digital DFT gauges to verify powder coat thickness.",
       impact: "Process Impact: Verifies compliance before delivery, issuing official Material Test Certificates.",
       align: "right",
-      start: 0.8571,
-      end: 1.0, // frame 700 / 700 (video frozen at frame 600 for the final 100-frame scroll buffer)
+      start: 0.84,
+      end: 1.0,
     },
   ];
 
-  // Preload frames
+  // Preload frames with immediate 1st frame paint and error fallback
   useEffect(() => {
     let loadedCount = 0;
     const preloadedImages = [];
+
+    const handleSingleLoad = (index) => {
+      loadedCount++;
+      if (index === 0) {
+        setFirstFrameLoaded(true);
+      }
+      if (loadedCount === totalFrames) {
+        setImagesLoaded(true);
+      }
+    };
 
     for (let i = 1; i <= totalFrames; i++) {
       const frameNum = String((i - 1) * 2 + 1).padStart(4, "0");
       const img = new Image();
       img.src = `/images/machinery_frames/frame_${frameNum}.jpg`;
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === totalFrames) {
-          setImagesLoaded(true);
-        }
-      };
+      img.onload = () => handleSingleLoad(i - 1);
+      img.onerror = () => handleSingleLoad(i - 1);
       preloadedImages.push(img);
     }
     imagesRef.current = preloadedImages;
@@ -118,63 +120,43 @@ export default function WorkflowScrubber() {
     }
   }, [imagesLoaded]);
 
-  // Non-linear mapping from scroll progress (0-1) to video frames (1-700 virtual)
+  // Non-linear mapping from scroll progress (0-1) to video frames (1-600)
   const getProgressFrame = (progress) => {
-    const keyframes = [1, 140, 245, 309, 413, 523, 600, 700];
+    const keyframes = [1, 140, 245, 309, 413, 523, 600, 600];
     const position = progress * 6; // segment scale
-    const idx = Math.floor(position);
+    const idx = Math.min(6, Math.floor(position));
     const t = position - idx;
 
     if (idx >= 6) {
-      return keyframes[6] * (1 - (position - 6)) + keyframes[7] * (position - 6);
+      return keyframes[6];
     }
     return keyframes[idx] * (1 - t) + keyframes[idx + 1] * t;
   };
 
-  // Convert scroll progress (0 to 1) to step index (0 to 6)
-  const getStepFromProgress = (p) => {
-    if (p < 0.2000) return 0;
-    if (p < 0.3500) return 1;
-    if (p < 0.4414) return 2;
-    if (p < 0.5900) return 3;
-    if (p < 0.7471) return 4;
-    if (p < 0.8571) return 5;
-    return 6;
-  };
-
   // Camera panning tracking keyframes (maps step focus to video horizontal alignments)
-  // Step sides: 1:Right(0.15) -> 2:Left(0.85) -> 3:Right(0.15) -> 4:Left(0.85) -> 5:Right(0.15) -> 6:Left(0.85) -> 7:Right(0.15)
   const getProgressPan = (p) => {
     const panKeyframes = [0.15, 0.85, 0.15, 0.85, 0.15, 0.85, 0.15];
     const position = p * 6;
-    const idx = Math.floor(position);
+    const idx = Math.min(6, Math.floor(position));
     const t = position - idx;
 
     if (idx >= 6) return panKeyframes[6];
     return panKeyframes[idx] * (1 - t) + panKeyframes[idx + 1] * t;
   };
 
-  const jumpToStep = (idx) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const currentScrollTop = window.scrollY;
-    const containerOffsetTop = currentScrollTop + rect.top;
-    const targetOffset = containerOffsetTop + idx * window.innerHeight;
-    
-    // Set snap scrolling reference targets
-    targetStepRef.current = idx;
-    lastScrollTime.current = Date.now(); // throttle snappy auto-scrolling
-    
+  // Scroll to step helper (direct jump / navigation)
+  const scrollToStep = (index) => {
+    const container = containerRef.current;
+    if (!container) return;
+    const rect = container.getBoundingClientRect();
+    const containerTop = window.scrollY + rect.top;
+    const totalScrollHeight = rect.height - window.innerHeight;
+    const targetScroll = containerTop + (index / 6) * totalScrollHeight;
+
     if (window.lenis) {
-      window.lenis.scrollTo(targetOffset, { 
-        duration: 1.2,
-        force: true
-      });
+      window.lenis.scrollTo(targetScroll, { duration: 1.0 });
     } else {
-      window.scrollTo({ 
-        top: targetOffset, 
-        behavior: "smooth" 
-      });
+      window.scrollTo({ top: targetScroll, behavior: "smooth" });
     }
   };
 
@@ -187,9 +169,9 @@ export default function WorkflowScrubber() {
 
       const width = window.innerWidth;
       const isMobile = width <= 900;
-      const height = isMobile ? window.innerHeight * 0.48 : window.innerHeight;
+      const height = isMobile ? window.innerHeight * 0.5 : window.innerHeight;
 
-      if (Math.abs(canvas.width - width) > 20 || Math.abs(canvas.height - height) > 40) {
+      if (Math.abs(canvas.width - width) > 10 || Math.abs(canvas.height - height) > 20) {
         canvas.width = width;
         canvas.height = height;
       }
@@ -201,21 +183,14 @@ export default function WorkflowScrubber() {
       const progress = Math.max(0, Math.min(1, currentScroll / totalScrollHeight));
 
       setScrollProgress(progress);
-      const stepIndex = getStepFromProgress(progress);
-      setActiveStep(stepIndex);
-
-      // Sync targetStepRef when we are not actively animating a snap scroll
-      if (Date.now() - lastScrollTime.current > 1300) {
-        targetStepRef.current = stepIndex;
-      }
 
       // Update camera panning target fraction
       targetPanFractionRef.current = getProgressPan(progress);
 
-      // Calculate target frame (capping index at 299 to freeze final frame 600 during virtual overrun)
+      // Calculate target frame
       const targetFrameVal = getProgressFrame(progress);
-      const rawFrameIndex = ((targetFrameVal - 1) / 2);
-      targetFrameRef.current = Math.max(0, Math.min(totalFrames - 1, rawFrameIndex));
+      const rawFrameIndex = Math.max(0, Math.min(totalFrames - 1, (targetFrameVal - 1) / 2));
+      targetFrameRef.current = rawFrameIndex;
     };
 
     const renderLoop = () => {
@@ -225,18 +200,18 @@ export default function WorkflowScrubber() {
         return;
       }
 
-      // 1. Snappy LERP damping for video frame progression
+      // 1. LERP damping for video frame progression
       const diff = targetFrameRef.current - currentFrameRef.current;
-      currentFrameRef.current += diff * 0.085;
+      currentFrameRef.current += diff * 0.09;
 
-      // 2. Snappy LERP damping for mobile horizontal panning camera track
+      // 2. LERP damping for horizontal camera panning track
       const panDiff = targetPanFractionRef.current - currentPanFractionRef.current;
-      currentPanFractionRef.current += panDiff * 0.085;
+      currentPanFractionRef.current += panDiff * 0.09;
 
-      const roundedFrame = Math.round(currentFrameRef.current);
-      const activeImg = imagesRef.current[roundedFrame];
+      const roundedFrame = Math.max(0, Math.min(totalFrames - 1, Math.round(currentFrameRef.current)));
+      const activeImg = imagesRef.current[roundedFrame] || imagesRef.current[0];
 
-      if (activeImg && activeImg.complete) {
+      if (activeImg && activeImg.complete && activeImg.naturalWidth > 0) {
         const context = canvas.getContext("2d");
         context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -246,12 +221,12 @@ export default function WorkflowScrubber() {
 
         const width = window.innerWidth;
         const isMobile = width <= 900;
-        const panFraction = isMobile ? currentPanFractionRef.current : 0.5; // Desktop stays centered (0.5)
+        const panFraction = isMobile ? currentPanFractionRef.current : 0.5;
 
         if (imgRatio > canvasRatio) {
           drawHeight = canvas.height;
           drawWidth = canvas.height * imgRatio;
-          offsetX = (canvas.width - drawWidth) * panFraction; // Apply dynamic camera pan
+          offsetX = (canvas.width - drawWidth) * panFraction;
           offsetY = 0;
         } else {
           drawWidth = canvas.width;
@@ -267,129 +242,44 @@ export default function WorkflowScrubber() {
     };
 
     window.addEventListener("scroll", handleScrollAndResize, { passive: true });
-    window.addEventListener("resize", handleScrollAndResize, { passive: true });
-    
-    if (imagesLoaded) {
-      handleScrollAndResize();
-      requestRef.current = requestAnimationFrame(renderLoop);
-    }
+    window.addEventListener("resize", handleScrollAndResize);
+
+    handleScrollAndResize();
+    requestRef.current = requestAnimationFrame(renderLoop);
 
     return () => {
       window.removeEventListener("scroll", handleScrollAndResize);
       window.removeEventListener("resize", handleScrollAndResize);
       cancelAnimationFrame(requestRef.current);
     };
-  }, [imagesLoaded]);
+  }, [firstFrameLoaded]);
 
-  // Intercept wheel/touch scroll to snap directly to steps (mobile & Android friendly)
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleWheel = (e) => {
-      if (!window.lenis) return;
-      const now = Date.now();
-
-      const rect = container.getBoundingClientRect();
-      const currentScrollTop = window.scrollY;
-      const containerOffsetTop = currentScrollTop + rect.top;
-
-      if (rect.top <= 10 && rect.bottom >= window.innerHeight - 10) {
-        if (now - lastScrollTime.current < 1300) {
-          e.preventDefault();
-          return;
-        }
-
-        const direction = e.deltaY > 0 ? 1 : -1;
-        const nextStep = targetStepRef.current + direction;
-
-        // Snapping within the boundaries of the 7 steps
-        if (nextStep >= 0 && nextStep <= 6) {
-          e.preventDefault();
-          lastScrollTime.current = now;
-          targetStepRef.current = nextStep;
-          
-          const stepHeight = window.innerHeight;
-          const targetOffset = containerOffsetTop + nextStep * stepHeight;
-          
-          window.lenis.scrollTo(targetOffset, { 
-            duration: 1.2,
-            force: true
-          });
-        }
-      }
-    };
-
-    // Touch event interceptors for mobile (Android & iOS)
-    const handleTouchStart = (e) => {
-      touchStartYRef.current = e.touches[0].pageY;
-    };
-
-    const handleTouchMove = (e) => {
-      if (!window.lenis) return;
-      const now = Date.now();
-
-      const rect = container.getBoundingClientRect();
-      const currentScrollTop = window.scrollY;
-      const containerOffsetTop = currentScrollTop + rect.top;
-
-      if (rect.top <= 10 && rect.bottom >= window.innerHeight - 10) {
-        const touchY = e.touches[0].pageY;
-        const diffY = touchStartYRef.current - touchY;
-
-        if (Math.abs(diffY) > 40) { // Swipe threshold
-          if (now - lastScrollTime.current < 1300) {
-            e.preventDefault();
-            return;
-          }
-
-          const direction = diffY > 0 ? 1 : -1; // swipe up = scroll down, swipe down = scroll up
-          const nextStep = targetStepRef.current + direction;
-
-          if (nextStep >= 0 && nextStep <= 6) {
-            e.preventDefault();
-            lastScrollTime.current = now;
-            targetStepRef.current = nextStep;
-
-            const stepHeight = window.innerHeight;
-            const targetOffset = containerOffsetTop + nextStep * stepHeight;
-
-            window.lenis.scrollTo(targetOffset, {
-              duration: 1.2,
-              force: true
-            });
-          }
-        }
-      }
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    container.addEventListener("touchstart", handleTouchStart, { passive: true });
-    container.addEventListener("touchmove", handleTouchMove, { passive: false });
-
-    return () => {
-      container.removeEventListener("wheel", handleWheel);
-      container.removeEventListener("touchstart", handleTouchStart);
-      container.removeEventListener("touchmove", handleTouchMove);
-    };
-  }, [scrollProgress]);
-
-  // Compute text card opacity & transform transitions
+  // Compute text card opacity & transform with a solid middle reading plateau
   const getBlockStyles = (start, end) => {
     const range = end - start;
-    const center = start + range / 2;
-    const dist = Math.abs(scrollProgress - center);
-    const maxDist = range / 2;
+    const margin = range * 0.22; // 22% transition zone at each end
+    let opacity = 0;
 
-    const opacity = Math.max(0, 1 - dist / maxDist);
-    const translateY = (1 - opacity) * 18; // smooth slide translation
+    if (scrollProgress >= start && scrollProgress <= end) {
+      if (scrollProgress < start + margin) {
+        opacity = (scrollProgress - start) / margin;
+      } else if (scrollProgress > end - margin) {
+        opacity = (end - scrollProgress) / margin;
+      } else {
+        opacity = 1; // Solid reading plateau
+      }
+    }
+
+    const translateY = (1 - opacity) * 16;
 
     return {
       opacity,
-      transform: `translateY(${translateY}px)`,
-      pointerEvents: opacity > 0.1 ? "auto" : "none",
+      "--slide-y": `${translateY}px`,
+      pointerEvents: opacity > 0.2 ? "auto" : "none",
     };
   };
+
+  const activeStepIdx = Math.min(6, Math.max(0, Math.floor(scrollProgress * 7)));
 
   return (
     <div ref={containerRef} className={styles.scrubberSection}>
@@ -397,27 +287,31 @@ export default function WorkflowScrubber() {
         {/* Scrubber Canvas Background */}
         <canvas ref={canvasRef} className={styles.canvas} />
 
-        {/* Dynamic Dark Gradients to Blend Sections */}
+        {/* Ambient Gradients for Smooth Transitions */}
         <div className={styles.topGradient} />
         <div className={styles.bottomGradient} />
 
-
+        {/* Interactive Step Navigator */}
+        <nav className={styles.stepNav} aria-label="Process Steps">
+          {steps.map((step, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => scrollToStep(idx)}
+              className={`${styles.stepNavBtn} ${activeStepIdx === idx ? styles.stepNavBtnActive : ""}`}
+              title={`Jump to Step ${step.num}: ${step.label}`}
+            >
+              <span className={styles.stepNavNum}>{step.num}</span>
+              <span className={styles.stepNavLabel}>{step.label}</span>
+            </button>
+          ))}
+        </nav>
 
         {/* Scroll to Explore Prompt */}
         <ScrollPrompt scrollProgress={scrollProgress} theme="dark" />
 
         {/* Text Overlays depending on scroll position */}
         <div className={`container ${styles.overlay}`}>
-          {scrollProgress < 0.03 && (
-            <div className={styles.flowPrompt}>
-              <span className={styles.flowPromptLabel}>Interactive Simulation</span>
-              <h4 className={styles.flowPromptTitle}>See Our Flow Simulation</h4>
-              <p className={styles.flowPromptText}>
-                Workflow related scroll to start. Explore our integrated metal stamping & powder coating phases.
-              </p>
-            </div>
-          )}
-
           {steps.map((step, idx) => (
             <div
               key={idx}
@@ -425,15 +319,18 @@ export default function WorkflowScrubber() {
               style={getBlockStyles(step.start, step.end)}
             >
               <div className={styles.stepCard}>
-                <h3 className={styles.stepLabel}>{step.label}</h3>
-                <span className={styles.stepNum}>{step.num}</span>
+                <div className={styles.stepHeader}>
+                  <span className={styles.stepNum}>{step.num}</span>
+                  <h3 className={styles.stepLabel}>{step.label}</h3>
+                </div>
                 <p className={styles.stepDesc}>{step.desc}</p>
-                <p className={styles.stepImpact}>{step.impact}</p>
+                <div className={styles.stepImpactBadge}>
+                  <p className={styles.stepImpact}>{step.impact}</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );

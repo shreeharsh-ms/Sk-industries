@@ -19,7 +19,7 @@ export default function ValueProps() {
           Precision Metal Stamping
         </span>
       ),
-      desc: "High-tolerance progressive die and compound press stampings for automotive, electrical, and audio components with flatness tolerances strictly controlled to ±0.05 mm.",
+      desc: "Precision progressive die and compound press stampings for automotive, electrical, and audio components with guaranteed flatness and clean burr-free edges.",
       image: "/images/progressive_die_parts.png",
       alt: "Precision stamped brackets and die press components",
       cta: (
@@ -66,43 +66,13 @@ export default function ValueProps() {
     },
   ];
 
+  // Auto-advance through steps every 7 seconds, pausing on hover/click
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionHeight = rect.height;
-      const windowHeight = window.innerHeight;
-
-      // scrollTop is how much of the section has scrolled past the top of the viewport
-      const scrollTop = -rect.top;
-      const totalScrollable = sectionHeight - windowHeight;
-
-      if (totalScrollable <= 0) return;
-
-      let progress = scrollTop / totalScrollable;
-      // Clamp progress between 0 and 1
-      progress = Math.max(0, Math.min(1, progress));
-
-      // Map progress to steps
-      let stepIndex = 0;
-      if (progress < 0.35) {
-        stepIndex = 0;
-      } else if (progress < 0.7) {
-        stepIndex = 1;
-      } else {
-        stepIndex = 2;
-      }
-
-      setActiveStep(stepIndex);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    const timer = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % steps.length);
+    }, 7000);
+    return () => clearInterval(timer);
+  }, [steps.length]);
 
   return (
     <div ref={sectionRef} className={styles.pinSection}>
@@ -146,6 +116,10 @@ export default function ValueProps() {
                   <div
                     key={idx}
                     className={`${styles.stepBlock} ${isActive ? styles.activeBlock : ""}`}
+                    onClick={() => setActiveStep(idx)}
+                    role="button"
+                    tabIndex={0}
+                    style={{ cursor: "pointer" }}
                   >
                     <div className={styles.blockHeader}>
                       <div className={`${styles.iconCircle} ${isActive ? styles.activeIconCircle : ""}`}>
@@ -175,9 +149,9 @@ export default function ValueProps() {
                         <div className={styles.specGrid}>
                           <div className={styles.specItem}>
                             <span className={styles.specValue}>
-                              <AnimatedCounter value="± 0.05 mm" />
+                              <AnimatedCounter value="100%" />
                             </span>
-                            <span className={styles.specLabel}>Coining Tolerance</span>
+                            <span className={styles.specLabel}>Dimensional Inspection</span>
                           </div>
                           <div className={styles.specItem}>
                             <span className={styles.specValue}>

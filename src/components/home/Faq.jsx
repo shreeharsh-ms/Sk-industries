@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
-import SectionHeading from "../ui/SectionHeading";
-import Button from "../ui/Button";
 import styles from "./Faq.module.css";
 
 export default function Faq() {
@@ -10,11 +8,11 @@ export default function Faq() {
   const faqs = [
     {
       q: "What sheet materials do you process?",
-      a: "We process Mild Steel (CRCA), Stainless Steel, Aluminum, and Brass from 0.5mm up to 6.0mm thickness, sourced directly from certified steel mills.",
+      a: "We process Mild Steel (CRCA), Stainless Steel, Aluminum, and Brass from 0.5mm up to 6.0mm thickness, sourced directly from premier steel mills.",
     },
     {
-      q: "What is your coining and stamping tolerance?",
-      a: "We maintain tolerances down to ± 0.05 mm for coining and progressive tooling consolidation, ensuring high-repeatability fits.",
+      q: "How do you ensure accuracy in coining and stamping?",
+      a: "We utilize custom progressive dies, precision tooling consolidation, and first-article metrology inspections, ensuring high-repeatability fits across high-volume production runs.",
     },
     {
       q: "Do you handle progressive die design in-house?",

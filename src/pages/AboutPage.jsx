@@ -2,7 +2,6 @@ import React from "react";
 import AboutHero from "../components/about/AboutHero";
 import CorporateProfile from "../components/about/CorporateProfile";
 import CapabilitiesData from "../components/about/CapabilitiesData";
-import CertificationBanner from "../components/about/CertificationBanner";
 import FacilityGallery from "../components/about/FacilityGallery";
 import useDocumentMetadata from "../hooks/useDocumentMetadata";
 
@@ -21,11 +20,8 @@ export default function AboutPage() {
       {/* Profile & Vital Specifications */}
       <CorporateProfile />
       
-      {/* Machinery Inventory & Tolerances Tables */}
+      {/* Machinery Inventory & Quality Capabilities Tables */}
       <CapabilitiesData />
-      
-      {/* Certifications and Badges */}
-      <CertificationBanner />
       
       {/* Facility Operations Gallery */}
       <FacilityGallery />

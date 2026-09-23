@@ -1,16 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  Award, 
-  FileCheck, 
-  FileText, 
-  ClipboardCheck, 
-  Leaf 
-} from "lucide-react";
-import Button from "../ui/Button";
+import { ArrowRight } from "lucide-react";
 import AnimatedCounter from "../ui/AnimatedCounter";
 import styles from "./CoreCapabilities.module.css";
 
@@ -18,59 +9,51 @@ export default function CoreCapabilities() {
   const stats = [
     { value: "20+ Years", label: "Industry Presence" },
     { value: "500k+", label: "Stamped Parts Annually" },
-    { value: "±0.05mm", label: "Coining Tolerance limits" },
+    { value: "100%", label: "First-Article Inspection" },
     { value: "99.8%", label: "Quality Acceptance rate" },
   ];
 
-  const logoCompliance = [
-    { 
-      name: "QA Certified", 
-      desc: "Quality Systems",
-      icon: <Award size={34} />
-    },
-    { 
-      name: "PPAP Compliant", 
-      desc: "Automotive Audits",
-      icon: <FileCheck size={34} />
-    },
-    { 
-      name: "ASTM Standards", 
-      desc: "Material Testing",
-      icon: <FileText size={34} />
-    },
-    { 
-      name: "FAI Audited", 
-      desc: "First Article Checks",
-      icon: <ClipboardCheck size={34} />
-    },
-    { 
-      name: "RoHS Compliant", 
-      desc: "Green Coatings",
-      icon: <Leaf size={34} />
-    },
-  ];
 
   const catalogItems = [
     {
-      title: "Rolling Shutter Locks",
-      desc: "Double-lock cylinder systems.",
-      count: "100k+ Parts Run",
-      image: "/images/rolling_shutter_lock.png",
-      link: "/products/rolling-shutter-locks",
+      title: "Ballast Cabinets",
+      tag: "Lighting Enclosure",
+      desc: "Louvered CRCA driver enclosures.",
+      count: "75k+ Run",
+      image: "/images/ballast_cabinet_finished.png",
+      link: "/products/ballast-cabinets",
     },
     {
       title: "EV Enclosures",
+      tag: "Weatherproof IP65",
       desc: "NEMA-rated charging boxes.",
-      count: "50k+ Parts Run",
+      count: "50k+ Run",
       image: "/images/ev_charger_enclosure_finished.png",
       link: "/products/ev-charger-enclosures",
     },
     {
+      title: "Speaker Magnet Plates",
+      tag: "Acoustic Components",
+      desc: "Pole pieces & integrated coating.",
+      count: "250k+ Run",
+      image: "/images/speaker_magnet_parts_stack.png",
+      link: "/products/speaker-magnet-plates-powder-coating",
+    },
+    {
       title: "Custom Die Press",
+      tag: "Progressive Tooling",
       desc: "High-tonnage progressive stampings.",
-      count: "500k+ Parts Run",
+      count: "500k+ Run",
       image: "/images/progressive_die_parts.png",
       link: "/services/custom-die-press-electrical-parts",
+    },
+    {
+      title: "Rolling Shutter Locks",
+      tag: "Security Hardware",
+      desc: "Heavy-duty HR steel lock sets.",
+      count: "100k+ Run",
+      image: "/images/rolling_shutter_lock.png",
+      link: "/products/rolling-shutter-locks",
     },
   ];
 
@@ -120,81 +103,72 @@ export default function CoreCapabilities() {
           </div>
         </motion.div>
 
-        {/* Logo/Compliance Strip with large vertical stacked icons */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={scrollReveal}
-          className={styles.logoStrip}
-        >
-          {logoCompliance.map((logo, idx) => (
-            <div key={idx} className={styles.logoItem}>
-              <div className={styles.complianceIconCircle}>
-                {logo.icon}
-              </div>
-              <span className={styles.logoName}>{logo.name}</span>
-              <span className={styles.logoDesc}>{logo.desc}</span>
-            </div>
-          ))}
-        </motion.div>
 
 
-        {/* ================= BLOCK 2: CATALOG OF OBJECTS ================= */}
-        <div className={styles.catalogBlock}>
-          {/* Left Column: Title Description */}
+        {/* ================= BLOCK 2: CATALOG OF PRODUCTS ================= */}
+        <div className={styles.catalogSection}>
+          {/* Full-Width Header */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={scrollReveal}
-            className={styles.catalogLeft}
+            className={styles.catalogHeader}
           >
-            <span className={styles.catalogEyebrow}>Specialties & Range</span>
-            <h2 className={styles.catalogHeading}>
-              Catalog of <br /> Products
-            </h2>
-            <p className={styles.catalogText}>
-              Explore our core product ranges engineered to custom engineering drawings. 
-              We handle batches from prototype tooling to full-volume production runs.
-            </p>
+            <div className={styles.catalogHeaderLeft}>
+              <span className={styles.catalogEyebrow}>Specialties &amp; Range</span>
+              <h2 className={styles.catalogHeading}>Catalog of Products</h2>
+              <p className={styles.catalogText}>
+                Explore our core product ranges engineered to custom engineering drawings. 
+                We handle batches from prototype tooling to full-volume single-roof production runs.
+              </p>
+            </div>
+
+            <Link to="/rfq-portal" className={styles.catalogActionBtn}>
+              <span>Request Technical RFQ</span>
+              <ArrowRight size={15} />
+            </Link>
           </motion.div>
 
-          {/* Right Column: 3 rounded image-cards */}
-          <div className={styles.catalogRight}>
-            <div className={styles.cardsRow}>
-              {catalogItems.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  variants={scrollReveal}
-                  className={styles.catalogCard}
-                >
-                  <Link to={item.link} className={styles.cardLink}>
-                    <div className={styles.imageWrapper}>
-                      <img src={item.image} alt={item.title} className={styles.cardImage} />
-                    </div>
-                    <div className={styles.cardInfo}>
-                      <h4 className={styles.cardTitle}>{item.title}</h4>
-                      <p className={styles.cardDesc}>{item.desc}</p>
-                      <span className={styles.cardCount}>{item.count}</span>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+          {/* 5-Card Responsive Grid */}
+          <div className={styles.cardsGrid}>
+            {catalogItems.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                variants={{
+                  hidden: { opacity: 0, y: 25 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    transition: { duration: 0.5, delay: idx * 0.08, ease: "easeOut" } 
+                  },
+                }}
+                className={styles.catalogCard}
+              >
+                <Link to={item.link} className={styles.cardLink}>
+                  <div className={styles.cardHeaderInfo}>
+                    <span className={styles.cardTag}>{item.tag}</span>
+                    <span className={styles.cardCount}>{item.count}</span>
+                  </div>
 
-            {/* Slider next/prev control triggers (mockup placement) */}
-            <div className={styles.controlRow}>
-              <button className={styles.controlBtn} aria-label="Previous page">
-                <ChevronLeft size={20} />
-              </button>
-              <button className={styles.controlBtn} aria-label="Next page">
-                <ChevronRight size={20} />
-              </button>
-            </div>
+                  <div className={styles.imageWrapper}>
+                    <img src={item.image} alt={item.title} className={styles.cardImage} />
+                  </div>
+
+                  <div className={styles.cardInfo}>
+                    <h4 className={styles.cardTitle}>{item.title}</h4>
+                    <p className={styles.cardDesc}>{item.desc}</p>
+                    <span className={styles.cardCta}>
+                      <span>Explore Specs</span>
+                      <ArrowRight size={13} className={styles.ctaArrow} />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
 

@@ -12,15 +12,15 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 5 0 obj
-<< /Length 1063 >>
+<< /Length 1214 >>
 stream
 BT
 /F1 20 Tf
 50 730 Td
-(TECHNICAL SPEC SHEET - EV CHARGER ENCLOSURES) Tj
+(TECHNICAL SPEC SHEET - BALLAST CABINETS & DRIVER BOXES) Tj
 /F1 12 Tf
 0 -30 Td
-(NEMA 3R / IP65 Weatherproof Sheet Metal Charger Enclosures) Tj
+(Ventilated CRCA Sheet Metal Cabinets for Industrial Lighting Ballasts and Drivers) Tj
 0 -25 Td
 (Facility: Tiny Industrial Estate, Kondhwa Budruk, Pune - 411048, Maharashtra, India) Tj
 0 -20 Td
@@ -30,15 +30,17 @@ BT
 (TECHNICAL SPECIFICATIONS & PROCESS PARAMETERS:) Tj
 /F1 11 Tf
 0 -22 Td
-(  *  Fabrication: CNC laser blanking, CNC press brake bending, and robotic seam welding.) Tj
+(  *  Material: 1.0 mm to 2.0 mm \(16-20 Gauge\) Cold Rolled Close Annealed \(CRCA\) Mild Steel.) Tj
 0 -22 Td
-(  *  Material: 1.6mm to 2.5mm cold rolled steel or structural marine-grade 5052 aluminum.) Tj
+(  *  Thermal Dissipation: Stamped louvers on side panels promoting natural convective air exchange.) Tj
 0 -22 Td
-(  *  Surface Treatment: Zinc phosphate pre-treatment followed by UV-stable architectural polyester powder.) Tj
+(  *  Surface Finishing: 80-micron electrostatic epoxy-polyester powder coat over 7-tank zinc phosphating.) Tj
 0 -22 Td
-(  *  Weatherproofing: Seamless polyurethane foaming gasket groove delivering IP65 sealing.) Tj
+(  *  Electrical Grounding: Welded M10 copper/brass earthing post with star washer for safety.) Tj
 0 -22 Td
-(  *  Internal Features: Integrated DIN rail standoffs, ventilation louvers, and copper earth studs.) Tj
+(  *  Cable Management: Pre-punched metric and PG cable gland knockouts on top and bottom plates.) Tj
+0 -22 Td
+(  *  Mounting Design: Integrated wall mounting bracket flanges with keyhole drop slots.) Tj
 0 -40 Td
 /F1 10 Tf
 (Quality Compliance: ISO 9001:2015 Standards | Raw Material Mill Certificates Supplied) Tj
@@ -56,5 +58,5 @@ xref
 trailer
 << /Size 6 /Root 1 0 R >>
 startxref
-1426
+1577
 %%EOF

@@ -98,11 +98,11 @@ a {
 }
 
 .section-padding {
-  padding-block: var(--space-9);
+  padding-block: var(--section-gap, 1.5cm);
 }
 
 .section-padding--tight {
-  padding-block: var(--space-7);
+  padding-block: calc(var(--section-gap, 1.5cm) * 0.6);
 }
 
 /* === SURFACE UTILITIES === */

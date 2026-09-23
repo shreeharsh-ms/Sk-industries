@@ -70,7 +70,7 @@ export default function SpeakerMagnetPlatesPage() {
             </p>
 
             <div className={diagramStyles.stampRow}>
-              <SpecStamp value="± 0.05 mm" label="Flatness Spec" accent="orange" size="md" />
+              <SpecStamp value="High Precision" label="Flatness Quality" accent="orange" size="md" />
               <SpecStamp value="JIS S10C" label="Low-Carbon Steel" accent="orange" size="md" />
             </div>
 

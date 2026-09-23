@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, Lock, Disc, BatteryCharging, Wrench, ArrowRight, Paintbrush } from "lucide-react";
+import { ChevronDown, Lock, Disc, BatteryCharging, Wrench, ArrowRight, Box } from "lucide-react";
 import styles from "./NavDropdown.module.css";
 
 export default function NavDropdown({ onToggleOpen }) {
@@ -17,22 +17,13 @@ export default function NavDropdown({ onToggleOpen }) {
 
   const products = [
     {
-      name: "Rolling Shutter Locks",
-      desc: "Dual-sided security locking hardware sets",
-      path: "/products/rolling-shutter-locks",
-      icon: <Lock size={18} />,
-      image: "/images/rolling_shutter_lock.png",
-      details: "High-security lock sets blanked from 10-gauge steel, featuring five security levers and double-locking bolts to secure commercial storefronts and warehouses.",
-      specs: ["10-Gauge Mild Steel", "50,000 Cycle Life", "3,500 Key Combos"]
-    },
-    {
-      name: "Speaker Magnet Plates",
-      desc: "Precision transducer pole piece plates",
-      path: "/products/speaker-magnet-plates",
-      icon: <Disc size={18} />,
-      image: "/images/speaker_magnet_parts_stack.png",
-      details: "Top and bottom pole plates stamped with thickness tolerances within ±0.05 mm, maximizing magnetic permeability and voice coil gap flux focus.",
-      specs: ["AISI 1010 Low-Carbon", "± 0.05 mm Flatness", "Blue Zinc Plating"]
+      name: "Ballast Cabinet",
+      desc: "Louvered CRCA driver boxes & enclosures",
+      path: "/products/ballast-cabinets",
+      icon: <Box size={18} />,
+      image: "/images/ballast_cabinet_finished.png",
+      details: "Heavy-duty CRCA sheet metal cabinets engineered with progressive stamped convective louvers, DIN rail mounting, and integrated earthing bosses for commercial lighting ballasts.",
+      specs: ["CRCA Steel", "Convective Louvers", "IP40 / IP54 Rated"]
     },
     {
       name: "EV Charger Enclosures",
@@ -44,22 +35,31 @@ export default function NavDropdown({ onToggleOpen }) {
       specs: ["14-Gauge Steel / SS", "IP66 Water Jet Tested", "IK10 Impact Rating"]
     },
     {
+      name: "Speaker Magnet Plates & Powder Coating",
+      desc: "Precision pole pieces with unified 7-tank coating",
+      path: "/products/speaker-magnet-plates-powder-coating",
+      icon: <Disc size={18} />,
+      image: "/images/speaker_magnet_parts_stack.png",
+      details: "Low-carbon steel pole pieces, T-yokes, and front plates blanked for high-fidelity acoustic alignment, directly finished in our in-house 7-tank powder coating line under one roof.",
+      specs: ["1.5 - 6.0 mm Steel", "Precision Flatness", "80-120 μm Powder Coat"]
+    },
+    {
       name: "Custom Die Press",
       desc: "Precision custom die press stampings & brackets",
       path: "/services/custom-die-press-electrical-parts",
       icon: <Wrench size={18} />,
       image: "/images/progressive_die_parts.png",
-      details: "High-precision coined terminal connectors, brackets, and copper busbars punched with hole spacing tolerances within ±0.05 mm.",
-      specs: ["Copper / Brass / Steel", "± 0.20° Bend Precision", "Tin / Silver Plated"]
+      details: "High-precision coined terminal connectors, brackets, and copper busbars punched for exact alignment and seamless site assembly.",
+      specs: ["Copper / Brass / Steel", "Precision Bending", "Tin / Silver Plated"]
     },
     {
-      name: "Industrial Powder Coating",
-      desc: "Electrostatic epoxy-polyester coatings",
-      path: "/services/industrial-powder-coating",
-      icon: <Paintbrush size={18} />,
-      image: "/images/powder_coating_line.png",
-      details: "Electrostatic powder spray application with multi-stage pre-treatment tunnels and high-temperature curing ovens for wear-resistant outdoor components.",
-      specs: ["80 - 120 μm Thickness", "1000hr Salt Spray Test", "ASTM D3359 Adhesion"]
+      name: "Rolling Shutter Locks",
+      desc: "Dual-sided security locking hardware sets",
+      path: "/products/rolling-shutter-locks",
+      icon: <Lock size={18} />,
+      image: "/images/rolling_shutter_lock.png",
+      details: "High-security lock sets blanked from heavy-duty HR steel, featuring five security levers and double-locking bolts to secure commercial storefronts and warehouses.",
+      specs: ["HR Steel Material", "50,000 Cycle Life", "1\" to 21\" Range"]
     },
   ];
 

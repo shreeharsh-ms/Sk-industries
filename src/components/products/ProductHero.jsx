@@ -1,12 +1,10 @@
 import React from "react";
-import Button from "../ui/Button";
 import styles from "./ProductHero.module.css";
 
 export default function ProductHero({
   name,
   desc,
   audience,
-  specSheetPdf,
   accent = "orange",
   image,
   bgImage, // Added bgImage prop
@@ -35,10 +33,9 @@ export default function ProductHero({
               <span className={styles.metaText}>{audience}</span>
             </div>
             <div>
-              <span className={styles.metaTitle}>Documentation Provided</span>
+              <span className={styles.metaTitle}>Doorstep Delivery</span>
               <span className={styles.metaText}>
-                Material Test Certificates (MTC) and dimensional inspection reports
-                shipped standard with all production runs.
+                Reliable doorstep delivery and managed dispatch directly to your facility or plant, ensuring safe transit and on-time fulfillment for all production batches.
               </span>
             </div>
           </div>

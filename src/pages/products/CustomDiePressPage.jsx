@@ -55,7 +55,7 @@ export default function CustomDiePressPage() {
             </p>
 
             <div className={diagramStyles.stampRow}>
-              <SpecStamp value="± 0.05 mm" label="Hole Spacing" accent="orange" size="md" />
+              <SpecStamp value="High Accuracy" label="Hole Alignment" accent="orange" size="md" />
               <SpecStamp value="Tin Plated" label="Conduct Coating" accent="teal" size="md" />
             </div>
 
@@ -96,7 +96,7 @@ export default function CustomDiePressPage() {
                 <span className={diagramStyles.cardLabel}>METROLOGY // SPEC_05</span>
                 <h4 className={diagramStyles.cardTitle}>HOLE SPACING ACCURACY</h4>
                 <p className={diagramStyles.cardDesc}>
-                  Hole center spacing held within a strict ±0.05mm tolerance limit for seamless site assembly.
+                  Hole center spacing stamped with high accuracy for seamless site assembly and exact fastener alignment.
                 </p>
               </div>
             </div>

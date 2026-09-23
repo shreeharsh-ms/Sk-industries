@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Lock, Disc, BatteryCharging, Wrench, ChevronRight, Paintbrush } from "lucide-react";
+import { Lock, Disc, BatteryCharging, Wrench, ChevronRight, Box } from "lucide-react";
 import styles from "./MobileNav.module.css";
 
 export default function MobileNav({ onClose }) {
@@ -9,14 +9,9 @@ export default function MobileNav({ onClose }) {
 
   const products = [
     {
-      name: "Rolling Shutter Locks",
-      path: "/products/rolling-shutter-locks",
-      icon: <Lock size={14} />,
-    },
-    {
-      name: "Speaker Magnet Plates",
-      path: "/products/speaker-magnet-plates",
-      icon: <Disc size={14} />,
+      name: "Ballast Cabinet",
+      path: "/products/ballast-cabinets",
+      icon: <Box size={14} />,
     },
     {
       name: "EV Charger Enclosures",
@@ -24,14 +19,19 @@ export default function MobileNav({ onClose }) {
       icon: <BatteryCharging size={14} />,
     },
     {
+      name: "Speaker Magnet Plates & Powder Coating",
+      path: "/products/speaker-magnet-plates-powder-coating",
+      icon: <Disc size={14} />,
+    },
+    {
       name: "Custom Die Press",
       path: "/services/custom-die-press-electrical-parts",
       icon: <Wrench size={14} />,
     },
     {
-      name: "Industrial Powder Coating",
-      path: "/services/industrial-powder-coating",
-      icon: <Paintbrush size={14} />,
+      name: "Rolling Shutter Locks",
+      path: "/products/rolling-shutter-locks",
+      icon: <Lock size={14} />,
     },
   ];
 

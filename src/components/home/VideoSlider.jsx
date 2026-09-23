@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Volume2, VolumeX } from "lucide-react";
 import styles from "./VideoSlider.module.css";
 
 const videoSlides = [
@@ -83,18 +83,13 @@ function VideoCard({ slide, index }) {
           autoPlay
         />
         
-        {/* Dark Editorial Overlay */}
+        {/* Top Header Overlay with Tag and Mute */}
         <div className={styles.cardOverlay}>
           <div className={styles.cardHeader}>
             <span className={styles.stepTag}>0{index + 1}</span>
             <button onClick={toggleMute} className={styles.muteBtn} title={isMuted ? "Unmute" : "Mute"}>
               {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
             </button>
-          </div>
-
-          <div className={styles.cardFooter}>
-            <h3 className={styles.cardTitle}>{slide.title}</h3>
-            <p className={styles.cardDesc}>{slide.desc}</p>
           </div>
         </div>
 

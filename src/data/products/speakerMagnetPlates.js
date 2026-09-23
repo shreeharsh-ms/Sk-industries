@@ -5,8 +5,8 @@ export default {
   application: "Precision stamped top and bottom pole plates optimized for high magnetic permeability and clean flux distribution.",
   specs: [
     { label: "Material", value: "Low-Carbon Steel (e.g. JIS S10C / AISI 1010)" },
-    { label: "Thickness Range", value: "4.0 mm to 8.0 mm plate blanking" },
-    { label: "Flatness Tolerance", value: "Within ± 0.05 mm (critical voice coil gap alignment)" },
+    { label: "Thickness Range", value: "5.0 mm to 6.0 mm plate blanking" },
+    { label: "Flatness Quality", value: "Precision flattened for voice coil air gap alignment" },
     { label: "Finish Coating", value: "Trivalent Blue Zinc Plating or Zinc Phosphate base" },
   ],
   whatWeAdd: [
@@ -22,10 +22,10 @@ export default {
     {
       node: "NODE_02",
       title: "FLATNESS CONTROL",
-      body: "Advanced flatting operations control thickness within ± 0.05 mm.",
+      body: "Advanced flattening operations ensure uniform plate thickness throughout.",
       detail: "Eliminates voice coil gap variance, preventing friction during high excursions.",
-      statValue: "± 0.05 mm",
-      statLabel: "FLATNESS DEV",
+      statValue: "100%",
+      statLabel: "FLATNESS ASSURANCE",
       image: "/images/powder_coating_line.png"
     },
     {

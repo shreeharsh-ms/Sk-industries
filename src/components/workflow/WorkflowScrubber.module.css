@@ -1,6 +1,6 @@
 .scrubberSection {
   position: relative;
-  height: 600vh; /* 7 steps, 600vh scroll height */
+  height: 520vh;
   width: 100%;
 }
 
@@ -10,6 +10,7 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  background-color: #0b0e11;
 }
 
 .canvas {
@@ -28,9 +29,10 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 100px;
   background: linear-gradient(to bottom, var(--color-white) 0%, transparent 100%);
   z-index: 2;
+  pointer-events: none;
 }
 
 .bottomGradient {
@@ -38,9 +40,100 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 100px;
   background: linear-gradient(to top, var(--color-white) 0%, transparent 100%);
   z-index: 2;
+  pointer-events: none;
+}
+
+/* Interactive Floating Step Navigator */
+.stepNav {
+  position: absolute;
+  right: var(--space-5);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 12;
+  pointer-events: auto;
+}
+
+.stepNavBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 18, 22, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  color: var(--color-steel-200);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.stepNavBtn:hover {
+  background: rgba(224, 86, 36, 0.22);
+  border-color: var(--color-accent-primary);
+  color: var(--color-white);
+  transform: translateX(-4px);
+}
+
+.stepNavBtnActive {
+  background: var(--color-accent-primary) !important;
+  border-color: var(--color-accent-primary) !important;
+  color: var(--color-white) !important;
+  box-shadow: 0 0 16px rgba(224, 86, 36, 0.45) !important;
+  transform: translateX(-4px);
+}
+
+.stepNavNum {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+.stepNavLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 1080px) {
+  .stepNavLabel {
+    display: none;
+  }
+  .stepNavBtn {
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .stepNav {
+    position: absolute;
+    top: auto;
+    bottom: 12px;
+    right: 50%;
+    transform: translateX(50%);
+    flex-direction: row;
+    gap: 6px;
+    z-index: 12;
+  }
+  .stepNavLabel {
+    display: none;
+  }
+  .stepNavBtn {
+    padding: 4px 8px;
+    font-size: 0.65rem;
+    background: rgba(14, 18, 22, 0.75);
+  }
 }
 
 /* Centered content overlay container */
@@ -53,255 +146,181 @@
   height: 100%;
   display: flex;
   align-items: center;
-  z-index: 3;
-  pointer-events: none; /* Let scroll pass through to document */
+  z-index: 5;
+  pointer-events: none;
 }
 
 /* Side alignment styling */
 .leftGroup {
   position: absolute;
-  left: var(--space-5);
-  width: 45%;
-  pointer-events: auto;
+  left: var(--space-6);
+  width: 44%;
+  max-width: 540px;
   display: flex;
   flex-direction: column;
+  transform: translateY(var(--slide-y, 0px));
+  transition: opacity 0.2s ease-out;
   will-change: transform, opacity;
 }
 
 .rightGroup {
   position: absolute;
-  right: var(--space-5);
-  width: 45%;
-  pointer-events: auto;
+  right: var(--space-6);
+  width: 44%;
+  max-width: 540px;
   display: flex;
   flex-direction: column;
+  transform: translateY(var(--slide-y, 0px));
+  transition: opacity 0.2s ease-out;
   will-change: transform, opacity;
 }
 
-@media (max-width: 900px) {
-  .stickyContainer {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100vh !important;
-    justify-content: flex-start !important;
-    background-color: #c1c7c9 !important; /* User-requested exact cool-grey match */
-  }
-
-  .canvas {
-    position: relative !important; /* Stack Canvas relative in flexbox flow */
-    height: 48vh !important;
-    width: 100% !important;
-    object-fit: cover !important;
-    flex-shrink: 0 !important;
-    z-index: 1 !important;
-  }
-
-  .topGradient, .bottomGradient {
-    display: none !important; /* Hide overlays on mobile to prevent color mismatch */
-  }
-
-  .overlay {
-    position: relative !important; /* Stack Overlay relative in flexbox flow */
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    height: 52vh !important;
-    width: 100% !important;
-    background-color: #c1c7c9 !important; /* User-requested exact cool-grey match */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 3 !important;
-    padding: var(--space-5) !important;
-  }
-
-  .leftGroup, .rightGroup {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 90% !important;
-    max-width: 480px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  .stepCard {
-    max-width: 100% !important;
-    text-align: center !important;
-    align-items: center !important;
-    color: var(--color-text-primary) !important; /* Clear black text on white background */
-    text-shadow: none !important; /* No text-shadow needed on solid white */
-  }
-
-  .stepLabel {
-    font-size: clamp(1.8rem, 8vw, 2.4rem) !important;
-    text-align: center !important;
-    color: var(--color-text-primary) !important;
-    text-shadow: none !important;
-  }
-
-  .stepNum {
-    font-size: 1.15rem !important;
-    color: var(--color-text-primary) !important;
-    opacity: 0.65 !important;
-    text-shadow: none !important;
-  }
-
-  .stepDesc {
-    font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important;
-    text-align: center !important;
-    line-height: 1.45 !important;
-    color: var(--color-text-primary) !important;
-    opacity: 0.85 !important;
-    text-shadow: none !important;
-  }
-
-  .stepImpact {
-    font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important;
-    text-align: center !important;
-    border-left: none !important;
-    border-top: 2px solid var(--color-text-primary) !important; /* Premium brand black border line */
-    padding-left: 0 !important;
-    padding-top: var(--space-2) !important;
-    margin-top: var(--space-2) !important;
-    color: var(--color-text-primary) !important; /* Brand black text */
-    text-shadow: none !important;
-  }
-}
-
-/* Premium transparent card with large editorial typography matching home page hero */
+/* Modern HUD glass card with high readability */
 .stepCard {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  padding: 0 !important;
-  max-width: 650px;
-  width: 100%;
-  color: var(--color-white) !important;
-  /* Reduced, clean drop shadow matching home page hero titles */
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  background: rgba(16, 20, 24, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
   text-align: left;
+  width: 100%;
 }
 
-.stepLabel {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 2.2rem); /* Smaller display titles */
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--color-white);
-  margin: 0;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+.stepHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: var(--space-2);
 }
 
 .stepNum {
   font-family: var(--font-mono);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  color: var(--color-steel-200);
-  opacity: 0.8;
-  margin: 0;
-  line-height: 1;
+  color: var(--color-accent-primary);
   letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.stepLabel {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 0;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
 }
 
 .stepDesc {
   font-family: var(--font-body);
-  font-size: clamp(0.85rem, 1.5vw, 1.05rem); /* smaller, tighter desc text */
-  line-height: 1.5;
-  color: var(--color-steel-100);
-  font-weight: 550;
+  font-size: clamp(0.88rem, 1.3vw, 1.02rem);
+  line-height: 1.55;
+  color: #e2e8f0;
+  font-weight: 450;
   margin: 0;
+}
+
+.stepImpactBadge {
+  background: rgba(224, 86, 36, 0.12);
+  border-left: 3px solid var(--color-accent-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 8px 12px;
+  margin-top: var(--space-1);
 }
 
 .stepImpact {
-  font-family: var(--font-body);
-  font-size: clamp(0.85rem, 1.5vw, 1.05rem); /* matching smaller description size */
-  font-weight: 700;
-  color: var(--color-text-primary); /* bright black/dark highlight */
-  line-height: 1.5;
-  margin: 0;
-  border-left: 4px solid var(--color-text-primary); /* clean black left border line */
-  padding-left: var(--space-4);
-  margin-top: var(--space-2);
-  text-shadow: none !important; /* No text-shadow on active text block */
-}
-
-/* flowPrompt onboarding styles */
-.flowPrompt {
-  position: absolute;
-  top: 50%;
-  right: var(--space-7); /* Added safe padding margin from right window edge */
-  left: auto;
-  transform: translateY(-50%);
-  width: 45%; /* Match column percentage width of step cards */
-  background: none !important; /* No background as requested */
-  backdrop-filter: none !important; /* No blur */
-  border: none !important; /* No borders */
-  padding: 0; /* No padding */
-  z-index: 5;
-  box-shadow: none !important; /* No shadow */
-  text-align: left; /* Left align simulation text as requested */
-  animation: fadeInPrompt 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.flowPromptLabel {
   font-family: var(--font-mono);
-  font-size: 1.2rem; /* Too big eyebrow label */
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--color-accent-primary);
-  letter-spacing: 0.15em;
-  display: block;
-  margin-bottom: var(--space-2);
-}
-
-.flowPromptTitle {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6.5vw, 4.8rem); /* Too big title text */
-  font-weight: 900;
-  color: var(--color-white);
-  text-transform: uppercase;
-  margin: 0 0 var(--space-2) 0;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); /* Increased shadow for high-contrast */
-}
-
-.flowPromptText {
-  font-family: var(--font-body);
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* Too big details text */
-  color: var(--color-steel-200);
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+  font-weight: 700;
+  color: #ffb59b;
   line-height: 1.45;
   margin: 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
-@keyframes fadeInPrompt {
-  from {
-    opacity: 0;
-    transform: translateY(-42%) scale(0.96);
+/* Mobile & Tablet Optimizations */
+@media (max-width: 900px) {
+  .stickyContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-start;
+    background-color: #0d1115;
   }
-  to {
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
+
+  .canvas {
+    position: relative;
+    height: 48vh;
+    width: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .topGradient, .bottomGradient {
+    display: none;
+  }
+
+  .overlay {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    height: 52vh;
+    width: 100%;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    padding: var(--space-4);
+  }
+
+  .leftGroup, .rightGroup {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + var(--slide-y, 0px)));
+    width: 92%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stepCard {
+    background: #f8fafc;
+    border: 1px solid var(--color-steel-300);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    color: var(--color-text-primary);
+    padding: var(--space-4);
+  }
+
+  .stepHeader {
+    border-bottom-color: var(--color-steel-200);
+  }
+
+  .stepLabel {
+    color: var(--color-text-primary);
+  }
+
+  .stepDesc {
+    color: var(--color-steel-700);
+  }
+
+  .stepImpactBadge {
+    background: rgba(224, 86, 36, 0.08);
+  }
+
+  .stepImpact {
+    color: var(--color-accent-primary);
   }
 }
-
-@media (max-width: 768px) {
-  .flowPrompt {
-    width: calc(100% - 32px);
-    left: 16px;
-    right: 16px;
-    text-align: center; /* Center on mobile/Android */
-  }
-}
-

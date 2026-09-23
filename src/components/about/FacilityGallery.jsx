@@ -19,7 +19,7 @@ export default function FacilityGallery() {
     },
     {
       label: "CMM Metrology Room",
-      desc: "Climate-controlled coordinate measuring machine checking tolerances.",
+      desc: "Climate-controlled coordinate measuring machine verifying dimensional geometry.",
       tag: "inspection",
       accent: "orange",
       image: "/images/cmm_metrology_room.png", // Added image asset path

@@ -62,19 +62,19 @@ export default function Footer() {
             <span className={styles.colTitle}>Products & Services</span>
             <ul className={styles.linksList}>
               <li className={styles.linkItem}>
-                <Link to="/products/rolling-shutter-locks">Rolling Shutter Locks</Link>
-              </li>
-              <li className={styles.linkItem}>
-                <Link to="/products/speaker-magnet-plates">Speaker Magnet Plates</Link>
+                <Link to="/products/ballast-cabinets">Ballast Cabinet</Link>
               </li>
               <li className={styles.linkItem}>
                 <Link to="/products/ev-charger-enclosures">EV Charger Enclosures</Link>
               </li>
               <li className={styles.linkItem}>
+                <Link to="/products/speaker-magnet-plates-powder-coating">Speaker Magnet Plates &amp; Powder Coating</Link>
+              </li>
+              <li className={styles.linkItem}>
                 <Link to="/services/custom-die-press-electrical-parts">Custom Die Press</Link>
               </li>
               <li className={styles.linkItem}>
-                <Link to="/services/industrial-powder-coating">Industrial Powder Coating</Link>
+                <Link to="/products/rolling-shutter-locks">Rolling Shutter Locks</Link>
               </li>
             </ul>
           </div>
@@ -85,11 +85,6 @@ export default function Footer() {
             <p className={styles.text} style={{ fontSize: "0.82rem", lineHeight: "1.45" }}>
               Coating Sheet metal products, Metal Box manufacturing for electronics and electrical industry, Metal Box, MS Cabinet, Driver Box, MS Box, Powder Coating, Driver Plates, Stamping, Embossing, Clamp, and Ballast MS Case.
             </p>
-            <div className={styles.badgeRow} style={{ marginTop: "var(--space-2)" }}>
-              <span className={styles.badge}>QA Certified</span>
-              <span className={styles.badge}>PPAP Level 3</span>
-              <span className={styles.badge}>ASTM Tested</span>
-            </div>
           </div>
         </div>
 

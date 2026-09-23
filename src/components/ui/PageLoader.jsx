@@ -5,33 +5,16 @@ import styles from "./PageLoader.module.css";
 export default function PageLoader() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
-  const [pageName, setPageName] = useState("");
   const [shouldRender, setShouldRender] = useState(false);
 
-  // Map route paths to user-friendly titles
-  const getPageTitle = (path) => {
-    if (path === "/") return "Home Page";
-    if (path === "/single-roof-workflow") return "Workflow Simulation";
-    if (path === "/products/rolling-shutter-locks") return "Rolling Shutter Locks";
-    if (path === "/products/speaker-magnet-plates") return "Speaker Magnet Plates";
-    if (path === "/products/ev-charger-enclosures") return "EV Charger Enclosures";
-    if (path === "/services/custom-die-press-electrical-parts") return "Custom Die Press";
-    if (path === "/services/industrial-powder-coating") return "Industrial Powder Coating";
-    if (path === "/about-us") return "About Us";
-    if (path === "/rfq-portal") return "Technical RFQ Portal";
-    return "SK Industries";
-  };
-
   useEffect(() => {
-    const title = getPageTitle(location.pathname);
-    setPageName(title);
     setIsLoading(true);
     setShouldRender(true);
 
-    // Simulate page load duration (1.5 seconds as requested)
+    // Smooth page transition duration (400ms)
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500); 
+    }, 400); 
 
     return () => clearTimeout(timer);
   }, [location.pathname]);

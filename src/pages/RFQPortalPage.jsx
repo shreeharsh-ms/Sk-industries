@@ -1,7 +1,5 @@
 import React from "react";
 import RFQForm from "../components/rfq/RFQForm";
-import SectionHeading from "../components/ui/SectionHeading";
-import Card from "../components/ui/Card";
 import useDocumentMetadata from "../hooks/useDocumentMetadata";
 import { Cpu, MapPin, Mail, MessageCircle, ArrowRight } from "lucide-react";
 import styles from "./RFQPortalPage.module.css";

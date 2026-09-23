@@ -36,10 +36,6 @@ export default function CorporateProfile() {
               <span>Core Press Lines</span>
               <span className={styles.sidebarValue}>Up to 200T</span>
             </li>
-            <li className={styles.sidebarItem}>
-              <span>Primary Accreditations</span>
-              <span className={styles.sidebarValue}>QA Compliant</span>
-            </li>
           </ul>
         </div>
       </div>

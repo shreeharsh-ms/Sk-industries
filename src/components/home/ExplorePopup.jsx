@@ -3,51 +3,51 @@ import { Link } from "react-router-dom";
 import { X, MessageSquare, ArrowRight, BookOpen, Compass, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./ExplorePopup.module.css";
 
+const slides = [
+  {
+    title: "Products Catalog",
+    text: "Browse our precision metal stamping and coating product lines.",
+    image: "/images/progressive_die_parts.png",
+    action: (
+      <Link to="/products/rolling-shutter-locks" className={styles.actionBtn}>
+        <span>View Catalog</span>
+        <ArrowRight size={14} />
+      </Link>
+    ),
+  },
+  {
+    title: "About Our Setup",
+    text: "Learn how we stamps & coat under a unified single-roof footprint.",
+    image: "/images/cmm_metrology_room.png",
+    action: (
+      <Link to="/about-us" className={styles.actionBtn}>
+        <BookOpen size={14} />
+        <span>Read About Us</span>
+      </Link>
+    ),
+  },
+  {
+    title: "Get in Touch",
+    text: "Contact our engineers directly on WhatsApp to request sample runs.",
+    image: "/images/ev_charger_enclosure_finished.png",
+    action: (
+      <a 
+        href="https://wa.me/917875138713" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className={styles.actionBtn}
+        style={{ backgroundColor: "#25D366", color: "#ffffff", borderColor: "#25D366" }}
+      >
+        <MessageSquare size={14} fill="currentColor" />
+        <span>WhatsApp Chat</span>
+      </a>
+    ),
+  },
+];
+
 export default function ExplorePopup() {
   const [isVisible, setIsVisible] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      title: "Products Catalog",
-      text: "Browse our high-tolerance metal stamping and coating product lines.",
-      image: "/images/progressive_die_parts.png",
-      action: (
-        <Link to="/products/rolling-shutter-locks" className={styles.actionBtn}>
-          <span>View Catalog</span>
-          <ArrowRight size={14} />
-        </Link>
-      ),
-    },
-    {
-      title: "About Our Setup",
-      text: "Learn how we stamps & coat under a unified single-roof footprint.",
-      image: "/images/cmm_metrology_room.png",
-      action: (
-        <Link to="/about-us" className={styles.actionBtn}>
-          <BookOpen size={14} />
-          <span>Read About Us</span>
-        </Link>
-      ),
-    },
-    {
-      title: "Get in Touch",
-      text: "Contact our engineers directly on WhatsApp to request sample runs.",
-      image: "/images/ev_charger_enclosure_finished.png",
-      action: (
-        <a 
-          href="https://wa.me/917875138713" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={styles.actionBtn}
-          style={{ backgroundColor: "#25D366", color: "#ffffff", borderColor: "#25D366" }}
-        >
-          <MessageSquare size={14} fill="currentColor" />
-          <span>WhatsApp Chat</span>
-        </a>
-      ),
-    },
-  ];
 
   // Auto-play carousel every 6 seconds
   useEffect(() => {

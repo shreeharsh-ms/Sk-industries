@@ -29,7 +29,7 @@ export default function AnimatedCounter({ value, duration = 1.2 }) {
     const suffix = value.substring(match.index + rawNumStr.length);
 
     if (!isInView) {
-      // Display initial structured zero state (e.g. ±0.00mm, 000k+, 0.0%)
+      // Display initial structured zero state (e.g. 0%, 000k+, 0.0)
       const zeroNumber = (0).toFixed(decimals);
       setDisplayVal(`${prefix}${zeroNumber}${suffix}`);
       return;

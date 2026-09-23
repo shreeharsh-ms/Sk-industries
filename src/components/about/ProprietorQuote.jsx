@@ -9,10 +9,10 @@ export default function ProprietorQuote() {
           {/* Left Column: Quote Text & Details */}
           <div className={styles.contentColumn}>
             <p className={styles.quoteText}>
-              "Sourcing high-tolerance parts shouldn't require managing two separate companies
+              "Sourcing precision-engineered parts shouldn't require managing two separate companies
               and settling shipping claims when components get scratched. By executing metal blanking,
               deburring, and paint spraying inside a single factory footprint, we offer procurement
-              managers clear accountability and consistent, certified quality results."
+              managers clear accountability and consistent quality results."
             </p>
             <div className={styles.author}>
               <span className={styles.authorName}>Komal Pansare</span>

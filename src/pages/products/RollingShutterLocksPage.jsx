@@ -11,7 +11,7 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 export default function RollingShutterLocksPage() {
   useDocumentMetadata(
     "Rolling Shutter Lock Sets Specifications — PP Engineering Pune",
-    "Technical parameters and engineering drawings for heavy-duty 10-gauge steel rolling shutter lock sets (PP engineering) manufactured by SK Industries Pune.",
+    "Technical parameters and engineering drawings for heavy-duty HR steel rolling shutter lock sets (PP engineering) manufactured by SK Industries Pune.",
     "PP Engineering, PP Engineering Pune, rolling shutter locks, security locks manufacturer Pune, lock sets stamping"
   );
 
@@ -28,7 +28,7 @@ export default function RollingShutterLocksPage() {
       />
 
       <ApplicationBlock
-        application="Designed for extreme environmental duty, these locking mechanisms secure commercial rolling shutters. The double-sided throw bolt engages guide channel structural rails, providing physical anchors against jemmying and crowbar attacks. Stamped from heavy-duty 10-gauge CRCA mild steel sheets, the housing is pre-treated and powder coated to a thickness of 80 microns for weathering protection."
+        application="Designed for extreme environmental duty, these locking mechanisms secure commercial rolling shutters. The double-sided throw bolt engages guide channel structural rails, providing physical anchors against jemmying and crowbar attacks. Stamped from heavy-duty HR (Hot Rolled) steel materials, the housing is pre-treated and powder coated to a thickness of 80 microns for weathering protection."
         specs={productData.specs}
       />
 
@@ -57,7 +57,7 @@ export default function RollingShutterLocksPage() {
 
             <div className={diagramStyles.stampRow}>
               <SpecStamp value="50,000" label="Cycle Life" accent="orange" size="md" />
-              <SpecStamp value="CRCA Steel" label="Shell Metal" accent="orange" size="md" />
+              <SpecStamp value="HR Steel" label="Shell Metal" accent="orange" size="md" />
             </div>
 
             <div className={diagramStyles.scrollingList}>
@@ -65,7 +65,7 @@ export default function RollingShutterLocksPage() {
                 <span className={diagramStyles.cardLabel}>COMPONENT // PART_01</span>
                 <h4 className={diagramStyles.cardTitle}>STEEL LOCK HOUSING</h4>
                 <p className={diagramStyles.cardDesc}>
-                  Stamped 10-gauge CRCA housing providing heavy physical resistance to forced entry and blunt force attacks.
+                  Stamped heavy-duty HR steel housing providing heavy physical resistance to forced entry and blunt force attacks.
                 </p>
               </div>
 
@@ -89,7 +89,7 @@ export default function RollingShutterLocksPage() {
                 <span className={diagramStyles.cardLabel}>COMPONENT // PART_04</span>
                 <h4 className={diagramStyles.cardTitle}>BRASS CORE CYLINDER</h4>
                 <p className={diagramStyles.cardDesc}>
-                  Solid brass key-operated high security mechanism ensuring 3,500 unique combination locks.
+                  Solid brass key-operated high security cylinder mechanism ensuring smooth actuation and long service life.
                 </p>
               </div>
 
@@ -97,7 +97,7 @@ export default function RollingShutterLocksPage() {
                 <span className={diagramStyles.cardLabel}>METROLOGY // SPEC_05</span>
                 <h4 className={diagramStyles.cardTitle}>STRICT CLEARANCE FIT-UPS</h4>
                 <p className={diagramStyles.cardDesc}>
-                  Tolerance clearances maintained during die coining that completely block physical bypass attempts.
+                  Precision clearances maintained during die coining that completely block physical bypass attempts.
                 </p>
               </div>
             </div>

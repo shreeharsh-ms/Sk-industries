@@ -1,7 +1,7 @@
 .section {
   background-color: #121416; /* Professional deep ink-black background */
   color: var(--color-white);
-  padding-block: var(--space-10);
+  padding-block: 1.5cm;
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -9,7 +9,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
-  gap: var(--space-9);
+  gap: var(--space-6);
   align-items: start;
 }
 

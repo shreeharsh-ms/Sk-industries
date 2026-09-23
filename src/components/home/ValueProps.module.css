@@ -1,37 +1,34 @@
 .pinSection {
   position: relative;
-  height: 300vh; /* expanded height to slow down step switching progress */
   width: 100%;
   background-color: var(--color-white);
+  padding-block: 1.5cm;
+  border-bottom: 1px solid var(--color-steel-200);
 }
 
 .stickyContainer {
-  position: sticky;
-  top: 10vh;
-  height: 80vh;
+  width: 100%;
   display: flex;
   align-items: center;
-  width: 100%;
-  overflow: hidden;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: var(--space-10);
+  gap: var(--space-8);
   align-items: center;
   width: 100%;
 }
 
 @media (max-width: 900px) {
   .pinSection {
-    height: auto !important;
+    padding-block: 1.5cm;
   }
   
   .stickyContainer {
     position: relative !important;
     height: auto !important;
-    padding-block: var(--space-10);
+    padding-block: 0;
   }
   
   .grid {
@@ -41,7 +38,7 @@
   
   .imageBox {
     height: 360px !important;
-    border-radius: 0 !important;
+    border-radius: var(--radius-sm) !important;
   }
   
   .stepBlock {

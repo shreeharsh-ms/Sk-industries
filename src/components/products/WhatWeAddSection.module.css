@@ -1,6 +1,6 @@
 .section {
   background-color: var(--color-white);
-  padding-block: var(--space-9) var(--space-8);
+  padding-block: 1.5cm;
   width: 100%;
 }
 

@@ -54,6 +54,7 @@
   --space-8: 64px;
   --space-9: 96px;
   --space-10: 128px;
+  --section-gap: 1.5cm; /* Strict 1.5 cm gap between sections */
 
   /* Radius & Borders */
   --radius-sm: 2px;

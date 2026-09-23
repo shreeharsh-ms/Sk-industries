@@ -16,7 +16,7 @@ export default function WorkflowPage() {
       <WorkflowScrubber />
 
       {/* 2. Detailed Floor Plan & Equipment Lists */}
-      <div className="container section-padding workflow-content-container" style={{ paddingBlock: "var(--space-10)" }}>
+      <div className="container section-padding workflow-content-container" style={{ paddingBlock: "1.5cm" }}>
         
         {/* Inline SVG: Physical Shop Floor Flow Chart (Technical Console Style) */}
         <div
@@ -25,7 +25,7 @@ export default function WorkflowPage() {
             border: "1px solid var(--color-steel-300)",
             padding: "var(--space-7)",
             borderRadius: "var(--radius-md)",
-            marginBottom: "var(--space-10)",
+            marginBottom: "1.5cm",
             boxShadow: "0 12px 32px rgba(20, 23, 26, 0.02)",
           }}
           className="floor-plan-card"
@@ -134,7 +134,7 @@ export default function WorkflowPage() {
           background: "none", /* No background */
           color: "var(--color-text-primary)",
           borderTop: "1px solid var(--color-steel-200)",
-          paddingBlock: "0 var(--space-10)", /* Removed top padding as requested */
+          paddingBlock: "0 1.5cm", /* 1.5cm bottom spacing */
           width: "100%",
         }}
       >

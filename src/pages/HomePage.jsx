@@ -47,9 +47,9 @@ export default function HomePage() {
     <main style={{ minHeight: "100vh", position: "relative" }}>
       <FrameScrubber />
       <CoreCapabilities />
-      <ValueProps />
-      <WorkflowTeaser />
       <VideoSlider />
+      <WorkflowTeaser />
+      <ValueProps />
       <Testimonials />
       <WorkmanshipBanner />
       <Faq />

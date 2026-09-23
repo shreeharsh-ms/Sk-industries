@@ -13,7 +13,7 @@ export default function HeroModal({ onClose }) {
       overlayTitle: "Single-Roof Execution",
       eyebrow: "Direct-to-Factory Sourcing",
       title: "Elevate Your Component Quality",
-      text: "By executing sheet metal blanking and powder spray lines under a single roof, we offer procurement managers clear accountability and certified quality results.",
+      text: "By executing sheet metal blanking and powder spray lines under a single roof, we offer procurement managers clear accountability and verified quality results.",
     },
     {
       image: "/images/progressive_die_parts.png",
@@ -28,8 +28,8 @@ export default function HeroModal({ onClose }) {
       tag: "Compliance QA",
       overlayTitle: "Unified Quality Control",
       eyebrow: "Zero Divided Liability",
-      title: "Certified First Article Audits",
-      text: "Our in-house metrology lab checks first-article tolerances (within ±0.05mm) and verifies salt spray durability up to 500 hours to secure product integrity.",
+      title: "First Article Audits",
+      text: "Our in-house metrology lab checks first-article dimensional accuracy and verifies salt spray durability up to 500 hours to secure product integrity.",
     },
   ];
 

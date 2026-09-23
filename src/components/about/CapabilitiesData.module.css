@@ -1,6 +1,6 @@
 .section {
   background-color: var(--color-white);
-  padding-block: var(--space-6);
+  padding-block: 1.5cm;
   width: 100%;
 }
 
@@ -17,8 +17,9 @@
 
 .tablesGrid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.05fr 0.95fr;
   gap: var(--space-7);
+  align-items: flex-start;
 }
 
 @media (max-width: 1024px) {
@@ -26,4 +27,120 @@
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
+}
+
+/* Quality Policy Card Styling */
+.policyCard {
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-steel-300);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: 0 10px 30px rgba(20, 23, 26, 0.02);
+}
+
+.policyHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid var(--color-steel-250);
+  padding-bottom: var(--space-3);
+}
+
+.policyTag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  letter-spacing: 0.1em;
+}
+
+.policyTitle {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.policyStatement {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-steel-700);
+  margin: 0;
+  background-color: var(--color-white);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-steel-200);
+  border-left: 4px solid var(--color-accent-primary);
+}
+
+.objectivesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.objectivesTitle {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.objectivesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.objectiveItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-steel-200);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.objectiveItem:hover {
+  border-color: var(--color-accent-primary);
+  transform: translateX(4px);
+}
+
+.objBadge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-accent-primary);
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.objText {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
 }

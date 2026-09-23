@@ -10,12 +10,12 @@ export default function TrustSignals() {
 
         <div className={styles.badges}>
           <div className={styles.badgeItem}>
-            <Badge accent="teal">Certified QA</Badge>
+            <Badge accent="teal">QA Audited</Badge>
             <span className={styles.badgeLabel}>Quality Management</span>
           </div>
 
           <div className={styles.badgeItem}>
-            <Badge accent="teal">FAI Audited</Badge>
+            <Badge accent="teal">FAI Inspected</Badge>
             <span className={styles.badgeLabel}>First Article Inspection</span>
           </div>
 
@@ -26,7 +26,7 @@ export default function TrustSignals() {
 
           <div className={styles.badgeItem}>
             <Badge accent="orange">ASTM Tested</Badge>
-            <span className={styles.badgeLabel}>Material Testing Standards</span>
+            <span className={styles.badgeLabel}>Material Testing</span>
           </div>
         </div>
       </div>

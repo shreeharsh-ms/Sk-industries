@@ -10,7 +10,7 @@ export default [
     step: "02",
     title: "Precision Stamping",
     desc: "Coils are stamped in progressive or compound dies. Clearances between punch and die are calibrated to 5-10% of material thickness to achieve clean shear edges.",
-    impact: "Maintains mechanical tolerances within ± 0.05 mm and avoids springback deviations.",
+    impact: "Maintains uniform mechanical consistency and prevents springback deviations.",
     accent: "orange"
   },
   {

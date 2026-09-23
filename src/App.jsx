@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import HomePage from "./pages/HomePage";
-import WorkflowPage from "./pages/WorkflowPage";
-import RollingShutterLocksPage from "./pages/products/RollingShutterLocksPage";
-import SpeakerMagnetPlatesPage from "./pages/products/SpeakerMagnetPlatesPage";
-import EVChargerEnclosuresPage from "./pages/products/EVChargerEnclosuresPage";
-import CustomDiePressPage from "./pages/products/CustomDiePressPage";
-import AboutPage from "./pages/AboutPage";
-import RFQPortalPage from "./pages/RFQPortalPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import PowderCoatingPage from "./pages/products/PowderCoatingPage";
 import PageLoader from "./components/ui/PageLoader";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const WorkflowPage = lazy(() => import("./pages/WorkflowPage"));
+const BallastCabinetsPage = lazy(() => import("./pages/products/BallastCabinetsPage"));
+const EVChargerEnclosuresPage = lazy(() => import("./pages/products/EVChargerEnclosuresPage"));
+const SpeakerMagnetPlatesPowderCoatingPage = lazy(() => import("./pages/products/SpeakerMagnetPlatesPowderCoatingPage"));
+const CustomDiePressPage = lazy(() => import("./pages/products/CustomDiePressPage"));
+const RollingShutterLocksPage = lazy(() => import("./pages/products/RollingShutterLocksPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const RFQPortalPage = lazy(() => import("./pages/RFQPortalPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function LenisWatcher() {
   const location = useLocation();
@@ -71,18 +72,22 @@ export default function App() {
       <LenisWatcher />
       <Header />
       <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/single-roof-workflow" element={<WorkflowPage />} />
-          <Route path="/products/rolling-shutter-locks" element={<RollingShutterLocksPage />} />
-          <Route path="/products/speaker-magnet-plates" element={<SpeakerMagnetPlatesPage />} />
-          <Route path="/products/ev-charger-enclosures" element={<EVChargerEnclosuresPage />} />
-          <Route path="/services/custom-die-press-electrical-parts" element={<CustomDiePressPage />} />
-          <Route path="/services/industrial-powder-coating" element={<PowderCoatingPage />} />
-          <Route path="/about-us" element={<AboutPage />} />
-          <Route path="/rfq-portal" element={<RFQPortalPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/single-roof-workflow" element={<WorkflowPage />} />
+            <Route path="/products/ballast-cabinets" element={<BallastCabinetsPage />} />
+            <Route path="/products/ev-charger-enclosures" element={<EVChargerEnclosuresPage />} />
+            <Route path="/products/speaker-magnet-plates-powder-coating" element={<SpeakerMagnetPlatesPowderCoatingPage />} />
+            <Route path="/products/speaker-magnet-plates" element={<SpeakerMagnetPlatesPowderCoatingPage />} />
+            <Route path="/services/industrial-powder-coating" element={<SpeakerMagnetPlatesPowderCoatingPage />} />
+            <Route path="/services/custom-die-press-electrical-parts" element={<CustomDiePressPage />} />
+            <Route path="/products/rolling-shutter-locks" element={<RollingShutterLocksPage />} />
+            <Route path="/about-us" element={<AboutPage />} />
+            <Route path="/rfq-portal" element={<RFQPortalPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </div>
       <Footer />
 

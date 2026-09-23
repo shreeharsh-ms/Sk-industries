@@ -7,7 +7,7 @@ export default {
     { label: "Material", value: "High-conductivity Copper (C101/C110) or Half-Hard Brass" },
     { label: "Stamping Force", value: "Progressive blanking up to 200 tons capacity" },
     { label: "Plating Coating", value: "Electro-tin or silver plating (5 to 15 microns thickness)" },
-    { label: "Angular Precision", value: "Form bends matching within ± 0.20° tolerance limits" },
+    { label: "Angular Precision", value: "Exact form bends engineered for seamless fitting" },
   ],
   whatWeAdd: [
     {
@@ -15,7 +15,7 @@ export default {
       title: "BEND PRECISION",
       body: "Standard bend margins satisfy the H >= 2.5T + R sheet metal formula.",
       detail: "Eliminates metal thinning, wrinkling, and structural micro-cracks.",
-      statValue: "± 0.20°",
+      statValue: "Exact",
       statLabel: "BEND ACCURACY"
     },
     {
@@ -28,11 +28,11 @@ export default {
     },
     {
       node: "NODE_03",
-      title: "HOLE TOLERANCE",
-      body: "Automated punching controls hole center-to-center spacing within ±0.05mm.",
+      title: "HOLE ACCURACY",
+      body: "Automated punching controls hole center-to-center spacing for exact alignment.",
       detail: "Ensures seamless busbar bolt-up assembly at installation sites.",
-      statValue: "± 0.05 mm",
-      statLabel: "HOLE SPACING"
+      statValue: "100%",
+      statLabel: "HOLE ALIGNMENT"
     }
   ],
   specSheetPdf: "/downloads/spec-sheets/custom-die-press-parts.pdf"
