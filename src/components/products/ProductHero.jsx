@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../ui/Button";
 import styles from "./ProductHero.module.css";
 
 export default function ProductHero({
@@ -9,9 +10,8 @@ export default function ProductHero({
   image,
   bgImage, // Added bgImage prop
 }) {
-  const metaClass = `${styles.meta} ${
-    accent === "teal" ? styles.metaTeal : ""
-  }`;
+  const metaClass = `${styles.meta} ${accent === "teal" ? styles.metaTeal : ""
+    }`;
 
   const customStyle = bgImage ? { "--hero-bg-url": `url(${bgImage})` } : {};
 
@@ -23,10 +23,12 @@ export default function ProductHero({
           <span className={styles.badge}>Technical Specifications</span>
           <h1 className={styles.title}>{name}</h1>
           <p className={styles.desc}>{desc}</p>
-          
 
-
-          {/* Sourcing target info placed cleanly below the main actions */}
+          <div className={styles.actionRow}>
+            <Button variant="primary" size="md" to="/rfq-portal">
+              Request Technical RFQ
+            </Button>
+          </div>
           <div className={metaClass}>
             <div>
               <span className={styles.metaTitle}>Target Sourcing Segment</span>

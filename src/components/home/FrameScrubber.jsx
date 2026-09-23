@@ -114,10 +114,20 @@ export default function FrameScrubber() {
                 <span className={styles.mobileDesc}>{phase.shortDesc}</span>
               </p>
               <div className={styles.ctaWrapper}>
-                <Button variant="primary" size="lg" to="/rfq-portal">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  to="/rfq-portal"
+                  className={styles.primaryHeroBtn}
+                >
                   Initiate Technical RFQ
                 </Button>
-                <Button variant="secondary" size="lg" to="/single-roof-workflow" className={styles.secondaryHeroBtn}>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  to="/single-roof-workflow"
+                  className={styles.secondaryHeroBtn}
+                >
                   Explore Capabilities
                 </Button>
               </div>

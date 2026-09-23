@@ -80,11 +80,16 @@ export default function CoreCapabilities() {
             <span className={styles.aboutEyebrow}>Corporate Profile</span>
             <h2 className={styles.aboutHeading}>About Us</h2>
             <p className={styles.aboutText}>
-              SK Industries is a premier sheet metal stamping and industrial coating enterprise. 
-              We deliver high-repeatability stamping components and epoxy-polyester powder coat finishes 
-              under a single roof. Our integrated workflow eliminates multi-vendor logistics risks, 
-              streamlining sourcing pipelines for global electric vehicle, gate automation, 
-              and automotive OEM divisions.
+              <span className={styles.desktopAboutText}>
+                SK Industries is a premier sheet metal stamping and industrial coating enterprise. 
+                We deliver high-repeatability stamping components and epoxy-polyester powder coat finishes 
+                under a single roof. Our integrated workflow eliminates multi-vendor logistics risks, 
+                streamlining sourcing pipelines for global electric vehicle, gate automation, 
+                and automotive OEM divisions.
+              </span>
+              <span className={styles.mobileAboutText}>
+                Premier sheet metal stamping & industrial coating under one roof in Pune, delivering high-precision components and eliminating multi-vendor logistics risks.
+              </span>
             </p>
           </div>
 

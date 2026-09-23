@@ -8,6 +8,25 @@
   .section {
     padding-block: 0.8cm;
   }
+  .banner {
+    min-height: auto;
+    border-radius: var(--radius-md);
+  }
+  .overlay {
+    padding: var(--space-4);
+  }
+  .badge {
+    font-size: 0.68rem;
+    padding: 3px 10px;
+  }
+  .heading {
+    font-size: clamp(1.45rem, 5.5vw, 1.85rem);
+    line-height: 1.15;
+  }
+  .text {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
 }
 
 .banner {

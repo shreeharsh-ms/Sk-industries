@@ -10,6 +10,31 @@
   .section {
     padding-block: 0.8cm;
   }
+  .heading {
+    font-size: clamp(1.5rem, 5.5vw, 1.95rem);
+    margin-bottom: var(--space-4);
+  }
+  .faqHeader {
+    padding: var(--space-3) var(--space-4);
+  }
+  .questionText {
+    font-size: 0.98rem;
+    line-height: 1.35;
+    padding-right: var(--space-2);
+  }
+  .answerText {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .promoCard {
+    padding: var(--space-4);
+  }
+  .promoHeading {
+    font-size: 1.35rem;
+  }
+  .promoDesc {
+    font-size: 0.85rem;
+  }
 }
 
 .grid {

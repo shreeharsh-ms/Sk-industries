@@ -78,7 +78,7 @@
   color: var(--color-text-primary);
   text-decoration: none;
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .quickLink svg {
@@ -136,7 +136,7 @@
   border: 1px solid var(--color-steel-300);
   border-radius: var(--radius-sm);
   padding: var(--space-5);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 }
 
 .sideCardTeal {
@@ -284,9 +284,11 @@
   .heroBanner {
     padding: calc(76px + var(--space-2)) 0 var(--space-4);
   }
+
   .quickLinks {
     flex-direction: column;
   }
+
   .quickLink {
     width: 100%;
   }

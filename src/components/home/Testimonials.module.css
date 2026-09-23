@@ -103,7 +103,8 @@
 
 @media (max-width: 520px) {
   .card {
-    flex: 0 0 100%; /* 1 card visible on mobile */
+    flex: 0 0 86%; /* Peeking edge to encourage horizontal touch swipe */
+    padding: var(--space-4);
   }
   .headerWrapper {
     flex-direction: column;

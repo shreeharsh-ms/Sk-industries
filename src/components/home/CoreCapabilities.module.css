@@ -69,6 +69,33 @@
   text-shadow: 0 3px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
+.desktopAboutText {
+  display: inline;
+}
+
+.mobileAboutText {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .desktopAboutText {
+    display: none;
+  }
+
+  .mobileAboutText {
+    display: inline;
+  }
+
+  .aboutHeading {
+    font-size: 1.85rem;
+  }
+
+  .aboutText {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+}
+
 .aboutRight {
   display: flex;
   align-items: center;
