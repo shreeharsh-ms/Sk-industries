@@ -1,5 +1,5 @@
 import React from "react";
-import WorkflowScrubber from "../components/workflow/WorkflowScrubber";
+import WorkflowSliderHero from "../components/workflow/WorkflowSliderHero";
 import QCEquipmentSidebar from "../components/workflow/QCEquipmentSidebar";
 import useDocumentMetadata from "../hooks/useDocumentMetadata";
 
@@ -12,12 +12,12 @@ export default function WorkflowPage() {
 
   return (
     <main style={{ minHeight: "100vh", position: "relative", backgroundColor: "var(--color-white)" }}>
-      {/* 1. Fullscreen Sticky Video Scroll-Scrubber */}
-      <WorkflowScrubber />
+      {/* 1. Interactive Sliding Animation Workflow Hero */}
+      <WorkflowSliderHero />
 
       {/* 2. Detailed Floor Plan & Equipment Lists */}
       <div className="container section-padding workflow-content-container" style={{ paddingBlock: "1.5cm" }}>
-        
+
         {/* Inline SVG: Physical Shop Floor Flow Chart (Technical Console Style) */}
         <div
           style={{
@@ -30,12 +30,12 @@ export default function WorkflowPage() {
           }}
           className="floor-plan-card"
         >
-          <h3 
-            style={{ 
+          <h3
+            style={{
               fontFamily: "var(--font-display)",
-              fontSize: "1.45rem", 
-              textTransform: "uppercase", 
-              marginBottom: "var(--space-6)", 
+              fontSize: "1.45rem",
+              textTransform: "uppercase",
+              marginBottom: "var(--space-6)",
               fontWeight: 900,
               color: "var(--color-text-primary)",
               letterSpacing: "-0.015em"
@@ -43,12 +43,12 @@ export default function WorkflowPage() {
           >
             Shop Floor Mechanical Layout & Flow
           </h3>
-          
+
           <div style={{ overflowX: "auto", width: "100%" }}>
-            <svg 
-              viewBox="0 0 820 130" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg" 
+            <svg
+              viewBox="0 0 820 130"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               style={{ minWidth: "800px", width: "100%", height: "auto", display: "block" }}
             >
               {/* Definition for arrow markers */}
@@ -128,8 +128,8 @@ export default function WorkflowPage() {
       </div>
 
       {/* 4. Satisfied Enough? Call to Action Banner (No Background, Image to the Right, Zero Top Padding) */}
-      <section 
-        className="container" 
+      <section
+        className="container"
         style={{
           background: "none", /* No background */
           color: "var(--color-text-primary)",
@@ -139,7 +139,8 @@ export default function WorkflowPage() {
         }}
       >
         {/* Responsive Media Query Support */}
-        <style dangerouslySetInnerHTML={{__html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @media (max-width: 768px) {
             .workflow-content-container {
               padding-block: var(--space-6) var(--space-3) !important; /* Much smaller bottom padding */
@@ -164,12 +165,12 @@ export default function WorkflowPage() {
           }
         `}} />
 
-        <div 
-          style={{ 
-            display: "grid", 
-            gridTemplateColumns: "1.2fr 0.8fr", 
-            gap: "var(--space-8)", 
-            alignItems: "center" 
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.2fr 0.8fr",
+            gap: "var(--space-8)",
+            alignItems: "center"
           }}
           className="satisfied-grid"
         >
@@ -185,9 +186,9 @@ export default function WorkflowPage() {
               Eliminate shipping delays and vendor management conflicts. Get in touch with our team directly, contact us on WhatsApp, or inquire via the portal to request sample runs.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)", width: "100%" }}>
-              <a 
-                href="https://wa.me/917875138713" 
-                target="_blank" 
+              <a
+                href="https://wa.me/917875138713"
+                target="_blank"
                 rel="noopener noreferrer"
                 style={{
                   display: "inline-flex",
@@ -216,8 +217,8 @@ export default function WorkflowPage() {
               >
                 <span>Contact Us (WhatsApp)</span>
               </a>
-              
-              <a 
+
+              <a
                 href="/rfq-portal"
                 style={{
                   display: "inline-flex",
@@ -250,9 +251,9 @@ export default function WorkflowPage() {
 
           {/* Right Column: Image */}
           <div style={{ display: "flex", justifyContent: "center" }} className="satisfied-img-wrapper">
-            <img 
-              src="/images/workmanship_plant.jpg" 
-              alt="SK Industries Stamping & Coating Facility" 
+            <img
+              src="/images/workmanship_plant.jpg"
+              alt="SK Industries Stamping & Coating Facility"
               style={{
                 width: "100%",
                 maxHeight: "260px",

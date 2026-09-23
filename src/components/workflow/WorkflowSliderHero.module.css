@@ -1,0 +1,304 @@
+.sliderSection {
+  position: relative;
+  width: 100%;
+  background-color: #0b0e14;
+  color: var(--color-white);
+  padding-top: calc(96px + var(--space-4));
+  padding-bottom: var(--space-6);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Header container matching navbar horizontal padding */
+.headerWrapper {
+  width: 100%;
+  padding-inline: var(--container-padding);
+  box-sizing: border-box;
+  margin-bottom: var(--space-3);
+}
+
+/* Step Tab Bar - Clean Light Styled */
+.stepsNav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  padding: 6px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.stepTab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-xs);
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.stepTab:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.activeTab {
+  background: #ffffff !important;
+  border: 2px solid var(--color-accent-primary) !important;
+  color: var(--color-accent-primary) !important;
+  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.18);
+}
+
+.tabNum {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #64748b;
+  background: #e2e8f0;
+  padding: 3px 7px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.activeTab .tabNum {
+  background: var(--color-accent-primary);
+  color: #ffffff;
+}
+
+.tabTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+/* Edge-to-Edge Full Width Slider Viewport Window */
+.sliderWindow {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  background: #000;
+}
+
+/* Sliding Track */
+.sliderTrack {
+  display: flex;
+  width: 100%;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.slideInner {
+  position: relative;
+  width: 100%;
+  height: clamp(420px, 55vh, 600px);
+  overflow: hidden;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Vignette gradient for clear text contrast */
+.imageGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 14, 20, 0.15) 0%,
+    rgba(11, 14, 20, 0.3) 40%,
+    rgba(11, 14, 20, 0.88) 75%,
+    rgba(11, 14, 20, 0.98) 100%
+  );
+  pointer-events: none;
+}
+
+/* Caption Overlay with High-Contrast Legibility */
+.captionOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-6) var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.captionContent {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stepBadge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-accent-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(230, 81, 0, 0.16);
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid rgba(230, 81, 0, 0.3);
+}
+
+.slideTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+.slideDesc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-steel-100);
+  margin: 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Navigation Arrow Buttons */
+.arrowBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 20, 28, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.arrowBtn:hover {
+  background: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prevBtn {
+  left: max(var(--container-padding), 24px);
+}
+
+.nextBtn {
+  right: max(var(--container-padding), 24px);
+}
+
+/* Dots Row */
+.dotsRow {
+  position: absolute;
+  bottom: 24px;
+  right: max(var(--container-padding), 24px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.activeDot {
+  width: 28px;
+  border-radius: 5px;
+  background: var(--color-accent-primary) !important;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .sliderSection {
+    padding-top: calc(76px + var(--space-4));
+  }
+  .stepsNav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .slideInner {
+    height: 380px;
+  }
+  .captionContent {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .sliderSection {
+    padding-top: calc(76px + var(--space-2));
+  }
+  .stepsNav {
+    grid-template-columns: 1fr;
+  }
+  .slideInner {
+    height: 330px;
+  }
+  .slideTitle {
+    font-size: 1.35rem;
+  }
+  .slideDesc {
+    font-size: 0.88rem;
+  }
+  .arrowBtn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .sliderTrack {
+    transition: none !important;
+  }
+}
