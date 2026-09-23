@@ -34,7 +34,7 @@ export default function Header() {
     <>
       <header className={headerClass}>
         <Link to="/" className={styles.brand}>
-          <img src={logoSrc} alt="SK Industries Logo" className={styles.navLogo} />
+          <img src={logoSrc} alt="SK Industries Logo" className={styles.navLogo} decoding="async" />
         </Link>
 
         {/* Desktop Navigation */}

@@ -82,6 +82,7 @@ export default function WorkflowSliderHero() {
                   alt={st.title} 
                   className={styles.slideImage} 
                   loading={idx === 0 ? "eager" : "lazy"}
+                  decoding="async"
                 />
                 
                 {/* Subtle dark gradient overlay for text readability */}

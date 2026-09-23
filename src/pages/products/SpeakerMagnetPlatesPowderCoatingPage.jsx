@@ -46,17 +46,23 @@ export default function SpeakerMagnetPlatesPowderCoatingPage() {
                 src="/images/speaker_magnet_exploded_schematic.png" 
                 alt="Speaker Pole Piece Magnetic Circuit Exploded Blueprint" 
                 className={diagramStyles.blueprintImage}
+                loading="lazy"
+                decoding="async"
                 style={{ backgroundColor: "#ffffff", padding: "10px" }}
               />
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-3)" }}>
                 <img 
                   src="/images/speaker_magnet_parts_stack.png" 
                   alt="Stamped T-Yoke and Front Plates Stacks" 
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: "100%", borderRadius: "var(--radius-sm)", border: "1px solid var(--color-steel-300)" }}
                 />
                 <img 
                   src="/images/powder_coating_line.png" 
                   alt="Automated Conveyorized Powder Coating Line" 
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: "100%", borderRadius: "var(--radius-sm)", border: "1px solid var(--color-steel-300)" }}
                 />
               </div>

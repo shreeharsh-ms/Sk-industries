@@ -45,6 +45,8 @@ export default function RollingShutterLocksPage() {
               src="/images/rolling_shutter_lock_blueprint_schematic.jpg" 
               alt="Rolling Shutter Lock Mechanical Blueprint" 
               className={diagramStyles.blueprintImage}
+              loading="lazy"
+              decoding="async"
               style={{ backgroundColor: "#ffffff", padding: "10px" }}
             />
           </div>

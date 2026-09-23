@@ -45,6 +45,8 @@ export default function CustomDiePressPage() {
               src="/images/custom_die_press_schematic.png" 
               alt="Sheet Metal Bending Geometry Blueprint" 
               className={diagramStyles.blueprintImage}
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

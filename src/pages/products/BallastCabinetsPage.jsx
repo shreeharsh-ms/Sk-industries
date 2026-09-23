@@ -45,6 +45,8 @@ export default function BallastCabinetsPage() {
               src="/images/ballast_cabinet_schematic.png" 
               alt="Ballast Cabinet Mechanical Blueprint" 
               className={diagramStyles.blueprintImage}
+              loading="lazy"
+              decoding="async"
               style={{ backgroundColor: "#ffffff", padding: "10px" }}
             />
           </div>

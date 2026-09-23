@@ -1,6 +1,5 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Lenis from "lenis";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import PageLoader from "./components/ui/PageLoader";
@@ -16,51 +15,16 @@ const AboutPage = lazy(() => import("./pages/AboutPage"));
 const RFQPortalPage = lazy(() => import("./pages/RFQPortalPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
-function LenisWatcher() {
-  const location = useLocation();
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
-    const pathname = location.pathname;
-    const isSlowPage = pathname === "/" || pathname === "/single-roof-workflow";
-
-    // Instantiate Lenis with path-specific kinetic scroll coefficients
-    const lenis = new Lenis({
-      lerp: isSlowPage ? 0.03 : 0.095, // 0.03 slow buttery damping for frame scrubbers, 0.095 normal for text pages
-      wheelMultiplier: isSlowPage ? 0.45 : 1.0, // 0.45 slower progression, 1.0 standard progression
-      smoothWheel: true,
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
     });
-    window.lenis = lenis;
-
-    let rafId;
-    function raf(time) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
-
-    // Force Lenis height bounds recalculation after DOM settles
-    const timer = setTimeout(() => {
-      lenis.resize();
-    }, 120);
-
-    // Watch for document layout reflows to keep Lenis scroll boundaries updated dynamically
-    const resizeObserver = new ResizeObserver(() => {
-      lenis.resize();
-    });
-    if (document.body) {
-      resizeObserver.observe(document.body);
-    }
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      clearTimeout(timer);
-      resizeObserver.disconnect();
-      lenis.destroy();
-      window.lenis = null;
-    };
-  }, [location.pathname]);
+  }, [pathname]);
 
   return null;
 }
@@ -69,13 +33,14 @@ export default function App() {
   return (
     <Router>
       <PageLoader />
-      <LenisWatcher />
+      <ScrollToTop />
       <Header />
       <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/single-roof-workflow" element={<WorkflowPage />} />
+            <Route path="/capabilities" element={<WorkflowPage />} />
             <Route path="/products/ballast-cabinets" element={<BallastCabinetsPage />} />
             <Route path="/products/ev-charger-enclosures" element={<EVChargerEnclosuresPage />} />
             <Route path="/products/speaker-magnet-plates-powder-coating" element={<SpeakerMagnetPlatesPowderCoatingPage />} />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
 import styles from "./Faq.module.css";
 
@@ -79,9 +80,9 @@ export default function Faq() {
                 Ask our engineers directly to get clear and concise answers regarding metal stamping capabilities, DFM audits on your drawings, or electrostatic coating choices.
               </p>
               <div className={styles.promoCta}>
-                <a href="/rfq-portal" className={styles.promoBtn}>
+                <Link to="/rfq-portal" className={styles.promoBtn}>
                   Get Answers Here
-                </a>
+                </Link>
               </div>
               
               {/* Bottom right curved accent visual cut */}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import WorkflowSliderHero from "../components/workflow/WorkflowSliderHero";
 import QCEquipmentSidebar from "../components/workflow/QCEquipmentSidebar";
 import useDocumentMetadata from "../hooks/useDocumentMetadata";
@@ -224,8 +225,8 @@ export default function WorkflowPage() {
                 <span>Contact Us (WhatsApp)</span>
               </a>
 
-              <a
-                href="/rfq-portal"
+              <Link
+                to="/rfq-portal"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -251,7 +252,7 @@ export default function WorkflowPage() {
                 }}
               >
                 <span>Inquire Us (RFQ Portal)</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -260,6 +261,8 @@ export default function WorkflowPage() {
             <img
               src="/images/workmanship_plant.jpg"
               alt="SK Industries Stamping & Coating Facility"
+              loading="lazy"
+              decoding="async"
               style={{
                 width: "100%",
                 maxHeight: "260px",

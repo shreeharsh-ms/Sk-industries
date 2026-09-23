@@ -45,7 +45,13 @@ export default function ProductHero({
         {image && (
           <div className={styles.imageColumn}>
             <div className={styles.imageContainer}>
-              <img src={image} alt={name} className={styles.productImage} />
+              <img
+                src={image}
+                alt={name}
+                className={styles.productImage}
+                fetchpriority="high"
+                decoding="async"
+              />
               <div className={styles.imageOverlay} />
             </div>
           </div>

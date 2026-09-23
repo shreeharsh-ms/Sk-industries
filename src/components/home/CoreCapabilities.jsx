@@ -155,7 +155,13 @@ export default function CoreCapabilities() {
                   </div>
 
                   <div className={styles.imageWrapper}>
-                    <img src={item.image} alt={item.title} className={styles.cardImage} />
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className={styles.cardImage}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
 
                   <div className={styles.cardInfo}>

@@ -45,10 +45,24 @@ const videoSlides = [
   },
 ];
 
-function VideoCard({ slide, index }) {
+function VideoCard({ slide, index, isNear, isVisible }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+
+  // Play/pause based on visibility
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isNear && isVisible) {
+      if (isPlaying) {
+        video.play().catch(() => {});
+      }
+    } else {
+      video.pause();
+    }
+  }, [isNear, isVisible, isPlaying]);
 
   const togglePlay = (e) => {
     e.stopPropagation();
@@ -76,11 +90,11 @@ function VideoCard({ slide, index }) {
         <video
           ref={videoRef}
           className={styles.video}
-          src={slide.src}
+          src={isNear ? slide.src : undefined}
           loop
           muted={isMuted}
           playsInline
-          autoPlay
+          preload={isNear && isVisible ? "metadata" : "none"}
         />
         
         {/* Top Header Overlay with Tag and Mute */}
@@ -103,8 +117,32 @@ function VideoCard({ slide, index }) {
 }
 
 export default function VideoSlider() {
+  const sectionRef = useRef(null);
+  const [isNear, setIsNear] = useState(false);
   const [startIndex, setStartIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
+
+  // Observe section approaching viewport (rootMargin: 300px)
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setIsNear(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsNear(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Handle responsive column counts
   useEffect(() => {
@@ -134,7 +172,7 @@ export default function VideoSlider() {
   };
 
   return (
-    <section className={styles.section}>
+    <section ref={sectionRef} className={styles.section}>
       <div className="container">
         {/* Section Heading */}
         <div className={styles.headingBlock}>
@@ -164,17 +202,25 @@ export default function VideoSlider() {
                 transform: `translateX(-${startIndex * (100 / visibleCount)}%)`,
               }}
             >
-              {videoSlides.map((slide, idx) => (
-                <div
-                  key={idx}
-                  className={styles.slideCol}
-                  style={{
-                    flex: `0 0 ${100 / visibleCount}%`,
-                  }}
-                >
-                  <VideoCard slide={slide} index={idx} />
-                </div>
-              ))}
+              {videoSlides.map((slide, idx) => {
+                const isVisible = idx >= startIndex && idx < startIndex + visibleCount;
+                return (
+                  <div
+                    key={idx}
+                    className={styles.slideCol}
+                    style={{
+                      flex: `0 0 ${100 / visibleCount}%`,
+                    }}
+                  >
+                    <VideoCard
+                      slide={slide}
+                      index={idx}
+                      isNear={isNear}
+                      isVisible={isVisible}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
 

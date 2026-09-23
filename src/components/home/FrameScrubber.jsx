@@ -117,7 +117,7 @@ export default function FrameScrubber() {
                 <Button variant="primary" size="lg" to="/rfq-portal">
                   Initiate Technical RFQ
                 </Button>
-                <Button variant="secondary" size="lg" to="/capabilities" className={styles.secondaryHeroBtn}>
+                <Button variant="secondary" size="lg" to="/single-roof-workflow" className={styles.secondaryHeroBtn}>
                   Explore Capabilities
                 </Button>
               </div>

@@ -35,5 +35,5 @@ export default {
       statLabel: "HOLE ALIGNMENT"
     }
   ],
-  specSheetPdf: "/downloads/spec-sheets/custom-die-press-parts.pdf"
+  specSheetPdf: "/downloads/spec-sheets/custom-die-press-electrical.pdf"
 };

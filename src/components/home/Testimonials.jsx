@@ -109,7 +109,13 @@ export default function Testimonials() {
                 <div className={styles.cardHeader}>
                   <div className={styles.brandHeaderGroup}>
                     <div className={styles.logoContainer}>
-                      <img src={rev.logo} alt={`${rev.company} logo`} className={styles.brandImage} />
+                      <img
+                        src={rev.logo}
+                        alt={`${rev.company} logo`}
+                        className={styles.brandImage}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <span className={styles.companyName}>{rev.company}</span>
                     <span className={styles.categoryLabel}>{rev.category}</span>
