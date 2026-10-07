@@ -2,12 +2,10 @@ export default {
   slug: "rolling-shutter-locks",
   name: "Rolling Shutter Lock Sets",
   audience: "Security hardware distributors and commercial warehouse builders",
-  application: "Security hardware for industrial warehouses and storefronts featuring a dual-sided locking mechanism to prevent forced entry.",
+  application: "Security hardware for industrial warehouses and storefronts featuring a dual-sided locking mechanism to prevent forced entry as per customer requirements.",
   specs: [
     { label: "Material", value: "HR Steel (Hot Rolled Materials)" },
-    { label: "Coating", value: "80-micron Epoxy-Polyester Powder over Zinc Phosphate Pre-treatment" },
-    { label: "Cycle Life", value: "50,000 continuous operation cycles" },
-    { label: "Size Range", value: "1 inch to 21 inch" },
+    { label: "Coating", value: "Zinc Coating and Equivalent" },
   ],
   whatWeAdd: [
     {
@@ -15,8 +13,8 @@ export default {
       title: "THROW BOLT",
       body: "High-tensile steel double-sided throw bolt engaging shutter rails.",
       detail: "Provides physical anchors against forced entry and crowbar jemmying attacks.",
-      statValue: "50,000",
-      statLabel: "CYCLE LIFE"
+      statValue: "Dual-Sided",
+      statLabel: "THROW BOLT"
     },
     {
       node: "NODE_02",

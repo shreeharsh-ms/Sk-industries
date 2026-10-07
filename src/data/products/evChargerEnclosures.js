@@ -1,21 +1,21 @@
 export default {
   slug: "ev-charger-enclosures",
-  name: "EV Charger Enclosures",
+  name: "Customised EV Charger Enclosures",
   audience: "Charging station OEMs and electrical infrastructure contractors",
-  application: "Weatherproof NEMA 4X electrical cabinets designed for outdoor charging stations, featuring integrated thermal ventilation and seamless gaskets.",
+  application: "Weatherproof electrical cabinets designed for outdoor charging stations, featuring integrated thermal ventilation and seamless gaskets as per customer requirements.",
   specs: [
-    { label: "Material", value: "14-Gauge (2.0 mm) cold-rolled steel or stainless steel sheet" },
+    { label: "Material", value: "2.0 mm to 4.0 mm cold-rolled steel or stainless steel sheet" },
     { label: "Coating Finish", value: "Polyester powder coat finish exceeding 1,000 hrs salt spray test" },
-    { label: "Protection Spec", value: "Designed to meet NEMA 4X / IP66 dust-tight and rain-resistant specs" },
+    { label: "Protection Spec", value: "Designed to meet IP66 dust-tight and rain-resistant weatherproof specs" },
     { label: "Gasket Seal", value: "Continuous polyurethane foam-in-place (FIP) seal liner" },
   ],
   whatWeAdd: [
     {
       node: "NODE_01",
-      title: "NEMA 4X RATING",
-      body: "Fully weatherproof housing tested under high-pressure water jet spray lines.",
+      title: "WEATHERPROOF RATING",
+      body: "Fully weatherproof housing engineered for outdoor conditions and heavy rainfall.",
       detail: "Protects inner electronics from moisture ingress, dust, and rain.",
-      statValue: "IP66 / NEMA",
+      statValue: "IP66 Rated",
       statLabel: "WEATHERPROOF"
     },
     {

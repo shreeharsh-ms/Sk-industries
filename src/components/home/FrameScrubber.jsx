@@ -1,117 +1,107 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../ui/Button";
 import ScrollPrompt from "../ui/ScrollPrompt";
 import styles from "./FrameScrubber.module.css";
 
-const PHASES = [
+const SLIDES = [
   {
     id: 0,
-    phaseNum: "01",
-    tag: "Stamping & Forming",
+    image: "/images/hero_ballast_cabinet.jpg",
     title: "Precision Sheet Metal Enclosures",
     subtitle: "Custom Stamping, Progressive Louvers & Mounting Flanges",
     desc: "Precision-engineered industrial chassis with compound progressive die stamping, integrated mounting tabs, and structural bends.",
     shortDesc: "Custom stamped industrial chassis with progressive louvers and integrated mounting flanges.",
+    link: "/products/ballast-cabinets"
   },
   {
     id: 1,
-    phaseNum: "02",
-    tag: "Airflow & Rigidity",
-    title: "Louvered Thermal Architecture",
-    subtitle: "Progressive Die Louvers & Stiffening Ribs",
-    desc: "Embossed front stiffening ribs and stamped airflow louvers engineered for optimal thermal dissipation and high mechanical rigidity.",
-    shortDesc: "Stamped airflow louvers and embossed front ribs engineered for thermal heat dissipation.",
+    image: "/images/hero_ev_charger.jpg",
+    title: "EV Charger Metal Enclosures",
+    subtitle: "Outdoor-Grade Powder Coating & Thermal Ventilation",
+    desc: "Heavy-duty electric vehicle charger cabinets built to withstand weather elements, salt spray testing, and thermal requirements.",
+    shortDesc: "Heavy-duty outdoor EV charging enclosures with precision ventilation louvers.",
+    link: "/products/ev-charger-enclosures"
   },
   {
     id: 2,
-    phaseNum: "03",
-    tag: "Finish & Inspection",
-    title: "Single-Roof Integrated Production",
-    subtitle: "Electrostatic Powder Coating & 100% FAI Verified",
-    desc: "Finished in electrostatic powder coatings with 100% first-article inspection under a single integrated facility in Pune.",
-    shortDesc: "Finished in protective electrostatic powder coatings with 100% first-article inspection in Pune.",
+    image: "/images/hero_die_parts.jpg",
+    title: "Progressive Die Tooling & Parts",
+    subtitle: "In-House Tool Design, Stamping & Inspection",
+    desc: "Multi-station progressive dies capable of complex high-volume blanking, piercing, forming, and coining in a single press cycle.",
+    shortDesc: "Multi-station progressive die stamped precision parts engineered to tight tolerances.",
+    link: "/services/custom-die-press-electrical-parts"
+  },
+  {
+    id: 3,
+    image: "/images/hero_shutter_lock.jpg",
+    title: "Rolling Shutter Locks & Hardware",
+    subtitle: "High-Strength Galvanized Steel Security Hardware",
+    desc: "Commercial-grade shutter lock mechanisms engineered from high-tensile steel with corrosion-resistant protective coatings.",
+    shortDesc: "High-strength galvanized steel rolling shutter lock components and assemblies.",
+    link: "/products/rolling-shutter-locks"
   },
 ];
 
 export default function FrameScrubber() {
-  const videoRef = useRef(null);
-  const [activePhase, setActivePhase] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Auto-slide every 5.5 seconds
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+    }, 5500);
 
-    // Trigger autoplay safely
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        video.muted = true;
-        video.play().catch(() => {});
-      });
-    }
-
-    const handleTimeUpdate = () => {
-      if (!video.duration) return;
-      const current = video.currentTime;
-      const duration = video.duration;
-      const prog = Math.max(0, Math.min(1, current / duration));
-
-      if (prog < 0.33) {
-        setActivePhase(0);
-      } else if (prog < 0.66) {
-        setActivePhase(1);
-      } else {
-        setActivePhase(2);
-      }
-    };
-
-    video.addEventListener("timeupdate", handleTimeUpdate);
-    return () => {
-      video.removeEventListener("timeupdate", handleTimeUpdate);
-    };
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <section className={styles.container} aria-label="Hero Showcase">
-      {/* Background Video */}
+      {/* Background Product Images with Smooth Auto-Slide */}
       <div className={styles.videoWrapper}>
-        <video
-          ref={videoRef}
-          src="/VIDS/homePage.mp4"
-          className={styles.video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster="/images/ballast_cabinet_finished.png"
-        />
-        {/* Soft radial backdrop behind text on the left, keeping product clear */}
+        {SLIDES.map((slide, idx) => (
+          <div
+            key={slide.id}
+            className={`${styles.imageSlide} ${idx === currentSlide ? styles.imageSlideActive : ""}`}
+            style={{ backgroundImage: `url(${slide.image})` }}
+            role="img"
+            aria-label={slide.title}
+          />
+        ))}
+        {/* Focused radial backdrop behind text on the left, keeping product clear */}
         <div className={styles.backdropOverlay} />
+      </div>
+
+      {/* Slide Navigation Dots */}
+      <div className={styles.indicators}>
+        {SLIDES.map((slide, idx) => (
+          <button
+            key={slide.id}
+            type="button"
+            className={`${styles.dot} ${idx === currentSlide ? styles.dotActive : ""}`}
+            onClick={() => setCurrentSlide(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
       </div>
 
       {/* Ambient bottom transition to next section */}
       <div className={styles.gradient} />
 
-      {/* Text Overlays - auto transitions with activePhase */}
+      {/* Text Overlays - auto transitions with currentSlide */}
       <div className={styles.overlay}>
-        {PHASES.map((phase, idx) => {
-          const isActive = activePhase === idx;
+        {SLIDES.map((slide, idx) => {
+          const isActive = currentSlide === idx;
           return (
             <div
-              key={phase.id}
+              key={slide.id}
               className={`${styles.textGroup} ${isActive ? styles.textGroupActive : ""}`}
               aria-hidden={!isActive}
             >
-              <div className={styles.phaseBadge}>
-                <span className={styles.pulseDot} />
-                <span>Phase {phase.phaseNum} • {phase.tag}</span>
-              </div>
-              <h1 className={styles.title}>{phase.title}</h1>
-              <h2 className={styles.heroSubTitle}>{phase.subtitle}</h2>
+              <h1 className={styles.title}>{slide.title}</h1>
+              <h2 className={styles.heroSubTitle}>{slide.subtitle}</h2>
               <p className={styles.desc}>
-                <span className={styles.desktopDesc}>{phase.desc}</span>
-                <span className={styles.mobileDesc}>{phase.shortDesc}</span>
+                <span className={styles.desktopDesc}>{slide.desc}</span>
+                <span className={styles.mobileDesc}>{slide.shortDesc}</span>
               </p>
               <div className={styles.ctaWrapper}>
                 <Button
@@ -125,10 +115,10 @@ export default function FrameScrubber() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  to="/single-roof-workflow"
+                  to={slide.link}
                   className={styles.secondaryHeroBtn}
                 >
-                  Explore Capabilities
+                  View Product Line
                 </Button>
               </div>
             </div>

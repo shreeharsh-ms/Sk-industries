@@ -4,9 +4,9 @@ export default {
   audience: "Switchgear manufacturers, busbar installers, and power electronics OEMs",
   application: "Precision coined copper and brass terminal connectors, busbars, and custom stamped contact leaves for electrical panels.",
   specs: [
-    { label: "Material", value: "High-conductivity Copper (C101/C110) or Half-Hard Brass" },
+    { label: "Material", value: "Mild Steel (MS)" },
     { label: "Stamping Force", value: "Progressive blanking up to 200 tons capacity" },
-    { label: "Plating Coating", value: "Electro-tin or silver plating (5 to 15 microns thickness)" },
+    { label: "Plating Coating", value: "Zinc Plating or Coating (7-Tank Process)" },
     { label: "Angular Precision", value: "Exact form bends engineered for seamless fitting" },
   ],
   whatWeAdd: [
@@ -20,11 +20,11 @@ export default {
     },
     {
       node: "NODE_02",
-      title: "CONDUCTIVE PLATING",
-      body: "Electro-tin or silver plating over copper and brass contacts.",
-      detail: "Maximizes surface conductivity and prevents oxidation under thermal loads.",
-      statValue: "5 - 15 μm",
-      statLabel: "TIN PLATED"
+      title: "SURFACE PROTECTION",
+      body: "7-tank pre-treatment followed by zinc plating or protective coating.",
+      detail: "Guarantees superior corrosion resistance and lasting surface protection.",
+      statValue: "Zinc Plated",
+      statLabel: "7-TANK PROCESS"
     },
     {
       node: "NODE_03",

@@ -9,6 +9,7 @@ const WorkflowPage = lazy(() => import("./pages/WorkflowPage"));
 const BallastCabinetsPage = lazy(() => import("./pages/products/BallastCabinetsPage"));
 const EVChargerEnclosuresPage = lazy(() => import("./pages/products/EVChargerEnclosuresPage"));
 const SpeakerMagnetPlatesPowderCoatingPage = lazy(() => import("./pages/products/SpeakerMagnetPlatesPowderCoatingPage"));
+const PowderCoatingPage = lazy(() => import("./pages/products/PowderCoatingPage"));
 const CustomDiePressPage = lazy(() => import("./pages/products/CustomDiePressPage"));
 const RollingShutterLocksPage = lazy(() => import("./pages/products/RollingShutterLocksPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
@@ -43,11 +44,18 @@ export default function App() {
             <Route path="/capabilities" element={<WorkflowPage />} />
             <Route path="/products/ballast-cabinets" element={<BallastCabinetsPage />} />
             <Route path="/products/ev-charger-enclosures" element={<EVChargerEnclosuresPage />} />
+            <Route path="/products/ev-enclosures" element={<EVChargerEnclosuresPage />} />
             <Route path="/products/speaker-magnet-plates-powder-coating" element={<SpeakerMagnetPlatesPowderCoatingPage />} />
             <Route path="/products/speaker-magnet-plates" element={<SpeakerMagnetPlatesPowderCoatingPage />} />
-            <Route path="/services/industrial-powder-coating" element={<SpeakerMagnetPlatesPowderCoatingPage />} />
+            <Route path="/services/industrial-powder-coating" element={<PowderCoatingPage />} />
+            <Route path="/products/industrial-powder-coating" element={<PowderCoatingPage />} />
+            <Route path="/products/powder-coating" element={<PowderCoatingPage />} />
             <Route path="/services/custom-die-press-electrical-parts" element={<CustomDiePressPage />} />
+            <Route path="/services/custom-die-press" element={<CustomDiePressPage />} />
+            <Route path="/products/custom-die-press" element={<CustomDiePressPage />} />
+            <Route path="/products/custom-die-press-parts" element={<CustomDiePressPage />} />
             <Route path="/products/rolling-shutter-locks" element={<RollingShutterLocksPage />} />
+            <Route path="/products/shutter-locks" element={<RollingShutterLocksPage />} />
             <Route path="/about-us" element={<AboutPage />} />
             <Route path="/rfq-portal" element={<RFQPortalPage />} />
             <Route path="*" element={<NotFoundPage />} />

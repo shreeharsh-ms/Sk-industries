@@ -41,6 +41,15 @@ export default function Footer() {
               <p>Registered Facility:</p>
               <p>SK INDUSTRIES,</p>
               <p>KONDHWA BK., PUNE-411048</p>
+              <p style={{ marginTop: "8px", fontWeight: "600" }}>
+                Contact:{" "}
+                <a
+                  href="tel:+917875138713"
+                  style={{ color: "#38bdf8", textDecoration: "none" }}
+                >
+                  +91 7875 138 713
+                </a>
+              </p>
             </div>
           </div>
 
@@ -71,10 +80,10 @@ export default function Footer() {
                 <Link to="/products/ballast-cabinets">Ballast Cabinet</Link>
               </li>
               <li className={styles.linkItem}>
-                <Link to="/products/ev-charger-enclosures">EV Charger Enclosures</Link>
+                <Link to="/products/ev-charger-enclosures">Customised EV Charger Enclosures</Link>
               </li>
               <li className={styles.linkItem}>
-                <Link to="/products/speaker-magnet-plates-powder-coating">Speaker Magnet Plates &amp; Powder Coating</Link>
+                <Link to="/products/speaker-magnet-plates-powder-coating">Speaker Magnet Plates &amp; Zinc Plating</Link>
               </li>
               <li className={styles.linkItem}>
                 <Link to="/services/custom-die-press-electrical-parts">Custom Die Press</Link>

@@ -1,7 +1,6 @@
 import React from "react";
 import ProductHero from "../../components/products/ProductHero";
 import ApplicationBlock from "../../components/products/ApplicationBlock";
-import WhatWeAddSection from "../../components/products/WhatWeAddSection";
 import CrossLinkBanner from "../../components/products/CrossLinkBanner";
 import SpecStamp from "../../components/ui/SpecStamp";
 import useDocumentMetadata from "../../hooks/useDocumentMetadata";
@@ -28,7 +27,7 @@ export default function RollingShutterLocksPage() {
       />
 
       <ApplicationBlock
-        application="Designed for extreme environmental duty, these locking mechanisms secure commercial rolling shutters. The double-sided throw bolt engages guide channel structural rails, providing physical anchors against jemmying and crowbar attacks. Stamped from heavy-duty HR (Hot Rolled) steel materials, the housing is pre-treated and powder coated to a thickness of 80 microns for weathering protection."
+        application="Designed for extreme environmental duty, these locking mechanisms secure commercial rolling shutters. The double-sided throw bolt engages guide channel structural rails, providing physical anchors against jemmying and crowbar attacks. Stamped from heavy-duty HR (Hot Rolled) steel materials, the housing is pre-treated and finished with zinc coating or equivalent for weathering protection."
         specs={productData.specs}
       />
 
@@ -58,7 +57,7 @@ export default function RollingShutterLocksPage() {
             </p>
 
             <div className={diagramStyles.stampRow}>
-              <SpecStamp value="50,000" label="Cycle Life" accent="orange" size="md" />
+              <SpecStamp value="Dual Sided" label="Lock Throw" accent="orange" size="md" />
               <SpecStamp value="HR Steel" label="Shell Metal" accent="orange" size="md" />
             </div>
 
@@ -86,29 +85,11 @@ export default function RollingShutterLocksPage() {
                   Multi-level security lever plates aligned by stamped internal guide bosses to prevent picking.
                 </p>
               </div>
-
-              <div className={diagramStyles.cardItem}>
-                <span className={diagramStyles.cardLabel}>COMPONENT // PART_04</span>
-                <h4 className={diagramStyles.cardTitle}>BRASS CORE CYLINDER</h4>
-                <p className={diagramStyles.cardDesc}>
-                  Solid brass key-operated high security cylinder mechanism ensuring smooth actuation and long service life.
-                </p>
-              </div>
-
-              <div className={diagramStyles.cardItem}>
-                <span className={diagramStyles.cardLabel}>METROLOGY // SPEC_05</span>
-                <h4 className={diagramStyles.cardTitle}>STRICT CLEARANCE FIT-UPS</h4>
-                <p className={diagramStyles.cardDesc}>
-                  Precision clearances maintained during die coining that completely block physical bypass attempts.
-                </p>
-              </div>
             </div>
           </div>
 
         </div>
       </section>
-
-      <WhatWeAddSection whatWeAdd={productData.whatWeAdd} accent="orange" />
 
       <CrossLinkBanner />
     </>

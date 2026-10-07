@@ -11,9 +11,9 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 
 export default function SpeakerMagnetPlatesPowderCoatingPage() {
   useDocumentMetadata(
-    "Speaker Magnet Plates & Powder Coating — PP Engineering Pune",
-    "Technical parameters and magnetic flux density diagrams for low-carbon steel speaker top and bottom pole plates combined with in-house industrial powder coating by SK Industries Pune.",
-    "Speaker magnet plates, powder coating Pune, T-Yoke pole piece, front plate stamping, single roof stamping coating"
+    "Speaker Magnet Plates & Zinc Plating — PP Engineering Pune",
+    "Technical parameters and magnetic flux density diagrams for low-carbon steel speaker top and bottom pole plates combined with in-house industrial zinc coating by SK Industries Pune.",
+    "Speaker magnet plates, zinc plating Pune, T-Yoke pole piece, front plate stamping, single roof stamping coating"
   );
 
   return (
@@ -24,11 +24,11 @@ export default function SpeakerMagnetPlatesPowderCoatingPage() {
         audience={productData.audience}
         accent="orange"
         image="/images/speaker_magnet_parts_stack.png"
-        bgImage="/images/powder_coating_line.png"
+        bgImage="/images/zinc_plating_line.jpg"
       />
 
       <ApplicationBlock
-        application="High-performance audio transducers and industrial magnetic components demand both precise electromagnetic flux paths and robust surface protection. Under our unified facility in Pune, we stamp ultra-low carbon steel pole plates to high precision flatness, followed immediately by in-house automated 7-tank chemical pre-treatment and electrostatic powder coating or trivalent zinc plating. This single-roof workflow eliminates transit corrosion and ensures zero-defect voice coil clearance."
+        application="High-performance audio transducers and industrial magnetic components demand both precise electromagnetic flux paths and robust surface protection. Under our unified facility in Pune, we stamp ultra-low carbon steel pole plates to high precision flatness, followed immediately by in-house zinc plating or coating as per customer requirements. This single-roof workflow eliminates transit corrosion and ensures zero-defect voice coil clearance."
         specs={productData.specs}
       />
 
@@ -56,14 +56,14 @@ export default function SpeakerMagnetPlatesPowderCoatingPage() {
                   alt="Stamped T-Yoke and Front Plates Stacks" 
                   loading="lazy"
                   decoding="async"
-                  style={{ width: "100%", borderRadius: "var(--radius-sm)", border: "1px solid var(--color-steel-300)" }}
+                  style={{ width: "100%", borderRadius: "var(--radius-sm)", border: "1px solid var(--color-steel-300)", objectFit: "cover", height: "100%" }}
                 />
                 <img 
-                  src="/images/powder_coating_line.png" 
-                  alt="Automated Conveyorized Powder Coating Line" 
+                  src="/images/zinc_plating_line.jpg" 
+                  alt="Automated Zinc Plating and Chemical Passivation Line" 
                   loading="lazy"
                   decoding="async"
-                  style={{ width: "100%", borderRadius: "var(--radius-sm)", border: "1px solid var(--color-steel-300)" }}
+                  style={{ width: "100%", borderRadius: "var(--radius-sm)", border: "1px solid var(--color-steel-300)", objectFit: "cover", height: "100%" }}
                 />
               </div>
             </div>
@@ -72,14 +72,14 @@ export default function SpeakerMagnetPlatesPowderCoatingPage() {
           {/* Scrollable Column: Detailed Parts & Measurements Specs */}
           <div className={diagramStyles.scrollColumn}>
             <p className={diagramStyles.description} style={{ marginBottom: "var(--space-2)" }}>
-              The flat pole plate blanking process optimizes metal boundaries, ensuring high magnetic flux loops are maintained without stray emissions, while our conveyorized powder line seals against environmental humidity.
+              The flat pole plate blanking process optimizes metal boundaries, ensuring high magnetic flux loops are maintained without stray emissions, while our in-house zinc plating and coating protect against environmental humidity.
             </p>
 
             <div style={{ display: "flex", gap: "var(--space-2)", flexWrap: "wrap", marginBottom: "var(--space-1)" }}>
               <Badge accent="orange">JIS S10C Steel</Badge>
               <Badge accent="orange">1.5 - 6.0 mm</Badge>
-              <Badge accent="teal">80 - 120 μm Coat</Badge>
-              <Badge accent="teal">7-Tank Pre-treatment</Badge>
+              <Badge accent="teal">Zinc Plating / Coating</Badge>
+              <Badge accent="teal">Corrosion Resistant</Badge>
             </div>
 
             <div className={diagramStyles.stampRow}>
@@ -108,15 +108,15 @@ export default function SpeakerMagnetPlatesPowderCoatingPage() {
                 <span className={diagramStyles.cardLabel}>SURFACE FINISH // PART_03</span>
                 <h4 className={diagramStyles.cardTitle}>7-STAGE CHEMICAL CONVERSION</h4>
                 <p className={diagramStyles.cardDesc}>
-                  Multi-tank hot alkaline degreasing, acid pickling, and zinc phosphate passivation that creates a microscopic crystalline keying surface for permanent coating adhesion.
+                  Multi-tank hot alkaline degreasing, acid pickling, and passivation that creates a microscopic keying surface for permanent plating and coating adhesion.
                 </p>
               </div>
 
               <div className={diagramStyles.cardItem}>
                 <span className={diagramStyles.cardLabel}>SURFACE FINISH // PART_04</span>
-                <h4 className={diagramStyles.cardTitle}>ELECTROSTATIC POWDER &amp; PLATING</h4>
+                <h4 className={diagramStyles.cardTitle}>ZINC COATING &amp; PLATING</h4>
                 <p className={diagramStyles.cardDesc}>
-                  Automated electrostatic spray guns apply uniform epoxy-polyester powder coats or trivalent blue zinc plating, cured at 200°C for exceptional durability in humid speaker cabinets.
+                  Precision zinc coating or plating applied uniformly with trivalent passivation for exceptional corrosion resistance and moisture protection in humid speaker assemblies.
                 </p>
               </div>
             </div>

@@ -51,7 +51,7 @@ export default function ProductHero({
                 src={image}
                 alt={name}
                 className={styles.productImage}
-                fetchpriority="high"
+                fetchPriority="high"
                 decoding="async"
               />
               <div className={styles.imageOverlay} />

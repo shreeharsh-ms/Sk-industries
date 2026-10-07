@@ -1,7 +1,6 @@
 import React from "react";
 import ProductHero from "../../components/products/ProductHero";
 import ApplicationBlock from "../../components/products/ApplicationBlock";
-import WhatWeAddSection from "../../components/products/WhatWeAddSection";
 import CrossLinkBanner from "../../components/products/CrossLinkBanner";
 import SpecStamp from "../../components/ui/SpecStamp";
 import Badge from "../../components/ui/Badge";
@@ -11,9 +10,9 @@ import diagramStyles from "../../components/products/ProductDiagram.module.css";
 
 export default function EVChargerEnclosuresPage() {
   useDocumentMetadata(
-    "EV Charger Enclosures Specifications — PP Engineering Pune",
-    "Technical parameters and weatherproof NEMA protection details for UV-stable powder coated EV charging cabinets (PP engineering) manufactured by SK Industries Pune.",
-    "PP Engineering, PP Engineering Pune, EV charger enclosure, sheet metal cabinets Pune, NEMA 4X enclosure"
+    "Customised EV Charger Enclosures Specifications - PP Engineering Pune",
+    "Technical parameters and weatherproof protection details for UV-stable powder coated EV charging cabinets (PP engineering) manufactured by SK Industries Pune.",
+    "PP Engineering, PP Engineering Pune, EV charger enclosure, sheet metal cabinets Pune, weatherproof enclosure"
   );
 
   return (
@@ -29,14 +28,14 @@ export default function EVChargerEnclosuresPage() {
       />
 
       <ApplicationBlock
-        application="EV charging electronics demand robust protection from rain, snow, dust, and physical impacts. Our sheet metal enclosures are engineered with double-return gutters, continuous welds, and polyurethane gaskets to meet NEMA 4/4X weatherproof standards. The exterior is coated with a minimum 80-micron UV-stable polyester powder finish to resist solar degradation and paint chalking."
+        application="EV charging electronics demand robust protection from rain, snow, dust, and physical impacts. Our sheet metal enclosures are engineered with double-return gutters, continuous welds, and polyurethane gaskets to meet stringent outdoor weatherproof standards. The exterior is coated with a minimum 80-micron UV-stable polyester powder finish to resist solar degradation and paint chalking."
         specs={productData.specs}
       />
 
       {/* Custom Visual Component: Sticky Split-Screen Weather Protection Layout */}
       <section className="container section-padding--tight" style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
         <h3 className={diagramStyles.diagramTitle}>
-          NEMA Enclosure Weatherproof Features
+          Weatherproof Enclosure Features
         </h3>
         <div className={diagramStyles.stickyGrid}>
           
@@ -59,7 +58,7 @@ export default function EVChargerEnclosuresPage() {
             </p>
 
             <div style={{ display: "flex", gap: "var(--space-2)", flexWrap: "wrap", marginBottom: "var(--space-1)" }}>
-              <Badge accent="teal">NEMA 4X</Badge>
+              <Badge accent="teal">Weatherproof</Badge>
               <Badge accent="teal">IP66 rated</Badge>
               <Badge accent="orange">IK10 mechanical</Badge>
             </div>
@@ -95,15 +94,7 @@ export default function EVChargerEnclosuresPage() {
               </div>
 
               <div className={diagramStyles.cardItem}>
-                <span className={diagramStyles.cardLabel}>TEST // PROTOCOL_04</span>
-                <h4 className={diagramStyles.cardTitle}>NEMA WATER JET TEST</h4>
-                <p className={diagramStyles.cardDesc}>
-                  Subjected to high-pressure water hose spray testing representing extreme storm wind conditions.
-                </p>
-              </div>
-
-              <div className={diagramStyles.cardItem}>
-                <span className={diagramStyles.cardLabel}>MATERIAL // ACCENT_05</span>
+                <span className={diagramStyles.cardLabel}>MATERIAL // ACCENT_04</span>
                 <h4 className={diagramStyles.cardTitle}>UV-STABLE COATING</h4>
                 <p className={diagramStyles.cardDesc}>
                   Double-stage zinc phosphate pre-treated polyester powder spray coat engineered for 10+ years solar endurance.
@@ -114,8 +105,6 @@ export default function EVChargerEnclosuresPage() {
 
         </div>
       </section>
-
-      <WhatWeAddSection whatWeAdd={productData.whatWeAdd} accent="teal" />
 
       <CrossLinkBanner />
     </>

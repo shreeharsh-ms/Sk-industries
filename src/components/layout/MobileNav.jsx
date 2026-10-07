@@ -5,7 +5,8 @@ import styles from "./MobileNav.module.css";
 
 export default function MobileNav({ onClose }) {
   const location = useLocation();
-  const [showProducts, setShowProducts] = useState(false);
+  const isProductsActive = location.pathname.startsWith("/products") || location.pathname.startsWith("/services");
+  const [showProducts, setShowProducts] = useState(isProductsActive);
 
   const products = [
     {
@@ -14,12 +15,12 @@ export default function MobileNav({ onClose }) {
       icon: <Box size={14} />,
     },
     {
-      name: "EV Charger Enclosures",
+      name: "Customised EV Charger Enclosures",
       path: "/products/ev-charger-enclosures",
       icon: <BatteryCharging size={14} />,
     },
     {
-      name: "Speaker Magnet Plates & Powder Coating",
+      name: "Speaker Magnet Plates & Zinc Plating",
       path: "/products/speaker-magnet-plates-powder-coating",
       icon: <Disc size={14} />,
     },
@@ -118,6 +119,7 @@ export default function MobileNav({ onClose }) {
         <div className={styles.contactInfo}>
           <span>Proprietor: Komal Pansare</span>
           <a href="tel:+917875138713" className={styles.contactLink}>+91-7875-138-713</a>
+          <a href="mailto:skindustries0709@gmail.com" className={styles.contactLink}>skindustries0709@gmail.com</a>
           <a href="mailto:sales@skindustries.com" className={styles.contactLink}>sales@skindustries.com</a>
         </div>
       </div>

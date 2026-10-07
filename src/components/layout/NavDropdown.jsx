@@ -26,22 +26,22 @@ export default function NavDropdown({ onToggleOpen }) {
       specs: ["CRCA Steel", "Convective Louvers", "IP40 / IP54 Rated"]
     },
     {
-      name: "EV Charger Enclosures",
-      desc: "Weatherproof NEMA rated metal enclosures",
+      name: "Customised EV Charger Enclosures",
+      desc: "Weatherproof IP66 rated metal enclosures",
       path: "/products/ev-charger-enclosures",
       icon: <BatteryCharging size={18} />,
       image: "/images/ev_charger_enclosure_finished.png",
-      details: "Weatherproof NEMA 4X / IP66 enclosures with continuous foam gaskets and UV-stable powder coatings built for outdoor charging infrastructure.",
-      specs: ["14-Gauge Steel / SS", "IP66 Water Jet Tested", "IK10 Impact Rating"]
+      details: "Weatherproof IP66 enclosures with continuous foam gaskets and UV-stable powder coatings built for outdoor charging infrastructure as per customer requirements.",
+      specs: ["2.0 - 4.0 mm Steel / SS", "IP66 Weatherproof", "IK10 Impact Rating"]
     },
     {
-      name: "Speaker Magnet Plates & Powder Coating",
-      desc: "Precision pole pieces with unified 7-tank coating",
+      name: "Speaker Magnet Plates & Zinc Plating",
+      desc: "Precision pole pieces with unified zinc coating",
       path: "/products/speaker-magnet-plates-powder-coating",
       icon: <Disc size={18} />,
       image: "/images/speaker_magnet_parts_stack.png",
-      details: "Low-carbon steel pole pieces, T-yokes, and front plates blanked for high-fidelity acoustic alignment, directly finished in our in-house 7-tank powder coating line under one roof.",
-      specs: ["1.5 - 6.0 mm Steel", "Precision Flatness", "80-120 μm Powder Coat"]
+      details: "Low-carbon steel pole pieces, T-yokes, and front plates blanked for high-fidelity acoustic alignment, directly finished with in-house zinc plating and coating lines under one roof.",
+      specs: ["1.5 - 6.0 mm Steel", "Precision Flatness", "Zinc Plating / Coating"]
     },
     {
       name: "Custom Die Press",
@@ -49,8 +49,8 @@ export default function NavDropdown({ onToggleOpen }) {
       path: "/services/custom-die-press-electrical-parts",
       icon: <Wrench size={18} />,
       image: "/images/progressive_die_parts.png",
-      details: "High-precision coined terminal connectors, brackets, and copper busbars punched for exact alignment and seamless site assembly.",
-      specs: ["Copper / Brass / Steel", "Precision Bending", "Tin / Silver Plated"]
+      details: "High-precision coined terminal connectors, brackets, and sheet metal stampings punched for exact alignment and seamless site assembly.",
+      specs: ["Mild Steel (MS)", "Precision Bending", "Zinc Plating (7-Tank)"]
     },
     {
       name: "Rolling Shutter Locks",
@@ -58,8 +58,8 @@ export default function NavDropdown({ onToggleOpen }) {
       path: "/products/rolling-shutter-locks",
       icon: <Lock size={18} />,
       image: "/images/rolling_shutter_lock.png",
-      details: "High-security lock sets blanked from heavy-duty HR steel, featuring five security levers and double-locking bolts to secure commercial storefronts and warehouses.",
-      specs: ["HR Steel Material", "50,000 Cycle Life", "1\" to 21\" Range"]
+      details: "High-security lock sets blanked from heavy-duty HR steel, featuring five security levers and double-locking bolts to secure commercial storefronts and warehouses as per customer requirements.",
+      specs: ["HR Steel Material", "Dual-Sided Lock Throw", "Zinc Coating & Equiv."]
     },
   ];
 

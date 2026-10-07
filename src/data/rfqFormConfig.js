@@ -3,7 +3,7 @@ export default {
     fullName: {
       label: "Full Name",
       required: "Full Name is required",
-      placeholder: "e.g. John Doe",
+      placeholder: "e.g. Rajesh Sharma",
     },
     email: {
       label: "Business Email",
@@ -12,7 +12,7 @@ export default {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
         message: "Invalid email address",
       },
-      placeholder: "e.g. john@company.com",
+      placeholder: "e.g. rajesh@company.com",
     },
     companyName: {
       label: "Company Name",

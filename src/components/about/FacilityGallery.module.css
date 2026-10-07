@@ -39,8 +39,9 @@
   background-color: var(--color-bg-dark);
   background-image: linear-gradient(
     to top, 
-    rgba(20, 23, 26, 0.95) 0%, 
-    rgba(20, 23, 26, 0.4) 60%, 
+    rgba(14, 17, 21, 0.92) 0%, 
+    rgba(14, 17, 21, 0.35) 40%, 
+    rgba(14, 17, 21, 0.05) 65%, 
     transparent 100%
   ), var(--frame-bg, none);
   background-size: cover;
@@ -67,7 +68,7 @@
   background-size: 12px 12px;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.15;
 }
 
 .frame:hover {

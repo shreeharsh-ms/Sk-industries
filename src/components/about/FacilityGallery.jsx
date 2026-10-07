@@ -18,11 +18,11 @@ export default function FacilityGallery() {
       image: "/images/powder_coating_line.png", // Added image asset path
     },
     {
-      label: "CMM Metrology Room",
-      desc: "Climate-controlled coordinate measuring machine verifying dimensional geometry.",
-      tag: "inspection",
-      accent: "orange",
-      image: "/images/cmm_metrology_room.png", // Added image asset path
+      label: "7-Tank Surface Treatment",
+      desc: "Automated 7-stage chemical immersion degreasing, acid pickling, and phosphating line.",
+      tag: "treatment",
+      accent: "teal",
+      image: "/images/seven_tank_treatment_line.jpg",
     },
   ];
 

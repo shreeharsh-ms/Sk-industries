@@ -185,7 +185,7 @@ export default function RFQForm() {
           <input
             className={styles.input}
             type="text"
-            placeholder="e.g. John Doe"
+            placeholder="e.g. Rajesh Sharma"
             {...register("fullName", { required: "Full name is required" })}
           />
           {errors.fullName && (
@@ -198,7 +198,7 @@ export default function RFQForm() {
           <input
             className={styles.input}
             type="email"
-            placeholder="e.g. john@company.com"
+            placeholder="e.g. rajesh@company.com"
             {...register("email", { 
               required: "Email is required",
               pattern: {

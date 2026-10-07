@@ -125,165 +125,139 @@ export default function WorkflowPage() {
         </div>
 
         {/* 3. QC Equipment Grid */}
-        <div style={{ marginBottom: "var(--space-6)" }}>
+        <div style={{ marginBottom: "var(--space-8)" }}>
           <QCEquipmentSidebar />
         </div>
 
-      </div>
-
-      {/* 4. Satisfied Enough? Call to Action Banner (No Background, Image to the Right, Zero Top Padding) */}
-      <section
-        className="container"
-        style={{
-          background: "none", /* No background */
-          color: "var(--color-text-primary)",
-          borderTop: "1px solid var(--color-steel-200)",
-          paddingBlock: "0 1.5cm", /* 1.5cm bottom spacing */
-          width: "100%",
-        }}
-      >
-        {/* Responsive Media Query Support */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          @media (max-width: 768px) {
-            .workflow-content-container {
-              padding-block: var(--space-6) var(--space-3) !important; /* Much smaller bottom padding */
-            }
-            .mobile-scroll-hint {
-              display: block !important;
-            }
-            .floor-plan-card {
-              padding: var(--space-4) !important;
-              margin-bottom: var(--space-6) !important;
-            }
-            .satisfied-grid {
-              grid-template-columns: 1fr !important;
-              gap: var(--space-5) !important;
-            }
-            .satisfied-grid h2 {
-              font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
-            }
-            .satisfied-grid p {
-              font-size: 0.92rem !important;
-              line-height: 1.5 !important;
-            }
-            .satisfied-grid a {
-              width: 100% !important;
-              justify-content: center !important;
-              box-sizing: border-box !important;
-              padding: 12px 20px !important;
-              font-size: 0.92rem !important;
-              min-height: 44px !important;
-            }
-            .satisfied-img-wrapper {
-              order: -1;
-            }
-          }
-        `}} />
-
+        {/* 4. Facility Plant Showcase Banner with Background Image & WhatsApp Inquiry */}
         <div
+          className="workflow-plant-banner"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.2fr 0.8fr",
-            gap: "var(--space-8)",
-            alignItems: "center"
+            position: "relative",
+            width: "100%",
+            minHeight: "380px",
+            borderRadius: "var(--radius-md)",
+            overflow: "hidden",
+            backgroundImage: "url('/images/workmanship_plant.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 42%",
+            boxShadow: "0 14px 40px rgba(10, 16, 28, 0.14)",
+            border: "1px solid var(--color-steel-300)",
+            display: "flex",
+            alignItems: "center",
           }}
-          className="satisfied-grid"
         >
-          {/* Left Column: text details and CTAs */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "var(--space-4)", textAlign: "left" }}>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "1rem", color: "var(--color-accent-primary)", textTransform: "uppercase", letterSpacing: "0.15em", fontWeight: "800" }}>
-              Sourcing Collaboration
-            </span>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5vw, 3.8rem)", textTransform: "uppercase", fontWeight: "900", margin: "0", letterSpacing: "-0.02em", lineHeight: "1.15", color: "var(--color-text-primary)" }}>
-              Satisfied Enough with Our Setup?
-            </h2>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "1.22rem", color: "var(--color-steel-600)", lineHeight: "1.65", margin: "0 0 var(--space-3) 0" }}>
-              Eliminate shipping delays and vendor management conflicts. Get in touch with our team directly, contact us on WhatsApp, or inquire via the portal to request sample runs.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)", width: "100%" }}>
-              <a
-                href="https://wa.me/917875138713"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "16px 36px", /* Larger button padding */
-                  backgroundColor: "#25D366",
-                  color: "#ffffff",
-                  borderRadius: "var(--radius-sm)",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: "750",
-                  textTransform: "uppercase",
-                  fontSize: "1rem", /* Larger font size */
-                  textDecoration: "none",
-                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
-                  boxShadow: "0 4px 12px rgba(37, 211, 102, 0.2)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 6px 16px rgba(37, 211, 102, 0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(37, 211, 102, 0.2)";
-                }}
-              >
-                <span>Contact Us (WhatsApp)</span>
-              </a>
+          {/* Dark gradient overlay for optimal readability while showing facility */}
+          <div
+            className="workflow-banner-overlay"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(90deg, rgba(11, 15, 25, 0.95) 0%, rgba(11, 15, 25, 0.85) 45%, rgba(11, 15, 25, 0.40) 80%, rgba(11, 15, 25, 0.20) 100%)",
+              zIndex: 1,
+            }}
+          />
 
-              <Link
-                to="/rfq-portal"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  padding: "16px 36px", /* Larger button padding */
-                  backgroundColor: "var(--color-accent-primary)",
-                  color: "#ffffff",
-                  borderRadius: "var(--radius-sm)",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: "750",
-                  textTransform: "uppercase",
-                  fontSize: "1rem", /* Larger font size */
-                  textDecoration: "none",
-                  transition: "transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease",
-                  boxShadow: "0 4px 12px rgba(217, 85, 30, 0.2)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 6px 16px rgba(217, 85, 30, 0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(217, 85, 30, 0.2)";
-                }}
-              >
-                <span>Inquire Us (RFQ Portal)</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: Image */}
-          <div style={{ display: "flex", justifyContent: "center" }} className="satisfied-img-wrapper">
-            <img
-              src="/images/workmanship_plant.jpg"
-              alt="SK Industries Stamping & Coating Facility"
-              loading="lazy"
-              decoding="async"
+          {/* Overlaid Content */}
+          <div
+            className="workflow-banner-content"
+            style={{
+              position: "relative",
+              zIndex: 2,
+              padding: "clamp(2rem, 5vw, 4rem)",
+              maxWidth: "750px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "var(--space-3)",
+            }}
+          >
+            <span
               style={{
-                width: "100%",
-                maxHeight: "260px",
-                objectFit: "cover",
-                borderRadius: "var(--radius-md)",
-                border: "1px solid var(--color-steel-200)",
-                boxShadow: "0 12px 36px rgba(0, 0, 0, 0.08)"
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.82rem",
+                color: "#38bdf8",
+                textTransform: "uppercase",
+                letterSpacing: "0.14em",
+                fontWeight: "750",
+                background: "rgba(56, 189, 248, 0.12)",
+                border: "1px solid rgba(56, 189, 248, 0.35)",
+                padding: "4px 12px",
+                borderRadius: "999px",
+                display: "inline-block",
               }}
-            />
+            >
+              In-House Integrated Facility
+            </span>
+
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(2.1rem, 4.4vw, 3.4rem)",
+                textTransform: "uppercase",
+                fontWeight: "900",
+                margin: 0,
+                letterSpacing: "-0.02em",
+                lineHeight: "1.12",
+                color: "#ffffff",
+                textShadow: "0 2px 14px rgba(0, 0, 0, 0.85)",
+              }}
+            >
+              Visit Our Plant &amp; Discuss Your Production
+            </h2>
+
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
+                color: "#e2e8f0",
+                lineHeight: "1.6",
+                margin: "4px 0 var(--space-2) 0",
+                textShadow: "0 2px 8px rgba(0, 0, 0, 0.75)",
+              }}
+            >
+              Schedule a visit to our Kondhwa facility in Pune or connect directly with our engineering team on WhatsApp to review technical drawings and initiate sample runs.
+            </p>
+
+            <a
+              href="https://wa.me/917875138713?text=Hi%20SK%20Industries,%20I%20would%20like%20to%20discuss%20a%20manufacturing%20inquiry%20and%20schedule%20a%20facility%20visit."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="workflow-whatsapp-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "16px 34px",
+                backgroundColor: "#25D366",
+                color: "#ffffff",
+                borderRadius: "var(--radius-sm)",
+                fontFamily: "var(--font-display)",
+                fontWeight: "800",
+                textTransform: "uppercase",
+                fontSize: "0.98rem",
+                letterSpacing: "0.03em",
+                textDecoration: "none",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                boxShadow: "0 6px 20px rgba(37, 211, 102, 0.35)",
+                whiteSpace: "nowrap",
+                marginTop: "6px",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(37, 211, 102, 0.45)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 6px 20px rgba(37, 211, 102, 0.35)";
+              }}
+            >
+              <span>Connect on WhatsApp</span>
+            </a>
           </div>
         </div>
-      </section>
+
+      </div>
     </main>
   );
 }
